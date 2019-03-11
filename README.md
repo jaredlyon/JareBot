@@ -9,3 +9,11 @@ JareBot is Discord chat bot (obviously) that performs rudimentary chat tasks as 
 - Updated help module
 - Updated balance module
 - Added classic blackjack module
+
+### Past Commits:
+**5.2.1**
+- Added multi-GUI help interface
+- Begun developing AFK command
+- Begun developing fishing module
+- Updated all embed footers
+- Published the first commit to GitHub
