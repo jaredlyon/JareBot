@@ -2,6 +2,7 @@ module.exports = {
   name: 'balance',
   permission: 1,
   main: function(bot, msg) {
-    msg.reply(`your balance is **$${bot.bank[msg.author.id].balance.toFixed(2)}**!`);
+    let balance = Number(bot.bank[msg.author.id].balance)
+    msg.reply(`your balance is **$${balance.toFixed(2)}**!`);
   }
 };

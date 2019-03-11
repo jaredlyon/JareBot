@@ -16,7 +16,7 @@ module.exports = {
             fields: [
               {
                 name: "j!info",
-                value: "Embeds the server synopsis, giveaway information, and icon in the chat."
+                value: "Embeds bot information into the chat."
               },
               {
                 name: "j!rules",
@@ -160,6 +160,10 @@ module.exports = {
             },
             description: "*Because we all like to just screw around sometimes...*",
             fields: [
+              {
+                name: "j!blackjack [bet amount]",
+                value: "I deal, you bet. The rules are simple: it's no limits classic Blackjack without splits or doubles. Beat my hand and you win 2x your bet. Match it and you keep your money. Lose to it and I pocket your money."
+              },
               {
                 name: "j!coinflip",
                 value: "Flips a coin!"
