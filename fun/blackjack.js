@@ -3,7 +3,7 @@ module.exports = {
     permission: 1,
       //functions
       restart(player_hand, cpu_hand, cards) {
-        player_hand.push(this.drawCard(cards));
+        player_hand.push(this.drawCard(cards))
         cpu_hand.push(this.drawCard(cards));
         player_hand.push(this.drawCard(cards));
       },
@@ -33,7 +33,7 @@ module.exports = {
         return total;
       },
     
-      beepboop(player_hand, cpu_hand, cards) {
+      calculateWinner(player_hand, cpu_hand, cards) {
         let player_total = this.calculateTotal(player_hand);
         while (
           this.calculateTotal(cpu_hand) <= player_total &&
@@ -69,20 +69,33 @@ module.exports = {
         var cpu_hand = [];
         var timeout = true;
       
-      //initial bet
+        //initial bet
         if (msg.args[0] && isNaN(msg.args[0])) { 
           bet = 10;
+          if (bot.bank[msg.author.id].balance.toFixed(2) < bet) {
+            msg.channel.send("You frickin' foolian juulian, you don't have enough money to cover your bet!")
+            return;
+          } else {
+            bot.bank[msg.author.id].balance -= bet
+          }
         }
         else if (msg.args[0] && !isNaN(msg.args[0]) && Number(msg.args[0]) > 0) {
           bet = Number(msg.args[0]);
+          if (bot.bank[msg.author.id].balance.toFixed(2) < bet) {
+            msg.channel.send("You frickin' foolian juulian, you don't have enough money to cover your bet!")
+            return;
+          } else {
+            bot.bank[msg.author.id].balance -= bet
+          }
         }
         else {
           bet = 10;
-        }
-
-        if (bot.bank[msg.author.id].balance.toFixed(2) < bet) {
-          msg.channel.send("You frickin' foolian juulian, you don't have enough money to cover your bet!")
-          return;
+          if (bot.bank[msg.author.id].balance.toFixed(2) < bet) {
+            msg.channel.send("You frickin' foolian juulian, you don't have enough money to cover your bet!")
+            return;
+          } else {
+            bot.bank[msg.author.id].balance -= bet
+          }
         }
   
       //set table
@@ -90,7 +103,7 @@ module.exports = {
         let blackjackMessage = await msg.channel.send({
           embed: {
             color: 0x33cc33,
-            title: "♠️♥️**Blackjack Bet: $" + bet + "**♦️♣️",
+            title: "♠️♥️**Blackjack Bet: $" + bet.toFixed(2) + "**♦️♣️",
             description:
               "Dealer's hand: " +
               cpu_hand +
@@ -124,11 +137,11 @@ module.exports = {
         //on stand & dealer bust
         collector.on("collect", messageReaction => {
           if (messageReaction.emoji.name === "✋") {
-            if (this.beepboop(player_hand, cpu_hand, cards)) {
+            if (this.calculateWinner(player_hand, cpu_hand, cards)) {
               blackjackMessage.edit({
                 embed: {
                   color: 0x33cc33,
-                  title: "♠️♥️**Blackjack Bet: $" + bet + "**♦️♣️",
+                  title: "♠️♥️**Blackjack Bet: $" + bet.toFixed(2) + "**♦️♣️",
                   description:
                     "Dealer's hand: " +
                     cpu_hand +
@@ -136,7 +149,7 @@ module.exports = {
                     "Player's hand: "+
                     player_hand +
                     "\n" + "\n" +
-                    "Dealer busts, you have won $" + bet + "!",
+                    "Dealer busts, you have won $" + bet.toFixed(2) + "!",
                   footer: {
                     text: "Classic Blackjack",
                     icon_url: msg.author.avatarURL
@@ -145,14 +158,14 @@ module.exports = {
                 }
               });
               //give money
-              bot.bank[msg.author.id].balance += bet;
+              bot.bank[msg.author.id].balance += bet*2;
 
               } else {
               //dealer win
               blackjackMessage.edit({
                 embed: {
                   color: 0x33cc33,
-                  title: "♠️♥️**Blackjack Bet: $" + bet + "**♦️♣️",
+                  title: "♠️♥️**Blackjack Bet: $" + bet.toFixed(2) + "**♦️♣️",
                   description:
                     "Dealer's hand: " +
                     cpu_hand +
@@ -160,7 +173,7 @@ module.exports = {
                     "Player's hand: "+
                     player_hand +
                     "\n" + "\n" +
-                    "Dealer wins, you have lost $" + bet + "!",
+                    "Dealer wins, you have lost $" + bet.toFixed(2) + "!",
                   footer: {
                     text: "Classic Blackjack",
                     icon_url: msg.author.avatarURL
@@ -168,8 +181,6 @@ module.exports = {
                   timestamp: new Date()
                 }
               });
-              //take money
-              bot.bank[msg.author.id].balance -= bet;
             }
             timeout = false;
             collector.stop();
@@ -181,7 +192,7 @@ module.exports = {
               blackjackMessage.edit({
                 embed: {
                   color: 0x33cc33,
-                  title: "♠️♥️**Blackjack Bet: $" + bet + "**♦️♣️",
+                  title: "♠️♥️**Blackjack Bet: $" + bet.toFixed(2) + "**♦️♣️",
                   description:
                     "Dealer's hand: " +
                     cpu_hand +
@@ -189,7 +200,7 @@ module.exports = {
                     "Player's hand: "+
                     player_hand +
                     "\n" + "\n" +
-                    "Player busts, you have lost $" + bet + "!",
+                    "Player busts, you have lost $" + bet.toFixed(2) + "!",
                   footer: {
                     text: "Classic Blackjack",
                     icon_url: msg.author.avatarURL
@@ -197,8 +208,6 @@ module.exports = {
                   timestamp: new Date()
                 }
               });
-              //take money
-              bot.bank[msg.author.id].balance -= bet;
 
               timeout = false;
               collector.stop();
@@ -208,7 +217,7 @@ module.exports = {
               blackjackMessage.edit({
                 embed: {
                   color: 0x33cc33,
-                  title: "♠️♥️**Blackjack Bet: $" + bet + "**♦️♣️",
+                  title: "♠️♥️**Blackjack Bet: $" + bet.toFixed(2) + "**♦️♣️",
                   description:
                     "Dealer's hand: " +
                     cpu_hand +
@@ -236,7 +245,7 @@ module.exports = {
             blackjackMessage.edit({
               embed: {
                 color: 0x33cc33,
-                title: "♠️♥️**Blackjack Bet: $" + bet + "**♦️♣️",
+                title: "♠️♥️**Blackjack Bet: $" + bet.toFixed(2) + "**♦️♣️",
                 description: "Session timed out.",
                 footer: {
                   text: "Classic Blackjack",
