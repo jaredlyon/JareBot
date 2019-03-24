@@ -68,30 +68,26 @@ module.exports = {
         var player_hand = [];
         var cpu_hand = [];
         var timeout = true;
-      
+
         //initial bet
-        if (msg.args[0] && isNaN(msg.args[0])) { 
-          bet = 10;
-          if (bot.bank[msg.author.id].balance.toFixed(2) < bet) {
-            msg.channel.send("You frickin' foolian juulian, you don't have enough money to cover your bet!")
-            return;
-          } else {
-            bot.bank[msg.author.id].balance -= bet
-          }
-        }
-        else if (msg.args[0] && !isNaN(msg.args[0]) && Number(msg.args[0]) > 0) {
+        if (msg.args[0] && !isNaN(msg.args[0])) {
           bet = Number(msg.args[0]);
           if (bot.bank[msg.author.id].balance.toFixed(2) < bet) {
             msg.channel.send("You frickin' foolian juulian, you don't have enough money to cover your bet!")
             return;
+          } else if (bet < 0.01) {
+            msg.channel.send("You frickin' foolian juulian, you can't bet that amount!")
+            return;
           } else {
             bot.bank[msg.author.id].balance -= bet
           }
-        }
-        else {
+        } else {
           bet = 10;
           if (bot.bank[msg.author.id].balance.toFixed(2) < bet) {
             msg.channel.send("You frickin' foolian juulian, you don't have enough money to cover your bet!")
+            return;
+          } else if (bet < 0.01) {
+            msg.channel.send("You frickin' foolian juulian, you can't bet that amount!")
             return;
           } else {
             bot.bank[msg.author.id].balance -= bet

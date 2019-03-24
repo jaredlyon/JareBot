@@ -271,7 +271,7 @@ module.exports = {
                 },
                 {
                   name: "Fun:",
-                  value: "**j!help fishing**; Yes, we also like to have fun."
+                  value: "**j!help fun**; Yes, we also like to have fun."
                 },
                 {
                   name: "Other Commands:",
