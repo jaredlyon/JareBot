@@ -122,16 +122,16 @@ readdir('./events/', (err, files) => {
 
 var restart;
 bot.on('ready', () => {
-    restart = bot.channels.find('id', '399746390793650177'); // Channel to send notification
+	restart = bot.channels.get('399746390793650177'); // Channel to send notification
 });
 
 const TARGET_HOUR_R = 4;
-const TARGET_MINUTE_R = 21; 
+const TARGET_MINUTE_R = 21;
 
-setInterval(function() {
-    var d2 = new Date();
-	if(d2.getMinutes() !== TARGET_MINUTE_R || d2.getHours() !== TARGET_HOUR_R) return; // Return if current minute is not the notify minute
-	setTimeout(function() {
+setInterval(function () {
+	var d2 = new Date();
+	if (d2.getMinutes() !== TARGET_MINUTE_R || d2.getHours() !== TARGET_HOUR_R) return; // Return if current minute is not the notify minute
+	setTimeout(function () {
 		process.exit();
 	}, 1000);
 	restart.send("[AUTO RESTART] | JareBot successfully restarted!")

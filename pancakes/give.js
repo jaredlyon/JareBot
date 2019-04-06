@@ -1,9 +1,9 @@
 module.exports = {
     name: 'give',
     permission: 1,
-    main: function(bot, msg) {
+    main: function (bot, msg) {
         const Discord = require('discord.js');
-        const yup = bot.emojis.find("name", "yup");
+        const yup = bot.emojis.find(emoji => emoji.name == "yup");
         var recipient = msg.mentions.users.array()[0];
         var amt = Number(msg.content.split(' ').splice(1)[0]);
 

@@ -18,7 +18,7 @@ exports.run = (bot, msg) => {
 		msg.delete();
 	}
 
-//reply array shenanigans
+	//reply array shenanigans
 	const responseObject = {
 		"input": "output"
 	};
@@ -31,17 +31,17 @@ exports.run = (bot, msg) => {
 		msg.channel.send("output")
 	}
 
-//teens that care
-	const yup = bot.emojis.find("name", "yup");
-	const nope = bot.emojis.find("name", "nope");
-	const meh = bot.emojis.find("name", "meh");
+	//teens that care
+	const yup = bot.emojis.find(emoji => emoji.name == "yup");
+	const nope = bot.emojis.find(emoji => emoji.name == "nope");
+	const meh = bot.emojis.find(emoji => emoji.name == "meh");
 	if (msg.channel.id == '457797747580600331') {
 		msg.react(yup)
 		msg.react(meh)
 		msg.react(nope)
 	}
 
-//bank writes
+	//bank writes
 	if (!bot.bank[msg.author.id] && msg.channel.id != '399746060404260864') {
 		bot.bank[msg.author.id].balance += 2.54;
 		bot.bank[msg.author.id].lastMessage = new Date();

@@ -2,8 +2,8 @@ module.exports = {
   name: 'daily',
   permission: 1,
   main: function (bot, msg) {
-    const yup = bot.emojis.find("name", "yup");
-	  const nope = bot.emojis.find("name", "nope");
+    const yup = bot.emojis.find(emoji => emoji.name == "yup");
+    const nope = bot.emojis.find(emoji => emoji.name == "nope");
 
     if (!bot.bank[msg.author.id].lastDaily) {
       bot.bank[msg.author.id].balance += 25.4;
@@ -36,9 +36,9 @@ module.exports = {
       var duration = 86400000 - (t1 - t2);
 
       var milliseconds = parseInt((duration % 1000) / 100),
-      seconds = parseInt((duration / 1000) % 60),
-      minutes = parseInt((duration / (1000 * 60)) % 60),
-      hours = parseInt((duration / (1000 * 60 * 60)) % 24);
+        seconds = parseInt((duration / 1000) % 60),
+        minutes = parseInt((duration / (1000 * 60)) % 60),
+        hours = parseInt((duration / (1000 * 60 * 60)) % 24);
 
       hours = (hours < 10) ? "0" + hours : hours;
       minutes = (minutes < 10) ? "0" + minutes : minutes;

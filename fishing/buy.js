@@ -1,10 +1,10 @@
 module.exports = {
     name: 'buy',
     permission: 1,
-    main: function(bot, msg) {
+    main: function (bot, msg) {
         var x = msg.content.split(' ').splice(0)[0];
-        const yup = bot.emojis.find("name", "yup");
-        const nope = bot.emojis.find("name", "nope");
+        const yup = bot.emojis.find(emoji => emoji.name == "yup");
+        const nope = bot.emojis.find(emoji => emoji.name == "nope");
 
         if (x == "rod") {
             if (bot.bank[msg.author.id].balance >= 59.99 && bot.fishing[msg.author.id].rod == null) {

@@ -1,6 +1,7 @@
-exports.run = (bot, msg) => {
+exports.run = async (bot, msg) => {
 	bot.config = require('../config.json');
 	bot.awaitConsoleInput();
+	await bot.startDatabase();
 	bot.setupBank();
 	bot.setupFishing();
 

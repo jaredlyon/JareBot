@@ -4,6 +4,10 @@
 ### General:
 JareBot is Discord chat bot (obviously) that performs rudimentary chat tasks as well as executes complicated score and currency commands. This bot is confined to Jared's personal Discord server, and is primarily designed to assist in giveaways, moderation, and a wide array of information distribution. JareBot was initially created in August of 2017 by Michael Cao in order to teach its current developer, Jared Lyon, how to code in Javascript.
 
+### Setup:
+You'll need to make a copy of `config-example.json` named `config.json` and fill in the needed values. Also, make files called `afk.json`, `bank.json`, and fill them with `{}`.
+Necessary npm modules: `rethinkdbdash` and `discord.js`
+
 ### Last Update:
 **5.2.4**
 - Updated info embed

@@ -1,7 +1,7 @@
 module.exports = {
     name: 'removerole',
     permission: 1,
-    main: function(bot, msg) {
+    main: function (bot, msg) {
         var numGiven = 0;
         var allowedRoles = ['Light Blue', 'Dark Blue', 'Orange', 'Yellow', 'Blurple', 'Purple', 'Green', 'Peach', 'Pink', 'Red', 'VC', 'teen that cares™', 'aesthetic', 'coders', 'softies', 'floofs', 'News', 'deep'];
         var cmd = msg.content.split(" ")[0];
@@ -17,7 +17,7 @@ module.exports = {
         for (var i = 0; i < allowedRoles.length; i++) {
             if (msg.content.toLowerCase().indexOf(allowedRoles[i].toLowerCase()) > -1) {
                 numGiven++;
-                msg.member.removeRole(msg.guild.roles.find("name", allowedRoles[i])).catch(console.error);
+                msg.member.removeRole(msg.guild.roles.find(role => role.name == allowedRoles[i])).catch(console.error);
                 msg.reply("you no longer have the " + allowedRoles[i] + " role!");
             }
         }

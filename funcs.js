@@ -1,6 +1,7 @@
 const fs = require("fs");
 var channel = null,
 	stdin = process.openStdin();
+var config = require("./config.json");
 
 module.exports = (bot) => {
 	/**
@@ -46,6 +47,17 @@ module.exports = (bot) => {
 	/**
 	 * Core bot functions
 	 */
+
+	bot.startDatabase = async function () {
+		bot.r = require("rethinkdbdash")({
+			port: 28015,
+			host: config.rethink.ip,
+			user: config.rethink.username,
+			password: config.rethink.password,
+			silent: true
+		});
+		bot.log("Successfully established database connection.")
+	}
 
 	bot.awaitConsoleInput = function () {
 		stdin.addListener("data", function (d) {
@@ -148,7 +160,7 @@ module.exports = (bot) => {
 	}
 
 	//afk
-	
+
 
 	/**
 	 * Logging functions
