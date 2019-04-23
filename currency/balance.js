@@ -3,6 +3,7 @@ module.exports = {
   permission: 1,
   main: function(bot, msg) {
     let balance = Number(bot.bank[msg.author.id].balance)
-    msg.reply(`your balance is **$${balance.toFixed(2)}**!`);
+    let absbalance = Math.abs(balance)
+    msg.reply(`your balance is **$${absbalance.toFixed(2)}**!`);
   }
 };
