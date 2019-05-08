@@ -1,7 +1,4 @@
-const config = require("../config.json");
-const fs = require("fs");
-
-exports.run = (bot, msg) => {
+exports.run = async (bot, msg) => {
 	if (msg.channel.type === "dm" && msg.author.id == bot.user.id) {
 		console.log("[DM] " + bot.user.username + " -> " + msg.channel.recipient.username + " | " + msg.content)
 		bot.channels.get("399743950568685571").send(`The message: "${msg.content || "(no content)"}" by **${msg.author.tag}** was sent to me by another bot (or myself)!`)
@@ -42,13 +39,17 @@ exports.run = (bot, msg) => {
 	}
 
 	//bank writes
-	if (!bot.bank[msg.author.id] && msg.channel.id != '399746060404260864') {
-		bot.bank[msg.author.id].balance += 2.54;
-		bot.bank[msg.author.id].lastMessage = new Date();
+	let account = (await bot.bank.get(msg.author.id)) || {};
+	if (!account.balance && msg.channel.id != '399746060404260864') {
+		account.id = msg.author.id;
+		account.balance = 2.54;
+		account.lastMessage = new Date();
+		await bot.bank.insert(account);
 	} else {
-		if (new Date() - new Date(bot.bank[msg.author.id].lastMessage) >= 60000 && msg.channel.id != '399746060404260864') {
-			bot.bank[msg.author.id].balance += 2.54;
-			bot.bank[msg.author.id].lastMessage = new Date();
+		if (new Date() - new Date(account.lastMessage) >= 60000 && msg.channel.id != '399746060404260864') {
+			account.balance += 2.54;
+			account.lastMessage = new Date();
+			await bot.bank.update(account);
 		}
 	}
 }

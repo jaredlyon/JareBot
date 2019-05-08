@@ -2,8 +2,6 @@ exports.run = async (bot, msg) => {
 	bot.config = require('../config.json');
 	bot.awaitConsoleInput();
 	await bot.startDatabase();
-	bot.setupBank();
-	bot.setupFishing();
 
 	bot.user.setPresence({ status: 'online', game: { name: 'Lego Legions | j!help', type: 0 } });
 	//bot.user.setPresence({ status: 'online', game: { name: "It's not delivery, it's DiBjorno", type: 0 } });
