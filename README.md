@@ -8,7 +8,7 @@ JareBot is Discord chat bot (obviously) that performs rudimentary chat tasks as 
 **5.3.5**
 - Added j!give to help module
 - Updated the j!listroles footer
-- Added currency statistics module
+- Added currency statistics module & added inserts to all associated commands
 
 ### Past Updates:
 **5.2.4**
