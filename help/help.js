@@ -71,6 +71,10 @@ module.exports = {
             description: "*Monkeys, Machinations, & Monies*",
             fields: [
               {
+                name: "j!statistics/j!stats",
+                value: "Check out statistics on how you're doing with your money!"
+              },
+              {
                 name: "j!balance",
                 value: "Lists your current balance so you can check how broke you are."
               },
@@ -111,6 +115,10 @@ module.exports = {
               {
                 name: "j!pancakes",
                 value: "Shows you how many pancakes you have so that you can calculate how long it'll take to pass Jess on the leaderboard...and then still lose to her."
+              },
+              {
+                name: "j!give [@user] [amount]",
+                value: "Share some of your scrumptious breakfast delights with a friend!"
               }
             ],
             footer: {
@@ -191,6 +199,10 @@ module.exports = {
               {
                 name: "j!love",
                 value: "Tell someone that you love them!"
+              },
+              {
+                name: "j!esus",
+                value: "In the name of the Father, the Son, and the Holy Spirit."
               },
             ],
             footer: {

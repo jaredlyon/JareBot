@@ -3,10 +3,8 @@ var channel = null,
 	stdin = process.openStdin();
 
 module.exports = (bot) => {
-	/**
-	 * Core message processing functions
-	 */
-
+	
+	//Core message processing functions
 	bot.permLevel = function (msg) {
 		if (msg.author.id == bot.config.owner)
 			return 2;
@@ -31,7 +29,7 @@ module.exports = (bot) => {
 				else {
 					bot.logCommand(command, msg.content, msg.author.username, msg.channel.name, msg.guild.name)
 					try {
-						cmd.main(bot, msg);
+						cmd.main(bot, msg)
 					} catch (err) {
 						msg.channel.send("Oh no! We encountered an error:\n```" + err.stack + "```")
 					}
@@ -43,10 +41,7 @@ module.exports = (bot) => {
 		}
 	}
 
-	/**
-	 * Core bot functions
-	 */
-
+	//core bot functions
 	bot.awaitConsoleInput = function () {
 		stdin.addListener("data", function (d) {
 			d = d.toString().trim()
@@ -76,7 +71,7 @@ module.exports = (bot) => {
 		});
 	}
 
-	//bank
+	//bank init and upkeep
 	bot.setupBank = function () {
 		bot.bank = require('./bank.json');
 
@@ -149,11 +144,51 @@ module.exports = (bot) => {
 
 	//afk
 	
+	//stats
+	bot.setupStats = function () {
+		bot.stats = require('./stats.json');
 
-	/**
-	 * Logging functions
-	 */
+		bot.users.forEach(user => {
+			if (!bot.stats[user.id] && !user.bot) {
+				bot.stats[user.id] = {
+					dailies: {
+						collected: 0,
+						profit: 0
+					},
+					blackjack: {
+						games: 0,
+						won: 0,
+						lost: 0,
+						net: 0
+					},
+					baited: {
+						attempts: 0,
+						won: 0,
+						lost: 0,
+						net: 0
+					}
+				}
+			}
+		})
 
+		writeStats();
+
+		setInterval(function () {
+			writeStats();
+		}, 10000);
+
+		function writeStats() {
+			var statsJson = fs.readFileSync("./stats.json"),
+				statsParsed = JSON.parse(statsJson)
+			if (JSON.stringify(statsParsed) == JSON.stringify(bot.stats)) return; // Only writes if there's a difference
+
+			fs.writeFileSync("./stats.json", JSON.stringify(bot.stats, null, 3));
+			console.log("[STATS] | Statistics successfully saved to file!")
+			return "Statistics successfully saved to file!";
+		}
+	}
+
+	//logging functions
 	bot.logCommand = function (command, arguments, user, channel, server) {
 		bot.log(`\n**Command Executed:** ${command}\n**User:** ${user}\n**Arguments:** ${arguments}\n**Server:** ${server}\n**Channel:**# ${channel}`)
 	}

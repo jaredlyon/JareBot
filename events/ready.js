@@ -3,6 +3,7 @@ exports.run = (bot, msg) => {
 	bot.awaitConsoleInput();
 	bot.setupBank();
 	bot.setupFishing();
+	bot.setupStats();
 
 	bot.user.setPresence({ status: 'online', game: { name: 'Lego Legions | j!help', type: 0 } });
 	//bot.user.setPresence({ status: 'online', game: { name: "It's not delivery, it's DiBjorno", type: 0 } });

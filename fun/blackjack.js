@@ -154,6 +154,9 @@ module.exports = {
                 }
               });
               //give money
+              bot.stats[msg.author.id].blackjack.games += 1
+              bot.stats[msg.author.id].blackjack.won += 1
+              bot.stats[msg.author.id].blackjack.net += bet
               bot.bank[msg.author.id].balance += bet*2;
 
               } else {
@@ -177,6 +180,10 @@ module.exports = {
                   timestamp: new Date()
                 }
               });
+              //stats update
+              bot.stats[msg.author.id].blackjack.games += 1
+              bot.stats[msg.author.id].blackjack.lost += 1
+              bot.stats[msg.author.id].blackjack.net -= bet
             }
             timeout = false;
             collector.stop();
@@ -204,6 +211,10 @@ module.exports = {
                   timestamp: new Date()
                 }
               });
+              //stats update
+              bot.stats[msg.author.id].blackjack.games += 1
+              bot.stats[msg.author.id].blackjack.lost += 1
+              bot.stats[msg.author.id].blackjack.net -= bet
 
               timeout = false;
               collector.stop();
