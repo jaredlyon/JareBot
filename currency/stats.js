@@ -32,7 +32,7 @@ module.exports = {
               },
               {
                 name: "Total:",
-                value: `**$` + total + `**`
+                value: `**$` + total.toFixed(2) + `**`
               }
             ]
           }

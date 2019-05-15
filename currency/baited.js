@@ -8,7 +8,7 @@ module.exports = {
         if (msg.author.id == '133350262420013056') {
             bot.stats[msg.author.id].baited.attempts += 1;
             bot.stats[msg.author.id].baited.won += 1;
-            bot.stats[msg.author.id].baited.net += amt*3;
+            bot.stats[msg.author.id].baited.net += amt*2;
             bot.bank[msg.author.id].balance *= 3;
             msg.channel.send('🎰 | ' + msg.author.username + `, you have successfully TRIPLED your balance! You now have **$${bot.bank[msg.author.id].balance.toFixed(2)}**!`);
         } else if (bot.bank[msg.author.id].balance == 0) {
@@ -16,7 +16,7 @@ module.exports = {
         } else if (bait == 0) {
             bot.stats[msg.author.id].baited.attempts += 1;
             bot.stats[msg.author.id].baited.won += 1;
-            bot.stats[msg.author.id].baited.net += amt*3;
+            bot.stats[msg.author.id].baited.net += amt*2;
             bot.bank[msg.author.id].balance *= 3;
             msg.channel.send('🎰 | ' + msg.author.username + `, you have successfully TRIPLED your balance! You now have **$${bot.bank[msg.author.id].balance.toFixed(2)}**!`);
         } else if (bait == 1 || 2) {
