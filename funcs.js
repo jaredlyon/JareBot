@@ -114,13 +114,17 @@ module.exports = (bot) => {
 		bot.users.forEach(user => {
 			if (!bot.fishing[user.id] && !user.bot) {
 				bot.fishing[user.id] = {
-					rod: null,
-					lastFish: null,
-					items: {
-						bait: 0,
-						bigFish: 0,
-						littleFish: 0
-					}
+					lastFish: null, //date
+					trash: 0, //:volleyball:, :floppy_disk:, :paperclip:, :french_bread:
+					fish1: 0, //:fish:
+					fish2: 0, //:tropical_fish:
+					crabs: 0, //:crab:
+					crocodiles: 0, //:crocodile:
+					whales: 0, //:whale2:
+					dolphins: 0, //:dolphin:
+					blowfish: 0, //:blowfish:
+					squid: 0, //:squid:
+					sharks: 0 //:shark:
 				}
 			}
 		})
@@ -129,7 +133,7 @@ module.exports = (bot) => {
 
 		setInterval(function () {
 			writeFishing();
-		}, 360000);
+		}, 12000);
 
 		function writeFishing() {
 			var fishingJson = fs.readFileSync("./fishing.json"),
@@ -155,6 +159,9 @@ module.exports = (bot) => {
 						collected: 0,
 						profit: 0
 					},
+					passive: {
+						total: 0,
+					},
 					blackjack: {
 						games: 0,
 						won: 0,
@@ -165,6 +172,20 @@ module.exports = (bot) => {
 						attempts: 0,
 						won: 0,
 						lost: 0,
+						net: 0
+					},
+					fishing: {
+						casts: 0,
+						trash: 0, //*5
+						fish1: 0, //*12
+						fish2: 0, //*15
+						crabs: 0, //*50
+						crocodiles: 0, //*50
+						whales: 0, //*75
+						dolphins: 0, //*75
+						blowfish: 0, //*50
+						squid: 0, //*100
+						sharks: 0, //*100
 						net: 0
 					}
 				}

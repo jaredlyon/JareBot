@@ -12,15 +12,15 @@ module.exports = {
               name: "Help & Info",
               icon_url: bot.user.avatarURL
             },
-            description: "*General informational commands that combine to form a general overview of the server.*",
+            description: "*General informational commands that combine to form a general overview of the bot and server:*",
             fields: [
               {
                 name: "j!info",
-                value: "Embeds bot information into the chat."
+                value: "Sends version information to the chat."
               },
               {
                 name: "j!rules",
-                value: "Lists the server's rules."
+                value: "Sends the server rules to the chat."
               }
             ],
             footer: {
@@ -38,7 +38,7 @@ module.exports = {
               name: "Self-Assignable Roles",
               icon_url: bot.user.avatarURL
             },
-            description: "*A guide to the server's array of numerous self-assignable roles.*",
+            description: "*A guide to the server's array of numerous self-assignable roles:*",
             fields: [
               {
                 name: "j!listroles",
@@ -50,7 +50,7 @@ module.exports = {
               },
               {
                 name: "j!removerole [role]",
-                value: "Removes the inputted role to you."
+                value: "Removes the inputted role from you."
               }
             ],
             footer: {
@@ -68,19 +68,19 @@ module.exports = {
               name: "Currency",
               icon_url: bot.user.avatarURL
             },
-            description: "*Monkeys, Machinations, & Monies*",
+            description: "*Monkeys, Machinations, & Monies:",
             fields: [
               {
-                name: "j!statistics/j!stats",
-                value: "Check out statistics on how you're doing with your money!"
+                name: "j!statistics/j!stats [@user]",
+                value: "Check out statistics on how well you or someone else is performing with their dailies, blackjack games, and bait attempts!"
               },
               {
-                name: "j!balance",
-                value: "Lists your current balance so you can check how broke you are."
+                name: "j!balance [@user]",
+                value: "Lists your or another user's current balance."
               },
               {
                 name: "j!daily/j!dailies",
-                value: "Deposits your daily allowance into your account!"
+                value: "Deposits your daily allowance into your account! Repeatedly collecting you daily every 24 hours will start a streak, but neglecting the streak for more than 48 hours resets it."
               },
               {
                 name: "j!baited",
@@ -106,15 +106,15 @@ module.exports = {
             fields: [
               {
                 name: "j!leaderboard/j!lb",
-                value: "Lists the top ten pancake buyers, aka how much is Jess ahead by now?"
+                value: "Lists the top ten pancake buyers in the server."
               },
               {
                 name: "j!order [amount]",
-                value: "Allows you to order the rare commodity pancakes! Leaving the [amount] argument blank will purchase one stack of pancakes, whereas inputting a number such as sixteen will allow you to purchase sixteen stacks of pancakes! Additionally, the '**j!orderall** command will order the maximum amount of pancakes you current balance will allow."
+                value: "Allows you to order the rare commodity pancakes! Additionally, the '**j!orderall** command will order the maximum amount of pancakes you current balance will allow."
               },
               {
-                name: "j!pancakes",
-                value: "Shows you how many pancakes you have so that you can calculate how long it'll take to pass Jess on the leaderboard...and then still lose to her."
+                name: "j!pancakes [@user]",
+                value: "Shows you how many pancakes you have or someone else possesses."
               },
               {
                 name: "j!give [@user] [amount]",
@@ -133,22 +133,22 @@ module.exports = {
           msg.channel.send({embed: {
             color: 3447003,
             author: {
-              name: "TITLE",
+              name: "Fishing Commands",
               icon_url: bot.user.avatarURL
             },
-            description: "*DESCRIPTION_FISHING*",
+            description: "*When gambling just doesn't cut it...*",
             fields: [
               {
-                name: "COMMAND1",
-                value: "COMMANDDESC1"
+                name: "j!cast",
+                value: "Cast a line out and fish in the lake!"
               },
               {
-                name: "COMMAND2",
-                value: "COMMANDDESC2"
+                name: "j!sell [input]",
+                value: "Sell some (or all) of your inventory using the appropriate inputs: **trash**, **common**, **rare**, **crabs**, **crocodiles**, **whales**, **dolphins**, **blowfish**, **squid**, **sharks**. You can also sell your entire inventory using **j!sell all**!"
               },
               {
-                name: "COMMAND3",
-                value: "COMMANDDESC3"
+                name: "j!inventory [@user]",
+                value: "Lists your or someone else's inventory in the chat!"
               }
             ],
             footer: {
@@ -170,14 +170,14 @@ module.exports = {
             fields: [
               {
                 name: "j!blackjack [bet amount]",
-                value: "I deal, you bet. The rules are simple: it's no limits classic Blackjack without splits or doubles. Beat my hand and you win 2x your bet. Match it and you keep your money. Lose to it and I pocket your money."
+                value: "I deal, you bet. The rules are simple: it's no limits classic Blackjack without splits or doubles. Beat my hand and you win back twice your bet amount. Match it and you keep your money. Lose to my hand and I pocket your money."
               },
               {
                 name: "j!coinflip",
                 value: "Flips a coin!"
               },
               {
-                name: "j!fight",
+                name: "j!fight [@user]",
                 value: "Hmph! I challenge thee to a contest of fisticuffs!"
               },
               {
@@ -189,19 +189,19 @@ module.exports = {
                 value: "Embeds Jared's many, many, many playlists into the chat."
               },
               {
-                name: "j!sleep",
+                name: "j!sleep [@user]",
                 value: "Tell someone to go to bed!"
               },
               {
-                name: "j!hug",
+                name: "j!hug [@user]",
                 value: "Hug someone!"
               },
               {
-                name: "j!love",
+                name: "j!love [@user]",
                 value: "Tell someone that you love them!"
               },
               {
-                name: "j!esus",
+                name: "j!esus [@user]",
                 value: "In the name of the Father, the Son, and the Holy Spirit."
               },
             ],
