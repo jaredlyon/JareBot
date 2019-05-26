@@ -86,7 +86,7 @@ module.exports = {
             var i = bot.fishing[msg.author.id].squid
             var j = bot.fishing[msg.author.id].sharks
 
-            var z = a*5 + b*8 + c*15 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100;
+            var z = a*3 + b*8 + c*15 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100;
             bot.bank[msg.author.id].balance += z;
 
             var u = b*3 + c*10 + d*45 + e*45 + f*70 + g*70 + h*45 + i*95 + j*95 - a*2;
