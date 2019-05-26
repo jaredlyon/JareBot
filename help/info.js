@@ -24,7 +24,7 @@ module.exports = {
               },
               /*CHECK GITHUB FOOTERS*/
               {
-                name: "GitHub: v5.3.5",
+                name: "GitHub: v5.3.6",
                 value: "https://github.com/KingWaffleshnoz/JareBot\nNote that this page is still a WIP."
               }
             ]

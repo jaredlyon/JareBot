@@ -94,7 +94,7 @@ module.exports = (bot) => {
 
 		setInterval(function () {
 			writeBank();
-		}, 6000);
+		}, 10000);
 
 		function writeBank() {
 			var bankJson = fs.readFileSync("./bank.json"),
@@ -133,7 +133,7 @@ module.exports = (bot) => {
 
 		setInterval(function () {
 			writeFishing();
-		}, 12000);
+		}, 20000);
 
 		function writeFishing() {
 			var fishingJson = fs.readFileSync("./fishing.json"),
@@ -196,7 +196,7 @@ module.exports = (bot) => {
 
 		setInterval(function () {
 			writeStats();
-		}, 10000);
+		}, 15000);
 
 		function writeStats() {
 			var statsJson = fs.readFileSync("./stats.json"),

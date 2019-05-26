@@ -261,6 +261,8 @@ module.exports = {
                 timestamp: new Date()
               }
             });
+            //return bet
+            bot.bank[msg.author.id].balance += bet;
           }
         });
       }
