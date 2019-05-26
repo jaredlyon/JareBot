@@ -5,7 +5,7 @@ module.exports = {
         if (new Date() - new Date(bot.fishing[msg.author.id].lastFish) >= 12000 && bot.bank[msg.author.id].balance >= 5) {
             var roll = Math.floor(Math.random() * 1008); //rolls number 0-1007
 
-            if (roll <= 500) {
+            if (roll <= 600) {
                 var trashRoll = Math.floor(Math.random() * 4); //rolls number 0-3
                 if (trashRoll == 0) {
                     var trashEmoji = ':volleyball:'
@@ -23,7 +23,7 @@ module.exports = {
                 bot.stats[msg.author.id].fishing.trash += 1;
                 bot.stats[msg.author.id].fishing.casts += 1;
                 msg.channel.send(trashEmoji + ' | You only caught some trash, ' + msg.author.username + '...')
-            } else if (roll > 500 && roll <= 850) {
+            } else if (roll > 600 && roll <= 850) {
                 bot.fishing[msg.author.id].lastFish = new Date();
                 bot.bank[msg.author.id].balance -= 5;
                 bot.fishing[msg.author.id].fish1 += 1;

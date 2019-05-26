@@ -14,7 +14,7 @@ module.exports = {
         var h = bot.fishing[target.id].blowfish
         var i = bot.fishing[target.id].squid
         var j = bot.fishing[target.id].sharks
-        var total = a*5 + b*12 + c*15 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100
+        var total = a*3 + b*8 + c*15 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100
         msg.channel.send({
           embed: 
           { color: 0x4e86f7,
@@ -49,7 +49,7 @@ module.exports = {
         var h = bot.fishing[msg.author.id].blowfish
         var i = bot.fishing[msg.author.id].squid
         var j = bot.fishing[msg.author.id].sharks
-        var total = a*5 + b*12 + c*15 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100
+        var total = a*3 + b*8 + c*15 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100
         msg.channel.send({
           embed: 
           { color: 0x4e86f7,

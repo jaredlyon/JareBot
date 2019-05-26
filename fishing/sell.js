@@ -15,9 +15,9 @@ module.exports = {
             var y = bot.fishing[msg.author.id].fish1;
 
             bot.fishing[msg.author.id].fish1 = 0;
-            bot.bank[msg.author.id].balance += 12*y;
-            bot.stats[msg.author.id].fishing.net += 7*y;
-            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** common fish for **$` + 12*y + `**!`)
+            bot.bank[msg.author.id].balance += 8*y;
+            bot.stats[msg.author.id].fishing.net += 3*y;
+            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** common fish for **$` + 8*y + `**!`)
         } else if (x != null && x == 'rare') {
             var y = bot.fishing[msg.author.id].fish2;
 
@@ -86,10 +86,10 @@ module.exports = {
             var i = bot.fishing[msg.author.id].squid
             var j = bot.fishing[msg.author.id].sharks
 
-            var z = a*5 + b*12 + c*15 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100;
+            var z = a*5 + b*8 + c*15 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100;
             bot.bank[msg.author.id].balance += z;
 
-            var u = b*7 + c*10 + d*45 + e*45 + f*70 + g*70 + h*45 + i*95 + j*95 - a*2;
+            var u = b*3 + c*10 + d*45 + e*45 + f*70 + g*70 + h*45 + i*95 + j*95 - a*2;
             bot.stats[msg.author.id].fishing.net += u;
 
             bot.fishing[msg.author.id].trash = 0;

@@ -15,7 +15,7 @@ module.exports = {
         { color: 0xffffff,
           footer: {
             icon_url: msg.guild.iconURL,
-            text: "since 5/25/2019"
+            text: "since 5/26/2019"
           },
           author: {
             name: "Currency Statistics for " + target.username,
@@ -61,7 +61,7 @@ module.exports = {
         { color: 0xffffff,
           footer: {
             icon_url: msg.guild.iconURL,
-            text: "since 5/25/2019"
+            text: "since 5/26/2019"
           },
           author: {
             name: "Currency Statistics for " + msg.author.username,
