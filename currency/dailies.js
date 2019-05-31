@@ -12,25 +12,25 @@ module.exports = {
       bot.bank[msg.author.id].lastDaily = new Date();
       msg.channel.send(yup + " | You have recieved your daily allowance of **$25.40**, " + msg.author.username + "!")
     } else if (new Date() - new Date(bot.bank[msg.author.id].lastDaily) >= 86400000 && new Date() - new Date(bot.bank[msg.author.id].lastDaily) <= 172800000) {
-      bot.stats[msg.author.id].dailies.collected += 1;
-      bot.stats[msg.author.id].dailies.profit += 25.4;
-      bot.stats[msg.author.id].dailies.profit += 2.54 * bot.bank[msg.author.id].streak;
       bot.bank[msg.author.id].streak += 1;
       bot.bank[msg.author.id].balance += 25.4;
       bot.bank[msg.author.id].balance += 2.54 * bot.bank[msg.author.id].streak;
+      bot.stats[msg.author.id].dailies.collected += 1;
+      bot.stats[msg.author.id].dailies.profit += 25.4;
+      bot.stats[msg.author.id].dailies.profit += 2.54 * bot.bank[msg.author.id].streak;
       bot.bank[msg.author.id].lastDaily = new Date();
       msg.channel.send(yup + " | You have recieved your daily allowance of **$25.40**! You've also been given a bonus of **$" + (2.54 * bot.bank[msg.author.id].streak).toFixed(2) + "** due to your **" + bot.bank[msg.author.id].streak + "** day streak, " + msg.author.username + "!")
     } else if (new Date() - new Date(bot.bank[msg.author.id].lastDaily) >= 86400000 && new Date() - new Date(bot.bank[msg.author.id].lastDaily) >= 172800000 && bot.bank[msg.author.id].streak >= 0) {
-      bot.stats[msg.author.id].dailies.collected += 1;
-      bot.stats[msg.author.id].dailies.profit += 25.4;
       bot.bank[msg.author.id].streak = 0;
       bot.bank[msg.author.id].balance += 25.4;
+      bot.stats[msg.author.id].dailies.collected += 1;
+      bot.stats[msg.author.id].dailies.profit += 25.4;
       bot.bank[msg.author.id].lastDaily = new Date();
       msg.channel.send(yup + " | You have recieved your daily allowance of **$25.40**, but you unfortunately have lost your streak, " + msg.author.username + "!")
     } else if (new Date() - new Date(bot.bank[msg.author.id].lastDaily) >= 86400000 && new Date() - new Date(bot.bank[msg.author.id].lastDaily) >= 172800000 && bot.bank[msg.author.id].streak == 0) {
+      bot.bank[msg.author.id].balance += 25.4;
       bot.stats[msg.author.id].dailies.collected += 1;
       bot.stats[msg.author.id].dailies.profit += 25.4;
-      bot.bank[msg.author.id].balance += 25.4;
       bot.bank[msg.author.id].lastDaily = new Date();
       msg.channel.send(yup + " | You have recieved your daily allowance of **$25.40**, " + msg.author.username + "!")
     } else {
