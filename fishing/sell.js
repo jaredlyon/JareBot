@@ -9,70 +9,70 @@ module.exports = {
 
             bot.fishing[msg.author.id].trash = 0;
             bot.bank[msg.author.id].balance += 3*y;
-            bot.stats[msg.author.id].fishing.net -= 2*y;
+            bot.stats[msg.author.id].fishing.net += 3*y;
             msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** trash for **$` + 3*y + `**!`)
         } else if (x != null && x == 'common') {
             var y = bot.fishing[msg.author.id].fish1;
 
             bot.fishing[msg.author.id].fish1 = 0;
             bot.bank[msg.author.id].balance += 8*y;
-            bot.stats[msg.author.id].fishing.net += 3*y;
+            bot.stats[msg.author.id].fishing.net += 8*y;
             msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** common fish for **$` + 8*y + `**!`)
         } else if (x != null && x == 'rare') {
             var y = bot.fishing[msg.author.id].fish2;
 
             bot.fishing[msg.author.id].fish2 = 0;
             bot.bank[msg.author.id].balance += 15*y;
-            bot.stats[msg.author.id].fishing.net += 10*y;
+            bot.stats[msg.author.id].fishing.net += 15*y;
             msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** rare fish for **$` + 15*y + `**!`)
         } else if (x != null && x == 'crabs') {
             var y = bot.fishing[msg.author.id].crabs;
 
             bot.fishing[msg.author.id].crabs = 0;
             bot.bank[msg.author.id].balance += 50*y;
-            bot.stats[msg.author.id].fishing.net += 45*y;
+            bot.stats[msg.author.id].fishing.net += 50*y;
             msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** crabs for **$` + 50*y + `**!`)
         } else if (x != null && x == 'crocodiles') {
             var y = bot.fishing[msg.author.id].crocodiles;
 
             bot.fishing[msg.author.id].crocodiles = 0;
             bot.bank[msg.author.id].balance += 50*y;
-            bot.stats[msg.author.id].fishing.net += 45*y;
+            bot.stats[msg.author.id].fishing.net += 50*y;
             msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** crocodiles for **$` + 50*y + `**!`)
         } else if (x != null && x == 'whales') {
             var y = bot.fishing[msg.author.id].whales;
 
             bot.fishing[msg.author.id].whales = 0;
             bot.bank[msg.author.id].balance += 75*y;
-            bot.stats[msg.author.id].fishing.net += 70*y;
+            bot.stats[msg.author.id].fishing.net += 75*y;
             msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** whales for **$` + 75*y + `**!`)
         } else if (x != null && x == 'dolphins') {
             var y = bot.fishing[msg.author.id].dolphins;
 
             bot.fishing[msg.author.id].dolphins = 0;
             bot.bank[msg.author.id].balance += 75*y;
-            bot.stats[msg.author.id].fishing.net += 70*y;
+            bot.stats[msg.author.id].fishing.net += 75*y;
             msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** dolphins for **$` + 75*y + `**!`)
         } else if (x != null && x == 'blowfish') {
             var y = bot.fishing[msg.author.id].blowfish;
 
             bot.fishing[msg.author.id].blowfish = 0;
             bot.bank[msg.author.id].balance += 50*y;
-            bot.stats[msg.author.id].fishing.net += 45*y;
+            bot.stats[msg.author.id].fishing.net += 50*y;
             msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** blowfish for **$` + 50*y + `**!`)
         } else if (x != null && x == 'squid') {
             var y = bot.fishing[msg.author.id].squid;
 
             bot.fishing[msg.author.id].squid = 0;
             bot.bank[msg.author.id].balance += 100*y;
-            bot.stats[msg.author.id].fishing.net += 95*y;
+            bot.stats[msg.author.id].fishing.net += 100*y;
             msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** squid for **$` + 100*y + `**!`)
         } else if (x != null && x == 'sharks') {
             var y = bot.fishing[msg.author.id].sharks;
 
             bot.fishing[msg.author.id].sharks = 0;
             bot.bank[msg.author.id].balance += 100*y;
-            bot.stats[msg.author.id].fishing.net += 95*y;
+            bot.stats[msg.author.id].fishing.net += 100*y;
             msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** sharks for **$` + 100*y + `**!`)
         } else if (x != null && x == 'all') {
             var a = bot.fishing[msg.author.id].trash
@@ -89,7 +89,7 @@ module.exports = {
             var z = a*3 + b*8 + c*15 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100;
             bot.bank[msg.author.id].balance += z;
 
-            var u = b*3 + c*10 + d*45 + e*45 + f*70 + g*70 + h*45 + i*95 + j*95 - a*2;
+            var u = a*3 + b*8 + c*15 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100;
             bot.stats[msg.author.id].fishing.net += u;
 
             bot.fishing[msg.author.id].trash = 0;

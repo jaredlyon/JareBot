@@ -22,6 +22,7 @@ module.exports = {
                 bot.fishing[msg.author.id].trash += 1;
                 bot.stats[msg.author.id].fishing.trash += 1;
                 bot.stats[msg.author.id].fishing.casts += 1;
+                bot.stats[msg.author.id].fishing.net -= 5;
                 msg.channel.send(trashEmoji + ' | You only caught some trash, ' + msg.author.username + '...')
             } else if (roll > 750 && roll <= 900) {
                 bot.fishing[msg.author.id].lastFish = new Date();
@@ -29,6 +30,7 @@ module.exports = {
                 bot.fishing[msg.author.id].fish1 += 1;
                 bot.stats[msg.author.id].fishing.fish1 += 1;
                 bot.stats[msg.author.id].fishing.casts += 1;
+                bot.stats[msg.author.id].fishing.net -= 5;
                 msg.channel.send(':fish: | You caught a common fish, ' + msg.author.username + '!')
             } else if (roll > 900 && roll <= 1000) {
                 bot.fishing[msg.author.id].lastFish = new Date();
@@ -36,6 +38,7 @@ module.exports = {
                 bot.fishing[msg.author.id].fish2 += 1;
                 bot.stats[msg.author.id].fishing.fish2 += 1;
                 bot.stats[msg.author.id].fishing.casts += 1;
+                bot.stats[msg.author.id].fishing.net -= 5;
                 msg.channel.send(':tropical_fish: | You caught a rare fish, ' + msg.author.username + '!')
             } else if (roll == 1001) {
                 bot.fishing[msg.author.id].lastFish = new Date();
@@ -43,6 +46,7 @@ module.exports = {
                 bot.fishing[msg.author.id].crabs += 1;
                 bot.stats[msg.author.id].fishing.crabs += 1;
                 bot.stats[msg.author.id].fishing.casts += 1;
+                bot.stats[msg.author.id].fishing.net -= 5;
                 msg.channel.send(':crab: | You caught a crab, ' + msg.author.username + '!')
             } else if (roll == 1002) {
                 bot.fishing[msg.author.id].lastFish = new Date();
@@ -50,6 +54,7 @@ module.exports = {
                 bot.fishing[msg.author.id].crocodiles += 1;
                 bot.stats[msg.author.id].fishing.crocodiles += 1;
                 bot.stats[msg.author.id].fishing.casts += 1;
+                bot.stats[msg.author.id].fishing.net -= 5;
                 msg.channel.send(':crocodile: | You caught a crocodile?! How did that even happen, ' + msg.author.username + '?')
             } else if (roll == 1003) {
                 bot.fishing[msg.author.id].lastFish = new Date();
@@ -57,6 +62,7 @@ module.exports = {
                 bot.fishing[msg.author.id].whales += 1;
                 bot.stats[msg.author.id].fishing.whales += 1;
                 bot.stats[msg.author.id].fishing.casts += 1;
+                bot.stats[msg.author.id].fishing.net -= 5;
                 msg.channel.send(':whale2: | You caught a whale!! Is your line made of steel cable, ' + msg.author.username + '?')
             } else if (roll == 1004) {
                 bot.fishing[msg.author.id].lastFish = new Date();
@@ -64,6 +70,7 @@ module.exports = {
                 bot.fishing[msg.author.id].dolphins += 1;
                 bot.stats[msg.author.id].fishing.dolphins += 1;
                 bot.stats[msg.author.id].fishing.casts += 1;
+                bot.stats[msg.author.id].fishing.net -= 5;
                 msg.channel.send(`:dolphin: | You caught a dolphin, ` + msg.author.username + `!`)
             } else if (roll == 1005) {
                 bot.fishing[msg.author.id].lastFish = new Date();
@@ -71,6 +78,7 @@ module.exports = {
                 bot.fishing[msg.author.id].blowfish += 1;
                 bot.stats[msg.author.id].fishing.blowfish += 1;
                 bot.stats[msg.author.id].fishing.casts += 1;
+                bot.stats[msg.author.id].fishing.net -= 5;
                 msg.channel.send(':blowfish: | You caught a blowfish, ' + msg.author.username + '!')
             } else if (roll == 1006) {
                 bot.fishing[msg.author.id].lastFish = new Date();
@@ -78,6 +86,7 @@ module.exports = {
                 bot.fishing[msg.author.id].squid += 1;
                 bot.stats[msg.author.id].fishing.squid += 1;
                 bot.stats[msg.author.id].fishing.casts += 1;
+                bot.stats[msg.author.id].fishing.net -= 5;
                 msg.channel.send(`:squid: | You caught a squid, ` + msg.author.username + `!`)
             } else if (roll == 1007) {
                 bot.fishing[msg.author.id].lastFish = new Date();
@@ -85,6 +94,7 @@ module.exports = {
                 bot.fishing[msg.author.id].sharks += 1;
                 bot.stats[msg.author.id].fishing.sharks += 1;
                 bot.stats[msg.author.id].fishing.casts += 1;
+                bot.stats[msg.author.id].fishing.net -= 5;
                 msg.channel.send(`:shark: | You caught a shark?! You should get signed for Shark Week, ` + msg.author.username + `!`)
             }
         } else if (new Date() - new Date(bot.fishing[msg.author.id].lastFish) <= 12000) {
