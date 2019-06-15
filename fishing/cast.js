@@ -2,7 +2,7 @@ module.exports = {
     name: 'cast',
     permission: 1,
     main: function (bot, msg) {
-        if (new Date() - new Date(bot.fishing[msg.author.id].lastFish) >= 12000 && bot.bank[msg.author.id].balance >= 5) {
+        if (new Date() - new Date(bot.fishing[msg.author.id].lastFish) >= 12000 && bot.bank[msg.author.id].balance.toFixed(2) >= 5) {
             var roll = Math.floor(Math.random() * 1008); //rolls number 0-1007
 
             if (roll <= 750) {
@@ -99,7 +99,7 @@ module.exports = {
             }
         } else if (new Date() - new Date(bot.fishing[msg.author.id].lastFish) <= 12000) {
             msg.reply("you can only fish every **12** seconds!")
-        } else if (bot.bank[msg.author.id].balance <= 5) {
+        } else if (bot.bank[msg.author.id].balance.toFixed(2) <= 5) {
             var balance = Number(bot.bank[msg.author.id].balance);
             var absbalance = Math.abs(balance);
             msg.reply(`it costs **$5** to cast! Your current balance is **$${absbalance.toFixed(2)}**!`)
