@@ -4,11 +4,13 @@ module.exports = {
   main: function (bot, msg) {
     if (msg.mentions.users.first()) {
       var target = msg.mentions.users.first();
-      var one = Number(bot.stats[target.id].dailies.profit.toFixed(2))
-      var two = Number(bot.stats[target.id].blackjack.net.toFixed(2))
-      var three = Number(bot.stats[target.id].baited.net.toFixed(2))
-      var four = Number(bot.stats[target.id].passive.total.toFixed(2))
-      var five = Number(bot.stats[target.id].fishing.net.toFixed(2))
+      let stats = await bot.stats.get(target.id);
+
+      var one = Number(stats.dailies.profit.toFixed(2))
+      var two = Number(stats.blackjack.net.toFixed(2))
+      var three = Number(stats.baited.net.toFixed(2))
+      var four = Number(stats.passive.total.toFixed(2))
+      var five = Number(stats.fishing.net.toFixed(2))
       var x = Number(one + two + three + four + five)
       msg.channel.send({
         embed: 
@@ -24,23 +26,23 @@ module.exports = {
           fields: [
             {
               name: "Dailies:",
-              value: `Collected: **` + bot.stats[target.id].dailies.collected + `**\nTotal Income: **$` + bot.stats[target.id].dailies.profit.toFixed(2) + `**`
+              value: `Collected: **` + stats.dailies.collected + `**\nTotal Income: **$` + stats.dailies.profit.toFixed(2) + `**`
             },
             {
               name: "Passive Income:",
-              value: `Total Income: **$` + bot.stats[target.id].passive.total.toFixed(2) + `**`
+              value: `Total Income: **$` + stats.passive.total.toFixed(2) + `**`
             },
             {
               name: "Fishing:",
-              value: `Casts: **` + bot.stats[target.id].fishing.casts + `**\nTotal Income: **$` + bot.stats[target.id].fishing.net.toFixed(2) + `**`
+              value: `Casts: **` + stats.fishing.casts + `**\nTotal Income: **$` + stats.fishing.net.toFixed(2) + `**`
             },
             {
               name: "Blackjack:",
-              value: `Games Played: **` + bot.stats[target.id].blackjack.games + `**\nGames Won: **` + bot.stats[target.id].blackjack.won + `**\nGames Lost: **` + bot.stats[target.id].blackjack.lost + `**\nNet Winnings/Losses: **$` + bot.stats[target.id].blackjack.net.toFixed(2) + `**`
+              value: `Games Played: **` + stats.blackjack.games + `**\nGames Won: **` + stats.blackjack.won + `**\nGames Lost: **` + stats.blackjack.lost + `**\nNet Winnings/Losses: **$` + stats.blackjack.net.toFixed(2) + `**`
             },
             {
               name: "Baits:",
-              value: `Attempts: **` + bot.stats[target.id].baited.attempts + `**\nSuccessful Attempts: **` + bot.stats[target.id].baited.won + `**\nFailed Attempts: **` + bot.stats[target.id].baited.lost + `**\nNet Winnings/Losses: **$` + bot.stats[target.id].baited.net.toFixed(2) + `**`
+              value: `Attempts: **` + stats.baited.attempts + `**\nSuccessful Attempts: **` + stats.baited.won + `**\nFailed Attempts: **` + stats.baited.lost + `**\nNet Winnings/Losses: **$` + stats.baited.net.toFixed(2) + `**`
             },
             {
               name: "Total:",
@@ -50,11 +52,14 @@ module.exports = {
         }
       });
     } else if (msg.mentions.users.first() == null) {
-      var one = Number(bot.stats[msg.author.id].dailies.profit.toFixed(2))
-      var two = Number(bot.stats[msg.author.id].blackjack.net.toFixed(2))
-      var three = Number(bot.stats[msg.author.id].baited.net.toFixed(2))
-      var four = Number(bot.stats[msg.author.id].passive.total.toFixed(2))
-      var five = Number(bot.stats[msg.author.id].fishing.net.toFixed(2))
+      let account = await bot.bank.get(msg.author.id);
+      let stats = await bot.stats.get(msg.author.id);
+
+      var one = Number(stats.dailies.profit.toFixed(2))
+      var two = Number(stats.blackjack.net.toFixed(2))
+      var three = Number(stats.baited.net.toFixed(2))
+      var four = Number(stats.passive.total.toFixed(2))
+      var five = Number(stats.fishing.net.toFixed(2))
       var x = Number(one + two + three + four + five)
       msg.channel.send({
         embed: 
@@ -70,23 +75,23 @@ module.exports = {
           fields: [
             {
               name: "Dailies:",
-              value: `Collected: **` + bot.stats[msg.author.id].dailies.collected + `**\nTotal Income: **$` + bot.stats[msg.author.id].dailies.profit.toFixed(2) + `**`
+              value: `Collected: **` + stats.dailies.collected + `**\nTotal Income: **$` + stats.dailies.profit.toFixed(2) + `**`
             },
             {
               name: "Passive Income:",
-              value: `Total Income: **$` + bot.stats[msg.author.id].passive.total.toFixed(2) + `**`
+              value: `Total Income: **$` + stats.passive.total.toFixed(2) + `**`
             },
             {
               name: "Fishing:",
-              value: `Casts: **` + bot.stats[msg.author.id].fishing.casts + `**\nTotal Income: **$` + bot.stats[msg.author.id].fishing.net.toFixed(2) + `**`
+              value: `Casts: **` + stats.fishing.casts + `**\nTotal Income: **$` + stats.fishing.net.toFixed(2) + `**`
             },
             {
               name: "Blackjack:",
-              value: `Games Played: **` + bot.stats[msg.author.id].blackjack.games + `**\nGames Won: **` + bot.stats[msg.author.id].blackjack.won + `**\nGames Lost: **` + bot.stats[msg.author.id].blackjack.lost + `**\nNet Winnings/Losses: **$` + bot.stats[msg.author.id].blackjack.net.toFixed(2) + `**`
+              value: `Games Played: **` + stats.blackjack.games + `**\nGames Won: **` + stats.blackjack.won + `**\nGames Lost: **` + stats.blackjack.lost + `**\nNet Winnings/Losses: **$` + stats.blackjack.net.toFixed(2) + `**`
             },
             {
               name: "Baits:",
-              value: `Attempts: **` + bot.stats[msg.author.id].baited.attempts + `**\nSuccessful Attempts: **` + bot.stats[msg.author.id].baited.won + `**\nFailed Attempts: **` + bot.stats[msg.author.id].baited.lost + `**\nNet Winnings/Losses: **$` + bot.stats[msg.author.id].baited.net.toFixed(2) + `**`
+              value: `Attempts: **` + stats.baited.attempts + `**\nSuccessful Attempts: **` + stats.baited.won + `**\nFailed Attempts: **` + stats.baited.lost + `**\nNet Winnings/Losses: **$` + stats.baited.net.toFixed(2) + `**`
             },
             {
               name: "Total:",
