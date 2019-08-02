@@ -1,30 +1,24 @@
 module.exports = {
   name: 'lb',
   permission: 1,
-  main: function (bot, msg) {
-    var Discord = require('discord.js'), bank = [];
-    for (var val in bot.bank) {
-      bot.bank[val].userID = val;
-      bank.push(bot.bank[val])
-    }
-    bank.sort((a, b) => parseFloat(b.items.pancakes) - parseFloat(a.items.pancakes));
+  main: async function (bot, msg) {
+    var Discord = require('discord.js');
+    let topEighteen = await bot.bank
+      .orderBy(bot.r.desc(bot.r.row('items')('pancakes')))
+      .limit(18);
 
     var lb = new Discord.RichEmbed()
       .setColor(msg.guild.me.displayHexColor)
       .setTitle('🥞 Pancakes Leaderboard 🥞')
       .setFooter("© JL's Diner 2019", msg.guild.iconURL);
 
-    for (var i = 0; i < 12; i++) {
-    var bankee = bot.users.get(bank[i].userID)
-
-      if (bankee == null) {
-        bankee = 'User Left Server'
-      } else {
-        bankee = bot.users.get(bank[i].userID).username
-      }
-
-      lb.addField(`${i + 1}: ${bankee}`, bank[i].items.pancakes, true);
-    }
+    let i = 1;
+    topEighteen.forEach(user => {
+      lb.addField(`${i}: ${bot.users.get(user.id)
+        ? bot.users.get(user.id).username
+        : "User Left Server"}`, user.items ? user.items.pancakes : 0, true);
+      i++;
+    });
 
     msg.channel.send({ embed: lb });
   }

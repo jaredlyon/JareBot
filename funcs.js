@@ -1,10 +1,13 @@
 const fs = require("fs");
 var channel = null,
 	stdin = process.openStdin();
+var config = require("./config.json");
 
 module.exports = (bot) => {
-	
-	//Core message processing functions
+	/**
+	 * Core message processing functions
+	 */
+
 	bot.permLevel = function (msg) {
 		if (msg.author.id == bot.config.owner)
 			return 2;
@@ -29,7 +32,7 @@ module.exports = (bot) => {
 				else {
 					bot.logCommand(command, msg.content, msg.author.username, msg.channel.name, msg.guild.name)
 					try {
-						cmd.main(bot, msg)
+						cmd.main(bot, msg);
 					} catch (err) {
 						msg.channel.send("Oh no! We encountered an error:\n```" + err.stack + "```")
 					}
@@ -41,7 +44,42 @@ module.exports = (bot) => {
 		}
 	}
 
-	//core bot functions
+	/**
+	 * Core bot functions
+	 */
+
+	bot.startDatabase = async function () {
+		bot.r = require("rethinkdbdash")({
+			port: 28015,
+			host: config.rethink.ip,
+			user: config.rethink.username,
+			password: config.rethink.password,
+			silent: false
+		});
+		bot.log("Successfully established database connection.");
+		await bot.syncDatabase();
+	}
+
+	bot.syncDatabase = async function () {
+		try {
+			bot.r.dbCreate("jarebot");
+		} catch (err) { }
+
+		bot.bank = bot.r.db("jarebot").table("bank");
+		bot.log("[BANK] Successfully connected to bank database!");
+
+		bot.fishing = bot.r.db("jarebot").table("fishing");
+		bot.log("[FISHING] Successfully connected to fishing database!");
+
+		bot.afk = bot.r.db("jarebot").table("afk");
+		if (!bot.afk) {
+			console.debug("Created AFK database.");
+			bot.afk = [];
+		} else {
+			console.debug("AFK Users Synchronized.");
+		}
+	}
+
 	bot.awaitConsoleInput = function () {
 		stdin.addListener("data", function (d) {
 			d = d.toString().trim()
@@ -71,147 +109,12 @@ module.exports = (bot) => {
 		});
 	}
 
-	//bank init and upkeep
-	bot.setupBank = function () {
-		bot.bank = require('./bank.json');
+	/**
+	 * Logging functions
+	 */
 
-		bot.users.forEach(user => {
-			if (!bot.bank[user.id] && !user.bot) {
-				bot.bank[user.id] = {
-					balance: 0,
-					lastDaily: null,
-					lastMessage: null,
-					streak: 0,
-					items: {
-						pancakes: 0,
-						waffles: 0
-					}
-				}
-			}
-		})
-
-		writeBank();
-
-		setInterval(function () {
-			writeBank();
-		}, 10000);
-
-		function writeBank() {
-			var bankJson = fs.readFileSync("./bank.json"),
-				bankParsed = JSON.parse(bankJson)
-			if (JSON.stringify(bankParsed) == JSON.stringify(bot.bank)) return; // Only writes if there's a difference
-
-			fs.writeFileSync("./bank.json", JSON.stringify(bot.bank, null, 3));
-			console.log("[BANK] | Bank successfully saved to file!")
-			return "Bank successfully saved to file!";
-		}
-	}
-
-	//fishing
-	bot.setupFishing = function () {
-		bot.fishing = require('./fishing.json');
-
-		bot.users.forEach(user => {
-			if (!bot.fishing[user.id] && !user.bot) {
-				bot.fishing[user.id] = {
-					lastFish: null, //date
-					trash: 0, //:volleyball:, :floppy_disk:, :paperclip:, :french_bread:
-					fish1: 0, //:fish:
-					fish2: 0, //:tropical_fish:
-					crabs: 0, //:crab:
-					crocodiles: 0, //:crocodile:
-					whales: 0, //:whale2:
-					dolphins: 0, //:dolphin:
-					blowfish: 0, //:blowfish:
-					squid: 0, //:squid:
-					sharks: 0 //:shark:
-				}
-			}
-		})
-
-		writeFishing();
-
-		setInterval(function () {
-			writeFishing();
-		}, 20000);
-
-		function writeFishing() {
-			var fishingJson = fs.readFileSync("./fishing.json"),
-				fishingParsed = JSON.parse(fishingJson)
-			if (JSON.stringify(fishingParsed) == JSON.stringify(bot.fishing)) return; // Only writes if there's a difference
-
-			fs.writeFileSync("./fishing.json", JSON.stringify(bot.fishing, null, 3));
-			console.log("[FISHING] | Fishing Inventories successfully saved to file!")
-			return "Fishing Inventories successfully saved to file!";
-		}
-	}
-
-	//afk
-	
-	//stats
-	bot.setupStats = function () {
-		bot.stats = require('./stats.json');
-
-		bot.users.forEach(user => {
-			if (!bot.stats[user.id] && !user.bot) {
-				bot.stats[user.id] = {
-					dailies: {
-						collected: 0,
-						profit: 0
-					},
-					passive: {
-						total: 0,
-					},
-					blackjack: {
-						games: 0,
-						won: 0,
-						lost: 0,
-						net: 0
-					},
-					baited: {
-						attempts: 0,
-						won: 0,
-						lost: 0,
-						net: 0
-					},
-					fishing: {
-						casts: 0,
-						trash: 0, //*5
-						fish1: 0, //*12
-						fish2: 0, //*15
-						crabs: 0, //*50
-						crocodiles: 0, //*50
-						whales: 0, //*75
-						dolphins: 0, //*75
-						blowfish: 0, //*50
-						squid: 0, //*100
-						sharks: 0, //*100
-						net: 0
-					}
-				}
-			}
-		})
-
-		writeStats();
-
-		setInterval(function () {
-			writeStats();
-		}, 15000);
-
-		function writeStats() {
-			var statsJson = fs.readFileSync("./stats.json"),
-				statsParsed = JSON.parse(statsJson)
-			if (JSON.stringify(statsParsed) == JSON.stringify(bot.stats)) return; // Only writes if there's a difference
-
-			fs.writeFileSync("./stats.json", JSON.stringify(bot.stats, null, 3));
-			console.log("[STATS] | Statistics successfully saved to file!")
-			return "Statistics successfully saved to file!";
-		}
-	}
-
-	//logging functions
 	bot.logCommand = function (command, arguments, user, channel, server) {
-		bot.log(`\n**Command Executed:** ${command}\n**User:** ${user}\n**Arguments:** ${arguments}\n**Server:** ${server}\n**Channel:**# ${channel}`)
+		bot.log(`Command Executed: ${command} | User: ${user} | Arguments: ${arguments} | Server: ${server} | Channel: #${channel}`)
 	}
 
 	bot.error = function (err) {

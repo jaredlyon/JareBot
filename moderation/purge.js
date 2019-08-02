@@ -2,7 +2,6 @@ module.exports = {
 	name: 'purge',
 	permission: 2,
 	main: function(bot, msg) {
-		const yup = bot.emojis.find("name", "yup");
 		if (msg.member.hasPermission('MANAGE_MESSAGES') || msg.author.id === require("../config.json").owner) {
 			var num = msg.content;
 			if (!isNaN(num)) {
@@ -10,10 +9,10 @@ module.exports = {
 					.then(messages => msg.channel.bulkDelete(messages))
 					.catch(msg.channel.bulkDelete);
 
-				msg.channel.send(yup + " | Purged " + num + " messages!\nhttps://i.imgur.com/SSiOqrl.gif")
-
+				msg.channel.sendMessage("Purged " + num + " messages!")
+				.then(msg => setTimeout(function() {msg.delete()}, 5000));
 			} else {
-				msg.channel.send("Please specify a number!");
+				msg.channel.sendMessage("Please specify a number!");
 			}
 		}
 	}

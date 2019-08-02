@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'eval',
 	permission: 2,
-	main: function(bot, msg) {
+	main: function (bot, msg) {
 		var Discord = require('discord.js');
 		const util = require('util');
 
@@ -38,13 +38,13 @@ module.exports = {
 				.addField('Code', "```js\n" + clean(code) + "```")
 				.addField('Error', "```LDIF\n" + clean(err.message) + "```");
 			msg.channel.send({
-					embed: embed
-				})
+				embed: embed
+			})
 				.catch(error => console.log(error.stack));
 		}
 
 		function clean(text) {
-			if (typeof(text) === "string") {
+			if (typeof (text) === "string") {
 				return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
 			} else {
 				return text;

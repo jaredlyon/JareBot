@@ -6,7 +6,6 @@ const readdir = require("fs").readdir;
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
-//load directories
 readdir('./misc modules/', (err, files) => {
 	bot.log(`Loading ${files.length} miscellaneous modules!`);
 	files.forEach(f => {
@@ -121,37 +120,21 @@ readdir('./events/', (err, files) => {
 	bot.log(`Events loaded!`);
 });
 
-//var NOTIFY_HAYL;
-//bot.on('ready', () => {
-//    NOTIFY_HAYL = bot.channels.find('id', '399746390793650177'); // Channel to send notification
-//});
-
-//const TARGET_HOUR_H = 20; 
-//const TARGET_MINUTE_H = 30; 
-
-//setInterval(function() {
-//    var d2 = new Date();
-//    if(d2.getMinutes() !== TARGET_MINUTE_H || d2.getHours() !== TARGET_HOUR_H) return; // Return if current minute is not the notify minute
-//    NOTIFY_HAYL.send("Tell Hayl that you love her! <@133350262420013056>")
-//}, 60 * 1000); // Check every minute
-
-//daily restart
 var restart;
 bot.on('ready', () => {
-    restart = bot.channels.find('id', '399746390793650177'); // Channel to send notification
+	restart = bot.channels.get('399746390793650177'); // Channel to send notification
 });
 
 const TARGET_HOUR_R = 4;
-const TARGET_MINUTE_R = 21; 
+const TARGET_MINUTE_R = 21;
 
-setInterval(function() {
-    var d2 = new Date();
-	if(d2.getMinutes() !== TARGET_MINUTE_R || d2.getHours() !== TARGET_HOUR_R) return; // Return if current minute is not the notify minute
-	setTimeout(function() {
+setInterval(function () {
+	var d2 = new Date();
+	if (d2.getMinutes() !== TARGET_MINUTE_R || d2.getHours() !== TARGET_HOUR_R) return; // Return if current minute is not the notify minute
+	setTimeout(function () {
 		process.exit();
 	}, 1000);
 	restart.send("[AUTO RESTART] | JareBot successfully restarted!")
 }, 60 * 1000); // Check every minute
 
-//final log-on
 bot.login(require("./config.json").token);

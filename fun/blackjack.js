@@ -57,7 +57,9 @@ module.exports = {
 
       //async loop (exit needed?)
       async main(bot, msg) {
-      //variables
+        let account = await bot.bank.get(msg.author.id);
+        let stats = await bot.stats.get(msg.author.id);
+        //card variables
         var bet;
         var cards = [
           "A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K",
@@ -72,25 +74,25 @@ module.exports = {
         //initial bet
         if (msg.args[0] && !isNaN(msg.args[0])) {
           bet = Number(msg.args[0]);
-          if (bot.bank[msg.author.id].balance.toFixed(2) < bet) {
+          if (account.balance.toFixed(2) < bet) {
             msg.channel.send("You frickin' foolian juulian, you don't have enough money to cover your bet!")
             return;
           } else if (bet < 0.01) {
             msg.channel.send("You frickin' foolian juulian, you can't bet that amount!")
             return;
           } else {
-            bot.bank[msg.author.id].balance -= bet
+            account.balance -= bet
           }
         } else {
           bet = 10;
-          if (bot.bank[msg.author.id].balance.toFixed(2) < bet) {
+          if (account.balance.toFixed(2) < bet) {
             msg.channel.send("You frickin' foolian juulian, you don't have enough money to cover your bet!")
             return;
           } else if (bet < 0.01) {
             msg.channel.send("You frickin' foolian juulian, you can't bet that amount!")
             return;
           } else {
-            bot.bank[msg.author.id].balance -= bet
+            account.balance -= bet
           }
         }
   
@@ -154,10 +156,10 @@ module.exports = {
                 }
               });
               //give money
-              bot.stats[msg.author.id].blackjack.games += 1
-              bot.stats[msg.author.id].blackjack.won += 1
-              bot.stats[msg.author.id].blackjack.net += bet
-              bot.bank[msg.author.id].balance += bet*2;
+              stats.blackjack.games += 1
+              stats.blackjack.won += 1
+              stats.blackjack.net += bet
+              account.balance += bet*2;
 
               } else {
               //dealer win
@@ -181,9 +183,9 @@ module.exports = {
                 }
               });
               //stats update
-              bot.stats[msg.author.id].blackjack.games += 1
-              bot.stats[msg.author.id].blackjack.lost += 1
-              bot.stats[msg.author.id].blackjack.net -= bet
+              stats.blackjack.games += 1
+              stats.blackjack.lost += 1
+              stats.blackjack.net -= bet
             }
             timeout = false;
             collector.stop();
@@ -212,9 +214,9 @@ module.exports = {
                 }
               });
               //stats update
-              bot.stats[msg.author.id].blackjack.games += 1
-              bot.stats[msg.author.id].blackjack.lost += 1
-              bot.stats[msg.author.id].blackjack.net -= bet
+              stats.blackjack.games += 1
+              stats.blackjack.lost += 1
+              stats.blackjack.net -= bet
 
               timeout = false;
               collector.stop();
@@ -262,7 +264,7 @@ module.exports = {
               }
             });
             //return bet
-            bot.bank[msg.author.id].balance += bet;
+            account.balance += bet;
           }
         });
       }

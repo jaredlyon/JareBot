@@ -1,0 +1,17 @@
+{
+    "token": "bot-token",
+    "prefix": "j!",
+    "owner": "owner-id",
+    "logChannel": "join-leave-channel-id",
+    "messageDeleteLog": "message-delete-channel-id",
+    "opts": {
+        "mentionEveryone": false,
+        "fetchAllMembers": true,
+        "sync": true
+    },
+    "rethink": {
+        "ip": "rethinkdb-ip-address",
+        "username": "",
+        "password": ""
+    }
+}

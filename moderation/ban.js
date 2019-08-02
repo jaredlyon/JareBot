@@ -3,7 +3,7 @@ var Discord = require('discord.js');
 module.exports = {
     name: 'ban',
     permission: 2,
-    main: function(bot, msg) {
+    main: function (bot, msg) {
         var channel = msg.guild.channels.get("399740385221672974");
         var log = msg.guild.channels.get("399743950568685571");
         var banee = msg.mentions.users.array()[0];
@@ -24,7 +24,7 @@ module.exports = {
             msg.mentions.members.forEach(member => {
                 member.ban(0).then(member => {
                     msg.reply(member + " has been banned!")
-                    
+
                     channel.send({
                         embed: ban
                     })
