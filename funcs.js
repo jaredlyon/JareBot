@@ -68,7 +68,7 @@ module.exports = (bot) => {
 		bot.bank = bot.r.db("jarebot").table("bank");
 		bot.log("[BANK] Successfully connected to bank database!");
 
-		bot.bank = bot.r.db("jarebot").table("stats");
+		bot.stats = bot.r.db("jarebot").table("stats");
 		bot.log("[STATISTICS] Successfully connected to statistics database!");
 
 		bot.fishing = bot.r.db("jarebot").table("fishing");
