@@ -1,7 +1,7 @@
 module.exports = {
     name: 'sell',
     permission: 1,
-    main: function (bot, msg) {
+    main: async function (bot, msg) {
         var x = msg.content.split(' ').splice(0)[0];
 
         let account = await bot.bank.get(msg.author.id);

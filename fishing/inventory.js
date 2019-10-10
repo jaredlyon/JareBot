@@ -1,7 +1,7 @@
 module.exports = {
     name: 'inventory',
     permission: 1,
-    main: function (bot, msg) {
+    main: async function (bot, msg) {
       if (msg.mentions.users.first()) {
         var target = msg.mentions.users.first();
 

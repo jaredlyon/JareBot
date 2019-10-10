@@ -1,6 +1,6 @@
 module.exports = {
     name: "baited",
-    permission: 1,
+    permissiom: 1,
     main: async function (bot, msg) {
         var bait = Math.floor((Math.random() * 3));
         let account = await bot.bank.get(msg.author.id);

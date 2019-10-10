@@ -1,7 +1,7 @@
 module.exports = {
     name: 'cast',
     permission: 1,
-    main: function (bot, msg) {
+    main: async function (bot, msg) {
         let account = await bot.bank.get(msg.author.id);
         let stats = await bot.stats.get(msg.author.id);
         let fishing = await bot.fishing.get(msg.author.id);

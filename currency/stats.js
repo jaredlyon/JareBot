@@ -1,7 +1,7 @@
 module.exports = {
   name: 'stats',
   permission: 1,
-  main: function (bot, msg) {
+  main: async function (bot, msg) {
     if (msg.mentions.users.first()) {
       var target = msg.mentions.users.first();
       let stats = await bot.stats.get(target.id);
