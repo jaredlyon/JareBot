@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'daily',
+  name: 'dailies',
   permission: 1,
   main: async function (bot, msg) {
     const yup = bot.emojis.find(emoji => emoji.name == "yup");
@@ -41,6 +41,7 @@ module.exports = {
     }
 
     await bot.bank.update(account);
+    await bot.stats.update(stats);
 
     function convert(d1, d2) {
       // console.log(d1);

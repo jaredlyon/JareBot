@@ -41,6 +41,7 @@ module.exports = {
     }
 
     await bot.bank.update(account);
+    await bot.stats.update(stats);
 
     function convert(d1, d2) {
       // console.log(d1);
