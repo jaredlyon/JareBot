@@ -4,8 +4,9 @@ module.exports = {
   main: async function (bot, msg) {
     const yup = bot.emojis.find(emoji => emoji.name == "yup");
     const nope = bot.emojis.find(emoji => emoji.name == "nope");
-    let account = await bot.bank.get(msg.author.id);
-    let stats = await bot.stats.get(msg.author.id);
+    let account = (await bot.bank.get(msg.author.id)) || {};
+    let stats = (await bot.stats.get(msg.author.id)) || {};
+    if (!stats.dailies) stats.dailies = {};
 
     if (!account.lastDaily) {
       stats.dailies.collected += 1;
