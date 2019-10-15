@@ -14,90 +14,100 @@ module.exports = {
             fishing.trash = 0;
             account.balance += 3*y;
             stats.fishing.net += 3*y;
-            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** trash for **$` + 3*y + `**!`)
             await bot.fishing.update(fishing);
             await bot.stats.update(stats);
+            await bot.bank.update(account);
+            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** trash for **$` + 3*y + `**!`)
         } else if (x != null && x == 'common') {
             var y = fishing.fish1;
 
             fishing.fish1 = 0;
             account.balance += 8*y;
             stats.fishing.net += 8*y;
-            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** common fish for **$` + 8*y + `**!`)
             await bot.fishing.update(fishing);
             await bot.stats.update(stats);
+            await bot.bank.update(account);
+            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** common fish for **$` + 8*y + `**!`)
         } else if (x != null && x == 'rare') {
             var y = fishing.fish2;
 
             fishing.fish2 = 0;
             account.balance += 15*y;
             stats.fishing.net += 15*y;
-            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** rare fish for **$` + 15*y + `**!`)
             await bot.fishing.update(fishing);
             await bot.stats.update(stats);
+            await bot.bank.update(account);
+            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** rare fish for **$` + 15*y + `**!`)
         } else if (x != null && x == 'crabs') {
             var y = fishing.crabs;
 
             fishing.crabs = 0;
             account.balance += 50*y;
             stats.fishing.net += 50*y;
-            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** crabs for **$` + 50*y + `**!`)
             await bot.fishing.update(fishing);
             await bot.stats.update(stats);
+            await bot.bank.update(account);
+            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** crabs for **$` + 50*y + `**!`)
         } else if (x != null && x == 'crocodiles') {
             var y = fishing.crocodiles;
 
             fishing.crocodiles = 0;
             account.balance += 50*y;
             stats.fishing.net += 50*y;
-            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** crocodiles for **$` + 50*y + `**!`)
             await bot.fishing.update(fishing);
             await bot.stats.update(stats);
+            await bot.bank.update(account);
+            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** crocodiles for **$` + 50*y + `**!`)
         } else if (x != null && x == 'whales') {
             var y = fishing.whales;
 
             fishing.whales = 0;
             account.balance += 75*y;
             stats.fishing.net += 75*y;
-            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** whales for **$` + 75*y + `**!`)
             await bot.fishing.update(fishing);
             await bot.stats.update(stats);
+            await bot.bank.update(account);
+            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** whales for **$` + 75*y + `**!`)
         } else if (x != null && x == 'dolphins') {
             var y = fishing.dolphins;
 
             fishing.dolphins = 0;
             account.balance += 75*y;
             stats.fishing.net += 75*y;
-            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** dolphins for **$` + 75*y + `**!`)
             await bot.fishing.update(fishing);
             await bot.stats.update(stats);
+            await bot.bank.update(account);
+            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** dolphins for **$` + 75*y + `**!`)
         } else if (x != null && x == 'blowfish') {
             var y = fishing.blowfish;
 
             fishing.blowfish = 0;
             account.balance += 50*y;
             stats.fishing.net += 50*y;
-            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** blowfish for **$` + 50*y + `**!`)
             await bot.fishing.update(fishing);
             await bot.stats.update(stats);
+            await bot.bank.update(account);
+            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** blowfish for **$` + 50*y + `**!`)
         } else if (x != null && x == 'squid') {
             var y = fishing.squid;
 
             fishing.squid = 0;
             account.balance += 100*y;
             stats.fishing.net += 100*y;
-            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** squid for **$` + 100*y + `**!`)
             await bot.fishing.update(fishing);
             await bot.stats.update(stats);
+            await bot.bank.update(account);
+            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** squid for **$` + 100*y + `**!`)
         } else if (x != null && x == 'sharks') {
             var y = fishing.sharks;
 
             fishing.sharks = 0;
             account.balance += 100*y;
             stats.fishing.net += 100*y;
-            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** sharks for **$` + 100*y + `**!`)
             await bot.fishing.update(fishing);
             await bot.stats.update(stats);
+            await bot.bank.update(account);
+            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** sharks for **$` + 100*y + `**!`)
         } else if (x != null && x == 'all') {
             var a = fishing.trash
             var b = fishing.fish1
@@ -127,9 +137,10 @@ module.exports = {
             fishing.squid = 0;
             fishing.sharks = 0;
 
-            msg.channel.send(`:moneybag: | You sold your entire inventory for **$` + z + `**!`)
             await bot.fishing.update(fishing);
             await bot.stats.update(stats);
+            await bot.bank.update(account);
+            msg.channel.send(`:moneybag: | You sold your entire inventory for **$` + z + `**!`)
         } else {
             msg.reply('something went wrong! Be sure to specify if which part of your inventory you intend to sell: **trash**, **common**, **rare**, **crabs**, **crocodiles**, **whales**, **dolphins**, **blowfish**, **squid**, **sharks**, **all**.')
         }

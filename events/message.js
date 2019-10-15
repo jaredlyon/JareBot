@@ -40,16 +40,21 @@ exports.run = async (bot, msg) => {
 
 	//bank writes
 	let account = (await bot.bank.get(msg.author.id)) || {};
+	let stats = (await bot.stats.get(msg.author.id)) || {};
 	if (!account.balance && msg.channel.id != '399746060404260864') {
 		account.id = msg.author.id;
 		account.balance = 2.54;
+		stats.passive.total += 2.54;
 		account.lastMessage = new Date();
 		await bot.bank.insert(account);
+		await bot.stats.insert(stats);
 	} else {
 		if (new Date() - new Date(account.lastMessage) >= 60000 && msg.channel.id != '399746060404260864') {
 			account.balance += 2.54;
+			stats.passive.total += 2.54;
 			account.lastMessage = new Date();
 			await bot.bank.update(account);
+			await bot.stats.update(stats);
 		}
 	}
 }

@@ -23,7 +23,7 @@ module.exports = {
           { color: 0x4e86f7,
             footer: {
               icon_url: msg.guild.iconURL,
-              text: "since 5/26/2019" 
+              text: "since 10/15/2019" 
             },
             author: {
               name: "Fishing Inventory for " + target.username,
@@ -60,7 +60,7 @@ module.exports = {
           { color: 0x4e86f7,
             footer: {
               icon_url: msg.guild.iconURL,
-              text: "since 5/26/2019" 
+              text: "since 10/15/2019" 
             },
             author: {
               name: "Fishing Inventory for " + msg.author.username,
