@@ -136,7 +136,7 @@ module.exports = {
       });
 
       //on stand & dealer bust
-      collector.on("collect", messageReaction => {
+      collector.on("collect", async messageReaction => {
         if (messageReaction.emoji.name === "✋") {
           if (this.calculateWinner(player_hand, cpu_hand, cards)) {
             blackjackMessage.edit({
@@ -256,7 +256,7 @@ module.exports = {
           .first();
         messageReaction.remove(me);
       });
-      collector.on("end", collected => {
+      collector.on("end", async collected => {
         if (timeout) {
           blackjackMessage.edit({
             embed: {
