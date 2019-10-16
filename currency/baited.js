@@ -24,7 +24,7 @@ module.exports = {
             account.balance = 0;
             await bot.bank.update(account);
             await bot.stats.update(stats);
-            msg.channel.send('🎰 | ' + msg.author.username + `, you got jebaited and lost **$` + amt + `**! You don't have any monies anymore...`);
+            msg.channel.send('🎰 | ' + msg.author.username + `, you got jebaited and lost **$` + amt.toFixed(2) + `**! You don't have any monies anymore...`);
         } else {
             msg.channel.send("Uh oh, something went wrong...")
         }
