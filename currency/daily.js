@@ -21,8 +21,10 @@ module.exports = {
       account.balance += 2.54 * account.streak;
       stats.dailies.collected += 1;
       stats.dailies.profit += 25.4;
-      stats.dailies.profit += 2.54 * bot.bank[msg.author.id].streak;
+      stats.dailies.profit += 2.54 * account.streak;
       account.lastDaily = new Date();
+      await bot.bank.update(account);
+      await bot.stats.update(stats);
       msg.channel.send(yup + " | You have recieved your daily allowance of **$25.40**! You've also been given a bonus of **$" + (2.54 * account.streak).toFixed(2) + "** due to your **" + account.streak + "** day streak, " + msg.author.username + "!")
     } else if (new Date() - new Date(account.lastDaily) >= 86400000 && new Date() - new Date(account.lastDaily) >= 172800000 && account.streak >= 0) {
       account.streak = 0;
