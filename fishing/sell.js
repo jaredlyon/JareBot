@@ -32,8 +32,8 @@ module.exports = {
             var y = fishing.fish2;
 
             fishing.fish2 = 0;
-            account.balance += 15*y;
-            stats.fishing.net += 15*y;
+            account.balance += 12*y;
+            stats.fishing.net += 12*y;
             await bot.fishing.update(fishing);
             await bot.stats.update(stats);
             await bot.bank.update(account);
@@ -120,10 +120,10 @@ module.exports = {
             var i = fishing.squid
             var j = fishing.sharks
 
-            var z = a*3 + b*8 + c*15 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100;
+            var z = a*3 + b*8 + c*12 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100;
             account.balance += z;
 
-            var u = a*3 + b*8 + c*15 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100;
+            var u = a*3 + b*8 + c*12 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100;
             stats.fishing.net += u;
 
             fishing.trash = 0;

@@ -9,7 +9,7 @@ module.exports = {
         if (new Date() - new Date(fishing.lastFish) >= 12000 && account.balance.toFixed(2) >= 5) {
             var roll = Math.floor(Math.random() * 1008); //rolls number 0-1007
 
-            if (roll <= 750) {
+            if (roll <= 500) {
                 var trashRoll = Math.floor(Math.random() * 4); //rolls number 0-3
                 if (trashRoll == 0) {
                     var trashEmoji = ':volleyball:'
@@ -31,7 +31,7 @@ module.exports = {
                 await bot.stats.update(stats);
                 await bot.bank.update(account);
                 msg.channel.send(trashEmoji + ' | You only caught some trash, ' + msg.author.username + '...')
-            } else if (roll > 750 && roll <= 900) {
+            } else if (roll > 500 && roll <= 900) {
                 fishing.lastFish = new Date();
                 account.balance -= 5;
                 fishing.fish1 += 1;
