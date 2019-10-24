@@ -22,7 +22,7 @@ Make a copy of `config-example.json` named `config.json` and fill in the needed 
 - Rewrote majority of the help blurbs and added the fishing section
 - Fixed issue where blackjack would keep the bet after a session timeout
 
-**5.3.5**
+**5.4.0/5.3.5**
 - Added j!give to help module
 - Updated the j!listroles footer
 - Added currency statistics module & added inserts to all associated commands
