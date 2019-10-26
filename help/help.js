@@ -25,7 +25,7 @@ module.exports = {
           ],
           footer: {
             icon_url: msg.guild.iconURL,
-            text: "© JL's Diner™ 2019"
+            text: msg.guild.name
           }
         }
       });
@@ -55,7 +55,7 @@ module.exports = {
           ],
           footer: {
             icon_url: msg.guild.iconURL,
-            text: "© JL's Diner™ 2019"
+            text: msg.guild.name
           }
         }
       });
@@ -68,7 +68,7 @@ module.exports = {
             name: "Currency",
             icon_url: bot.user.avatarURL
           },
-          description: "*Monkeys, Machinations, & Monies:",
+          description: "*Monkeys, Machinations, & Monies:*",
           fields: [
             {
               name: "j!statistics/j!stats [@user]",
@@ -89,7 +89,7 @@ module.exports = {
           ],
           footer: {
             icon_url: msg.guild.iconURL,
-            text: "© JL's Diner™ 2019"
+            text: msg.guild.name
           }
         }
       });
@@ -123,7 +123,7 @@ module.exports = {
           ],
           footer: {
             icon_url: msg.guild.iconURL,
-            text: "© JL's Diner™ 2019"
+            text: msg.guild.name
           }
         }
       });
@@ -153,7 +153,7 @@ module.exports = {
           ],
           footer: {
             icon_url: msg.guild.iconURL,
-            text: "© JL's Diner™ 2019"
+            text: msg.guild.name
           }
         }
       });
@@ -207,7 +207,7 @@ module.exports = {
           ],
           footer: {
             icon_url: msg.guild.iconURL,
-            text: "© JL's Diner™ 2019"
+            text: msg.guild.name
           }
         }
       });
@@ -245,7 +245,7 @@ module.exports = {
           ],
           footer: {
             icon_url: msg.guild.iconURL,
-            text: "© JL's Diner™ 2019"
+            text: msg.guild.name
           }
         }
       });
@@ -258,7 +258,7 @@ module.exports = {
               name: "Here's some help with me, your friendly neighborhood JareBot!",
               icon_url: bot.user.avatarURL
             },
-            title: "I got hella commands, hella functions, and not-so-hella friends...",
+            title: "*I got hella commands, hella functions, and not-so-hella friends...*",
             description: "*Please love me.*",
             fields: [
               {
@@ -292,7 +292,7 @@ module.exports = {
             ],
             footer: {
               icon_url: msg.guild.iconURL,
-              text: "© JL's Diner™ 2019"
+              text: msg.guild.name
             }
           }
         });
