@@ -9,7 +9,6 @@ module.exports = {
         if (sleepee != null) {
             msg.channel.send(arr1[Math.floor(Math.random() * arr1.length)], {
                 file: arr2[Math.floor(Math.random() * arr2.length)]});
-        
         } else {
             msg.channel.send("You best be finding yourself a comfy spot in bed.", {
                 file: arr2[Math.floor(Math.random() * arr2.length)]});
