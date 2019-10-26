@@ -4,8 +4,8 @@ module.exports = {
     name: 'ban',
     permission: 2,
     main: function (bot, msg) {
-        var channel = msg.guild.channels.get("399740385221672974");
-        var log = msg.guild.channels.get("399743950568685571");
+        var channel = msg.guild.channels.get(bot.config.generalChannel);
+        var log = msg.guild.channels.get(bot.config.logChannel);
         var banee = msg.mentions.users.array()[0];
         var user = bot.users.get(banee.id);
         var reason = msg.content.split(' ').splice(1).join(' ');

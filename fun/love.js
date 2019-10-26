@@ -7,8 +7,7 @@ module.exports = {
         var arr2 = [`I love you! Things may seem sad and lonely now, but they certainly will lighten up soon!`, `hang in there! I, as well as so many others, believe in you! You gotta keep going for as long as you can, because quitting now means you quit forever.\n*"If you're walking down the right path and you're willing to keep walking, eventually you'll make progress."* -Barack Obama`]
 
         if (lovee != null) {
-            msg.channel.send(arr1[Math.floor(Math.random() * arr1.length)])
-        
+            msg.channel.send(arr1[Math.floor(Math.random() * arr1.length)]) 
         } else {
             msg.reply(arr2[Math.floor(Math.random() * arr2.length)])
         }

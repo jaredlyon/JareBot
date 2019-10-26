@@ -16,7 +16,6 @@ module.exports = {
     } else {
       msg.reply('something went wrong! Please make sure you have a balance and have at least $17 in your name!')
     }
-
     await bot.bank.update(account);
   }
 };

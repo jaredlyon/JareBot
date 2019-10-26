@@ -9,7 +9,6 @@ module.exports = {
 
         if (lovee != null) {
             msg.channel.send(cathug + " | " + msg.author.username + " hugs " + lovee.username + "!\n" + arr1[Math.floor(Math.random() * arr1.length)])
-
         } else {
             msg.channel.send(cathug + ` | Awww, I see you're in need of a hug~\n` + arr1[Math.floor(Math.random() * arr1.length)])
         }

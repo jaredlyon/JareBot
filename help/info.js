@@ -7,7 +7,7 @@ module.exports = {
           { color: 3447003,
             footer: {
               icon_url: msg.guild.iconURL,
-              text: "© Jared Lyon 2019" 
+              text: msg.guild.name 
             },
             author: {
               name: "Bot Information",

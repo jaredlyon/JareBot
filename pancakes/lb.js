@@ -10,7 +10,7 @@ module.exports = {
     var lb = new Discord.RichEmbed()
       .setColor(msg.guild.me.displayHexColor)
       .setTitle('🥞 Pancakes Leaderboard 🥞')
-      .setFooter("© JL's Diner 2019", msg.guild.iconURL);
+      .setFooter(mag.guild.name, msg.guild.iconURL);
 
     let i = 1;
     topEighteen.forEach(user => {
