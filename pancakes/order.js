@@ -31,7 +31,6 @@ module.exports = {
         return;
       }
     }
-
     await bot.bank.update(account);
   }
 }
