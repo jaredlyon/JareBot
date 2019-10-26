@@ -13,6 +13,8 @@ module.exports = {
       stats.dailies.profit += 25.4;
       account.balance += 25.4;
       account.lastDaily = new Date();
+      await bot.bank.update(account);
+      await bot.stats.update(stats);
       msg.channel.send(yup + " | You have recieved your daily allowance of **$25.40**, " + msg.author.username + "!")
     } else if (new Date() - new Date(account.lastDaily) >= 86400000 && new Date() - new Date(account.lastDaily) <= 172800000) {
       account.streak += 1;
@@ -32,19 +34,20 @@ module.exports = {
       stats.dailies.collected += 1;
       stats.dailies.profit += 25.4;
       account.lastDaily = new Date();
+      await bot.bank.update(account);
+      await bot.stats.update(stats);
       msg.channel.send(yup + " | You have recieved your daily allowance of **$25.40**, but you unfortunately have lost your streak, " + msg.author.username + "!")
     } else if (new Date() - new Date(account.lastDaily) >= 86400000 && new Date() - new Date(account.lastDaily) >= 172800000 && account.streak == 0) {
       account.balance += 25.4;
       stats.dailies.collected += 1;
       stats.dailies.profit += 25.4;
       account.lastDaily = new Date();
+      await bot.bank.update(account);
+      await bot.stats.update(stats);
       msg.channel.send(yup + " | You have recieved your daily allowance of **$25.40**, " + msg.author.username + "!")
     } else {
       msg.channel.send(nope + ` | Not so fast! You still have to wait **${convert(new Date(), new Date(account.lastDaily))}** to claim your daily allowance, ` + msg.author.username + `!`)
     }
-
-    await bot.bank.update(account);
-    await bot.stats.update(stats);
 
     function convert(d1, d2) {
       // console.log(d1);
