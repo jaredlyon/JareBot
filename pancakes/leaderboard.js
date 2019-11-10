@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'lb',
+  name: 'leaderboard',
   permission: 1,
   main: async function (bot, msg) {
     var Discord = require('discord.js');
@@ -10,7 +10,7 @@ module.exports = {
     var lb = new Discord.RichEmbed()
       .setColor(msg.guild.me.displayHexColor)
       .setTitle('🥞 Pancakes Leaderboard 🥞')
-      .setFooter(mag.guild.name, msg.guild.iconURL);
+      .setFooter(msg.guild.name, msg.guild.iconURL);
 
     let i = 1;
     topEighteen.forEach(user => {
