@@ -76,6 +76,11 @@ exports.run = async (bot, member) => {
             squid: 0, //100
             sharks: 0, //100
             net: 0
-            }
+        },
+        pancakes: {
+            bought: 0,
+            given: 0,
+            received: 0
+        }
     })
 }

@@ -66,7 +66,11 @@ module.exports = {
                 squid: 0, //100
                 sharks: 0, //100
                 net: 0
-                }
+            },
+            pancakes: {
+                bought: 0,
+                given: 0
+            }
         })
 
         console.log("Account generated for " + target.id + "!");
@@ -134,7 +138,12 @@ module.exports = {
                 squid: 0, //100
                 sharks: 0, //100
                 net: 0
-                }
+            },
+            pancakes: {
+                bought: 0,
+                given: 0,
+                received: 0
+            }
         })
 
         console.log("Account generated for " + msg.author.id + "!");

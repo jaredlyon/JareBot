@@ -5,6 +5,7 @@ module.exports = {
     if (msg.mentions.users.first()) {
       var target = msg.mentions.users.first();
       let stats = await bot.stats.get(target.id);
+      let account = await bot.bank.get(target.id);
 
       var one = Number(stats.dailies.profit.toFixed(2))
       var two = Number(stats.blackjack.net.toFixed(2))
@@ -45,8 +46,12 @@ module.exports = {
               value: `Attempts: **` + stats.baited.attempts + `**\nSuccessful Attempts: **` + stats.baited.won + `**\nFailed Attempts: **` + stats.baited.lost + `**\nNet Winnings/Losses: **$` + stats.baited.net.toFixed(2) + `**`
             },
             {
-              name: "Total:",
-              value: `**$` + x.toFixed(2) + `**`
+              name: "Pancakes:",
+              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Donated: **` + stats.pancakes.given `**\nStacks Received: **` + stats.pancakes.received `**`
+            },
+            {
+              name: "Totals:",
+              value: `Aggregate Revenue: **$` + x.toFixed(2) + `**\nAggregate Expenditures: **$` + (account.balance.toFixed(2) - x.toFixed(2)) + `**\nCurrent Balance: **$` + account.balance.toFixed(2) + `**`
             }
           ]
         }
@@ -54,6 +59,7 @@ module.exports = {
     } else if (msg.mentions.users.first() == null) {
       let account = await bot.bank.get(msg.author.id);
       let stats = await bot.stats.get(msg.author.id);
+      let account = await bot.bank.get(msg.author.id);
 
       var one = Number(stats.dailies.profit.toFixed(2))
       var two = Number(stats.blackjack.net.toFixed(2))
@@ -94,8 +100,12 @@ module.exports = {
               value: `Attempts: **` + stats.baited.attempts + `**\nSuccessful Attempts: **` + stats.baited.won + `**\nFailed Attempts: **` + stats.baited.lost + `**\nNet Winnings/Losses: **$` + stats.baited.net.toFixed(2) + `**`
             },
             {
-              name: "Total:",
-              value: `**$` + x.toFixed(2) + `**`
+              name: "Pancakes:",
+              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Donated: **` + stats.pancakes.given `**\nStacks Received: **` + stats.pancakes.received `**`
+            },
+            {
+              name: "Totals:",
+              value: `Aggregate Revenue: **$` + x.toFixed(2) + `**\nAggregate Expenditures: **$` + (account.balance.toFixed(2) - x.toFixed(2)) + `**\nCurrent Balance: **$` + account.balance.toFixed(2) + `**`
             }
           ]
         }
