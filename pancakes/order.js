@@ -3,12 +3,14 @@ module.exports = {
   permission: 1,
   main: async function (bot, msg) {
     let account = await bot.bank.get(msg.author.id);
+    let stats = await bot.stats.get(msg.author.id);
 
     if (msg.args[0] && !isNaN(msg.args[0]) && Number(msg.args[0]) >= 0) {
       amt = Number(msg.args[0]);
       if (account.balance >= 17 * amt && !(amt <= 0)) {
         account.balance -= 17 * amt;
         account.items.pancakes += amt;
+        stats.pancakes.bought += amt;
         msg.channel.send(`🥞 | ` + msg.author.username + `, you have successfully ordered **` + amt + `** stack(s) pancakes for **$` + 17 * amt + `**!`);
       } else if (amt <= 0) {
         msg.reply("you can't place an order for that amount!")
@@ -22,6 +24,7 @@ module.exports = {
       if (account.balance >= 17) {
         account.balance -= 17;
         account.items.pancakes += 1;
+        stats.pancakes.bought += 1;
         msg.channel.send(`🥞 | ` + msg.author.username + `, you have successfully ordered **` + amt + `** stack(s) pancakes for **$` + 17 * amt + `**!`);
       } else if (amt <= 0) {
         msg.reply("you can't place an order for that amount!")
@@ -32,5 +35,6 @@ module.exports = {
       }
     }
     await bot.bank.update(account);
+    await bot.stats.update(stats);
   }
 }

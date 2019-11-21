@@ -69,7 +69,8 @@ module.exports = {
             },
             pancakes: {
                 bought: 0,
-                given: 0
+                given: 0,
+                received: 0
             }
         })
 

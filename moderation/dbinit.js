@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'genacc',
+    name: 'dbinit',
     permission: 2,
     main: async function (bot, msg) {
         //bank
