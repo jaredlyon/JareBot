@@ -20,7 +20,7 @@ module.exports = {
             },
             {
               name: "Last Update: v6.1.0",
-              value: "-Added a votekick function\n-Fixed coinflip bug\n-Lowered fishing cooldown from 12 to 7 seconds\n-Updated server rules\n-Added pancake tracking to the stats"
+              value: "-Added a votekick function\n-Fixed coinflip bug\n-Lowered fishing cooldown from 12 to 7 seconds\n-Updated server rules\n-Added pancake tracking to the stats\n-Added j!bal alias for j!balance"
             },
             /*CHECK GITHUB FOOTERS*/
             {

@@ -75,7 +75,7 @@ module.exports = {
               value: "Check out statistics on how well you or someone else is performing with their dailies, blackjack games, and bait attempts!"
             },
             {
-              name: "j!balance [@user]",
+              name: "j!balance/j!bal [@user]",
               value: "Lists your or another user's current balance."
             },
             {
