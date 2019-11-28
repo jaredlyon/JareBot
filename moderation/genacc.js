@@ -7,15 +7,18 @@ module.exports = {
         await bot.bank.insert({
             id: target.id,
             balance: 0,
-            lastDaily: null,
             lastMessage: null,
-            streak: 0,
             items: {
                 pancakes: 0,
                 waffles: 0
             }
         })
-    
+
+        await bot.streaks.insert({
+            id: target.id,
+            lastDaily: null,
+            streak: 0
+        })
         
         await bot.fishing.insert({
             id: target.id,
@@ -80,15 +83,18 @@ module.exports = {
         await bot.bank.insert({
             id: msg.author.id,
             balance: 0,
-            lastDaily: null,
             lastMessage: null,
-            streak: 0,
             items: {
                 pancakes: 0,
                 waffles: 0
             }
         })
     
+        await bot.streaks.insert({
+            id: msg.author.id,
+            lastDaily: null,
+            streak: 0
+        })
         
         await bot.fishing.insert({
             id: msg.author.id,

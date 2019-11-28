@@ -8,9 +8,7 @@ module.exports = {
                 await bot.bank.insert({
                     id: member.user.id,
                     balance: 0,
-                    lastDaily: null,
                     lastMessage: null,
-                    streak: 0,
                     items: {
                         pancakes: 0,
                         waffles: 0
@@ -21,6 +19,19 @@ module.exports = {
             
         funcB()
         
+        //streaks
+        let funcSt = async() => {
+            bot.guilds.get("399740385221672970").members.forEach(async member => {
+                await bot.streaks.insert({
+                    id: member.user.id,
+                    lastDaily: null,
+                    streak: 0
+                })
+            })
+        }
+
+        funcSt()
+
         //stats
         let funcS = async() => {
             bot.guilds.get("399740385221672970").members.forEach(async member => {
