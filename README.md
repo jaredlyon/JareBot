@@ -15,6 +15,7 @@ Make a copy of `config-example.json` named `config.json` and fill in the needed 
 - Updated server rules
 - Added pancake tracking to the stats
 - Added j!bal alias for j!balance
+- Added j!inv alias for j!inventory
 - Split streaks into separate data table
 - Updated j!help
 
