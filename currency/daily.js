@@ -16,7 +16,7 @@ module.exports = {
       streaks.lastDaily = new Date();
       await bot.bank.update(account);
       await bot.stats.update(stats);
-      await bot.stats.update(streaks);
+      await bot.streaks.update(streaks);
       msg.channel.send(yup + " | You have received your daily allowance of **$25.40**, " + msg.author.username + "!")
     } else if (new Date() - new Date(streaks.lastDaily) >= 86400000 && new Date() - new Date(streaks.lastDaily) <= 172800000) {
       streaks.streak += 1;
@@ -29,7 +29,7 @@ module.exports = {
       streaks.lastDaily = new Date();
       await bot.bank.update(account);
       await bot.stats.update(stats);
-      await bot.stats.update(streaks);
+      await bot.streaks.update(streaks);
       msg.channel.send(yup + " | You have received your daily allowance of **$25.40**! You've also been given a bonus of **$" + (2.54 * streaks.streak).toFixed(2) + "** due to your **" + streaks.streak + "** day streak, " + msg.author.username + "!")
     } else if (new Date() - new Date(streaks.lastDaily) >= 86400000 && new Date() - new Date(streaks.lastDaily) >= 172800000 && streaks.streak >= 0) {
       streaks.streak = 0;
@@ -39,7 +39,7 @@ module.exports = {
       streaks.lastDaily = new Date();
       await bot.bank.update(account);
       await bot.stats.update(stats);
-      await bot.stats.update(streaks);
+      await bot.streaks.update(streaks);
       msg.channel.send(yup + " | You have received your daily allowance of **$25.40**, but you unfortunately have lost your streak, " + msg.author.username + "!")
     } else if (new Date() - new Date(streaks.lastDaily) >= 86400000 && new Date() - new Date(streaks.lastDaily) >= 172800000 && streaks.streak == 0) {
       account.balance += 25.4;
@@ -48,7 +48,7 @@ module.exports = {
       streaks.lastDaily = new Date();
       await bot.bank.update(account);
       await bot.stats.update(stats);
-      await bot.stats.update(streaks);
+      await bot.streaks.update(streaks);
       msg.channel.send(yup + " | You have received your daily allowance of **$25.40**, " + msg.author.username + "!")
     } else {
       msg.channel.send(nope + ` | Not so fast! You still have to wait **${convert(new Date(), new Date(streaks.lastDaily))}** to claim your daily allowance, ` + msg.author.username + `!`)
