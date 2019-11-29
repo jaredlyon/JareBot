@@ -21,7 +21,7 @@ module.exports = {
     } else if (new Date() - new Date(streaks.lastDaily) >= 86400000 && new Date() - new Date(streaks.lastDaily) <= 172800000) {
       streaks.streak += 1;
       account.balance += 25.4;
-      await bot.bank.update(streaks);
+      await bot.streaks.update(streaks);
       account.balance += 2.54 * streaks.streak;
       stats.dailies.collected += 1;
       stats.dailies.profit += 25.4;
