@@ -19,6 +19,7 @@ module.exports = {
             
         funcB()
         
+        /**
         //streaks
         let funcSt = async() => {
             bot.guilds.get("399740385221672970").members.forEach(async member => {
@@ -31,6 +32,7 @@ module.exports = {
         }
 
         funcSt()
+        **/
 
         //stats
         let funcS = async() => {

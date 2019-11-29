@@ -106,7 +106,7 @@ module.exports = {
           fields: [
             {
               name: "j!leaderboard/j!lb",
-              value: "Lists the top ten pancake buyers in the server."
+              value: "Lists the top eighteen pancake buyers in the server."
             },
             {
               name: "j!order [amount]",

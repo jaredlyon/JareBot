@@ -18,7 +18,7 @@ module.exports = {
         { color: 0xffffff,
           footer: {
             icon_url: msg.guild.iconURL,
-            text: "since 10/15/2019"
+            text: "since 11/29/2019"
           },
           author: {
             name: "Currency Statistics for " + target.username,
@@ -47,7 +47,7 @@ module.exports = {
             },
             {
               name: "Pancakes:",
-              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Donated: **` + stats.pancakes.given `**\nStacks Received: **` + stats.pancakes.received `**`
+              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Donated: **` + stats.pancakes.given + `**\nStacks Received: **` + stats.pancakes.received `**`
             },
             {
               name: "Totals:",
@@ -59,7 +59,6 @@ module.exports = {
     } else if (msg.mentions.users.first() == null) {
       let account = await bot.bank.get(msg.author.id);
       let stats = await bot.stats.get(msg.author.id);
-      let account = await bot.bank.get(msg.author.id);
 
       var one = Number(stats.dailies.profit.toFixed(2))
       var two = Number(stats.blackjack.net.toFixed(2))
@@ -72,7 +71,7 @@ module.exports = {
         { color: 0xffffff,
           footer: {
             icon_url: msg.guild.iconURL,
-            text: "since 10/15/2019"
+            text: "since 11/29/2019"
           },
           author: {
             name: "Currency Statistics for " + msg.author.username,
@@ -101,7 +100,7 @@ module.exports = {
             },
             {
               name: "Pancakes:",
-              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Donated: **` + stats.pancakes.given `**\nStacks Received: **` + stats.pancakes.received `**`
+              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Donated: **` + stats.pancakes.given + `**\nStacks Received: **` + stats.pancakes.received + `**`
             },
             {
               name: "Totals:",
