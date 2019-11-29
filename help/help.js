@@ -147,7 +147,7 @@ module.exports = {
               value: "Sell some (or all) of your inventory using the appropriate inputs: **trash**, **common**, **rare**, **crabs**, **crocodiles**, **whales**, **dolphins**, **blowfish**, **squid**, **sharks**. You can also sell your entire inventory using **j!sell all**!"
             },
             {
-              name: "j!inventory [@user]",
+              name: "j!inventory/j!inv [@user]",
               value: "Lists your or someone else's inventory in the chat!"
             }
           ],
