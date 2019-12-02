@@ -71,6 +71,10 @@ module.exports = {
           description: "*Monkeys, Machinations, & Monies:*",
           fields: [
             {
+              name: "j!leaderboard/j!lb currency",
+              value: "Lists the top eighteen currency holders in the server."
+            },
+            {
               name: "j!statistics/j!stats [@user]",
               value: "Check out statistics on how well you or someone else is performing with their dailies, blackjack games, and bait attempts!"
             },
@@ -105,7 +109,7 @@ module.exports = {
           description: "*Yep, these arbitrary stacks of 'food' determine the outcome of some of the giveaways.*",
           fields: [
             {
-              name: "j!leaderboard/j!lb",
+              name: "j!leaderboard/j!lb pancakes",
               value: "Lists the top eighteen pancake buyers in the server."
             },
             {
