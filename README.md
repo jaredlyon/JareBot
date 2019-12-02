@@ -18,6 +18,7 @@ Make a copy of `config-example.json` named `config.json` and fill in the needed 
 - Added j!inv alias for j!inventory
 - Split streaks into separate data table
 - Updated j!help
+- Added currency leaderboard
 
 ### Past Updates:
 **6.0.1**
