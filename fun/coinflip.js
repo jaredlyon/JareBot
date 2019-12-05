@@ -2,7 +2,7 @@ module.exports = {
     name: 'coinflip',
     permission: 1,
     main: function (bot, msg) {
-        var flip = Math.floor((Math.random() * 1) + 1);
+        var flip = Math.floor(Math.random() * 2);
         
         if (flip == 0) {
             msg.reply("you flipped **heads**!");
