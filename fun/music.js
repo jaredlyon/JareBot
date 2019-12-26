@@ -58,10 +58,27 @@ module.exports = {
             author: {
                 name: "Get Shlumped",  
             },
-            title: "*I'm not even gonna lie, this is literally just a playlist my girlfriend and I made...so, enjoy, I guess.*",
+            title: "*I'm not even gonna lie, this is literally just a playlist that the egg and I made...so, enjoy, I guess.*",
             url: "https://open.spotify.com/user/kingwaffleshnoz/playlist/2HxDbf2DNdRu6bIU0L7NZG?si=FFQTU0NlT7ytMEYN5UCqVQ",
             image: {
                 url: "https://i.imgur.com/sJglpQY.jpg"
+            },
+            timestamp: new Date(),
+            footer: {
+                icon_url: msg.guild.iconURL,
+                text: msg.guild.name 
+            }
+        }});
+
+        msg.channel.send({embed: {
+            color: 0x00000,
+            author: {
+                name: "Hip Hop's Mic Drops",  
+            },
+            title: "*Streets, suites, and beats.*",
+            url: "https://open.spotify.com/playlist/6dQvG4RQxHF5nRPo8IK5yz?si=C1j-MRYTRvqPXAwKGoTpBQ",
+            image: {
+                url: "https://i.imgur.com/ACFTokV.jpg"
             },
             timestamp: new Date(),
             footer: {
