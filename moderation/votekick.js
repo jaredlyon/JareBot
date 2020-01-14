@@ -15,12 +15,13 @@ module.exports = {
             //count votes
             var yes = 0;
             var no = 0;
-            let vcCount = //need some way to count members
-            console.log(vcCount);
-            var threshold = Math.floor(vcCount/2);
-            console.log(threshold);
 
             if (target.voiceChannel) {
+                let vcCount = target.voiceChannel.members.size;
+                console.log(vcCount);
+                var threshold = Math.floor(vcCount/2);
+                console.log(threshold);
+                
                 let vote = await msg.channel.send({
                     embed: {
                         color: 3447003,
