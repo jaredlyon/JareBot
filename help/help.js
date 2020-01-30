@@ -205,6 +205,10 @@ module.exports = {
               value: "Tell someone that you love them!"
             },
             {
+              name: "j!compliment [@user]",
+              value: "Send someone a vague, yet strangely threatening compliment."
+            },
+            {
               name: "j!esus [@user]",
               value: "In the name of the Father, the Son, and the Holy Spirit."
             },

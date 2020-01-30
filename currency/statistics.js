@@ -2,6 +2,7 @@ module.exports = {
   name: 'statistics',
   permission: 1,
   main: async function (bot, msg) {
+    bot.config = require('../config.json');
     if (msg.mentions.users.first()) {
       var target = msg.mentions.users.first();
       let stats = await bot.stats.get(target.id);
@@ -18,7 +19,7 @@ module.exports = {
         { color: 0xffffff,
           footer: {
             icon_url: msg.guild.iconURL,
-            text: "since 11/29/2019"
+            text: bot.config.lastUpdateDate
           },
           author: {
             name: "Currency Statistics for " + target.username,
@@ -47,7 +48,7 @@ module.exports = {
             },
             {
               name: "Pancakes:",
-              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Donated: **` + stats.pancakes.given + `**\nStacks Received: **` + stats.pancakes.received + `**\nTotal Stacks: **` + account.items.pancakes + `**`
+              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Received: **` + stats.pancakes.received + `**\nStacks Donated: **` + stats.pancakes.given + `**\nTotal Stacks: **` + account.items.pancakes + `**`
             },
             {
               name: "Totals:",
@@ -71,7 +72,7 @@ module.exports = {
         { color: 0xffffff,
           footer: {
             icon_url: msg.guild.iconURL,
-            text: "since 11/29/2019"
+            text: bot.config.lastUpdateDate
           },
           author: {
             name: "Currency Statistics for " + msg.author.username,
@@ -100,7 +101,7 @@ module.exports = {
             },
             {
               name: "Pancakes:",
-              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Donated: **` + stats.pancakes.given + `**\nStacks Received: **` + stats.pancakes.received + `**\nTotal Stacks: **` + account.items.pancakes + `**`
+              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Received: **` + stats.pancakes.received + `**\nStacks Donated: **` + stats.pancakes.given + `**\nTotal Stacks: **` + account.items.pancakes + `**`
             },
             {
               name: "Totals:",
