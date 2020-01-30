@@ -8,12 +8,27 @@ JareBot is Discord chat bot (obviously) that performs rudimentary chat tasks as 
 Make a copy of `config-example.json` named `config.json` and fill in the needed values. You'll also need the `rethinkdbdash` and `discord.js` npm modules. You can find instructions on how to install and compile a RethinkDB server here: https://rethinkdb.com/. The current bot version was built to link with a server hosted on an external machine that runs Debian 9.
 
 ### Last Update:
+**7.0.0**
+- Fixed coinflip bug
+- Lowered fishing cooldown from 12 to 7 seconds
+- Updated server rules
+- Added pancake tracking to the stats
+- Added j!bal alias for j!balance
+- Added j!inv alias for j!inventory
+- Split streaks into separate data table
+- Updated j!help
+- Added currency leaderboard
+- Updated j!music
+- Restructured dated footnotes
+- Made the code for j!love, j!hug, & j!sleep prettier
+- Added j!compliment
+
+### Past Updates:
 **6.0.1**
 - Cleaned up several hundred lines of code
 - Minor bug fixes
 - Revamped footer and ID system
 
-### Past Updates:
 **6.0.0**
 - Migrated to RethinkDB
 - Rebalanced fishing module

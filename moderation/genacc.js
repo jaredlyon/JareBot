@@ -7,15 +7,18 @@ module.exports = {
         await bot.bank.insert({
             id: target.id,
             balance: 0,
-            lastDaily: null,
             lastMessage: null,
-            streak: 0,
             items: {
                 pancakes: 0,
                 waffles: 0
             }
         })
-    
+
+        await bot.streaks.insert({
+            id: target.id,
+            lastDaily: null,
+            streak: 0
+        })
         
         await bot.fishing.insert({
             id: target.id,
@@ -66,7 +69,12 @@ module.exports = {
                 squid: 0, //100
                 sharks: 0, //100
                 net: 0
-                }
+            },
+            pancakes: {
+                bought: 0,
+                given: 0,
+                received: 0
+            }
         })
 
         console.log("Account generated for " + target.id + "!");
@@ -75,15 +83,18 @@ module.exports = {
         await bot.bank.insert({
             id: msg.author.id,
             balance: 0,
-            lastDaily: null,
             lastMessage: null,
-            streak: 0,
             items: {
                 pancakes: 0,
                 waffles: 0
             }
         })
     
+        await bot.streaks.insert({
+            id: msg.author.id,
+            lastDaily: null,
+            streak: 0
+        })
         
         await bot.fishing.insert({
             id: msg.author.id,
@@ -134,7 +145,12 @@ module.exports = {
                 squid: 0, //100
                 sharks: 0, //100
                 net: 0
-                }
+            },
+            pancakes: {
+                bought: 0,
+                given: 0,
+                received: 0
+            }
         })
 
         console.log("Account generated for " + msg.author.id + "!");

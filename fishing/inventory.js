@@ -2,6 +2,7 @@ module.exports = {
     name: 'inventory',
     permission: 1,
     main: async function (bot, msg) {
+      bot.config = require('../config.json');
       if (msg.mentions.users.first()) {
         var target = msg.mentions.users.first();
 
@@ -23,7 +24,7 @@ module.exports = {
           { color: 0x4e86f7,
             footer: {
               icon_url: msg.guild.iconURL,
-              text: "since 10/15/2019" 
+              text: bot.config.lastUpdateDate
             },
             author: {
               name: "Fishing Inventory for " + target.username,
@@ -60,7 +61,7 @@ module.exports = {
           { color: 0x4e86f7,
             footer: {
               icon_url: msg.guild.iconURL,
-              text: "since 10/15/2019" 
+              text: bot.config.lastUpdateDate
             },
             author: {
               name: "Fishing Inventory for " + msg.author.username,

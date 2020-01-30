@@ -71,11 +71,15 @@ module.exports = {
           description: "*Monkeys, Machinations, & Monies:*",
           fields: [
             {
+              name: "j!leaderboard/j!lb currency",
+              value: "Lists the top eighteen currency holders in the server."
+            },
+            {
               name: "j!statistics/j!stats [@user]",
               value: "Check out statistics on how well you or someone else is performing with their dailies, blackjack games, and bait attempts!"
             },
             {
-              name: "j!balance [@user]",
+              name: "j!balance/j!bal [@user]",
               value: "Lists your or another user's current balance."
             },
             {
@@ -105,8 +109,8 @@ module.exports = {
           description: "*Yep, these arbitrary stacks of 'food' determine the outcome of some of the giveaways.*",
           fields: [
             {
-              name: "j!leaderboard/j!lb",
-              value: "Lists the top ten pancake buyers in the server."
+              name: "j!leaderboard/j!lb pancakes",
+              value: "Lists the top eighteen pancake buyers in the server."
             },
             {
               name: "j!order [amount]",
@@ -147,7 +151,7 @@ module.exports = {
               value: "Sell some (or all) of your inventory using the appropriate inputs: **trash**, **common**, **rare**, **crabs**, **crocodiles**, **whales**, **dolphins**, **blowfish**, **squid**, **sharks**. You can also sell your entire inventory using **j!sell all**!"
             },
             {
-              name: "j!inventory [@user]",
+              name: "j!inventory/j!inv [@user]",
               value: "Lists your or someone else's inventory in the chat!"
             }
           ],
@@ -199,6 +203,10 @@ module.exports = {
             {
               name: "j!love [@user]",
               value: "Tell someone that you love them!"
+            },
+            {
+              name: "j!compliment [@user]",
+              value: "Send someone a vague, yet strangely threatening compliment."
             },
             {
               name: "j!esus [@user]",

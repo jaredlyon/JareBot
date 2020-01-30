@@ -17,13 +17,17 @@ exports.run = async (bot, member) => {
     await bot.bank.insert({
         id: member.user.id,
         balance: 0,
-        lastDaily: null,
         lastMessage: null,
-        streak: 0,
         items: {
             pancakes: 0,
             waffles: 0
         }
+    })
+
+    await bot.streaks.insert({
+        id: member.user.id,
+        lastDaily: null,
+        streak: 0,
     })
 
     
@@ -76,6 +80,11 @@ exports.run = async (bot, member) => {
             squid: 0, //100
             sharks: 0, //100
             net: 0
-            }
+        },
+        pancakes: {
+            bought: 0,
+            given: 0,
+            received: 0
+        }
     })
 }
