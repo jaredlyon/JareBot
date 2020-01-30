@@ -9,7 +9,6 @@ Make a copy of `config-example.json` named `config.json` and fill in the needed 
 
 ### Last Update:
 **7.0.0**
-- Added a votekick function
 - Fixed coinflip bug
 - Lowered fishing cooldown from 12 to 7 seconds
 - Updated server rules
@@ -19,6 +18,10 @@ Make a copy of `config-example.json` named `config.json` and fill in the needed 
 - Split streaks into separate data table
 - Updated j!help
 - Added currency leaderboard
+- Updated j!music
+- Restructured dated footnotes
+- Made the code for j!love, j!hug, & j!sleep prettier
+- Added j!compliment
 
 ### Past Updates:
 **6.0.1**
