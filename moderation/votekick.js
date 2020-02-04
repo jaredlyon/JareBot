@@ -4,7 +4,9 @@ module.exports = {
     main: async function (bot, msg) {
         if (msg.mentions.users.first()) {
             //grab target
-            var target = msg.mentions.users.first();
+            var mention = msg.mentions.users.first();
+            var target = bot.users.get(mention.id);
+            console.log(target.voiceChannel);
 
             //grab and insert reason
             var reason = msg.content.split(' ').splice(1).join(' ');
@@ -115,8 +117,10 @@ module.exports = {
                         }
                     }
                 });
-            } else {
+            } else if (!target.voiceChannel) {
                 msg.reply("cannot kick a disconnected user!");
+            } else {
+                msg.reply("something went wrong!")
             }
         } else {
             msg.reply("mention someone!");
