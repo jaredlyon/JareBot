@@ -231,10 +231,6 @@ module.exports = {
           description: "*I couldn't think of a better place to put these.*",
           fields: [
             {
-              name: "j!afk [reason]",
-              value: "Set yourself as AFK and add a note for anyone who might mention you!"
-            },
-            {
               name: "j!suggest [input]",
               value: "Send a suggestion/complaint into Jared's suggestion box!"
             },
