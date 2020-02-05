@@ -20,7 +20,7 @@ module.exports = {
             },
             {
               name: "Last Update: v7.1.0",
-              value: "-Added a votekick function\n-Rebalanced income portion of the economy"
+              value: "-Added a votekick function\n-Rebalanced income portion of the economy\n-Touched up portions of the UI\n-Updated README"
             },
             /*CHECK GITHUB FOOTERS*/
             {
