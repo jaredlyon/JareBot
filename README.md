@@ -2,14 +2,20 @@
 ## A Javascript Discord Bot
 
 ### General:
-JareBot is Discord chat bot (obviously) that performs rudimentary chat tasks as well as executes complicated score and currency commands. This bot is confined to Jared's personal Discord server, and is primarily designed to assist in giveaways, moderation, and a wide array of information distribution. JareBot was initially created in August of 2017 by Michael Cao in order to teach its current developer, Jared Lyon, how to code in Javascript.
+JareBot is Discord chat bot that performs rudimentary chat tasks as well as executes complicated score and currency commands. This bot is confined to Jared's personal Discord server, and is primarily designed to assist in giveaways, moderation, and a wide array of information distribution. JareBot was initially created in August of 2017 by Michael Cao in order to teach its current developer, Jared Lyon, how to code in Javascript.
 
 ### Setup:
 Make a copy of `config-example.json` named `config.json` and fill in the needed values. You'll also need the `rethinkdbdash` and `discord.js` npm modules. You can find instructions on how to install and compile a RethinkDB server here: https://rethinkdb.com/. The current bot version was built to link with a server hosted on an external machine that runs Debian 9.
 
+### Initializing the Database:
+Once both the bot and RethinkDB are running, verify that the bot has successfully connected to the server pool and reported linkage to all the tables. Once complete, run the `dbinit` command to create the user accounts for the guild; however, this command will not function properly if any of the database tables have not been initialized or connected to properly.
+
 ### Last Update:
 **7.1.0**
 - Added a votekick function
+- Rebalanced income portion of the economy
+- Touched up portions of the UI
+- Updated README
 
 ### Past Updates:
 **7.0.0**
