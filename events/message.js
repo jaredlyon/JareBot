@@ -35,7 +35,7 @@ exports.run = async (bot, msg) => {
 		await bot.bank.insert(account);
 		await bot.stats.insert(stats);
 	} else {
-		if (new Date() - new Date(account.lastMessage) >= 60000) {
+		if (new Date() - new Date(account.lastMessage) >= 30000) {
 			account.balance += 5.00;
 			stats.passive.total += 5.00;
 			account.lastMessage = new Date();
