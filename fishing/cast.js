@@ -132,7 +132,7 @@ module.exports = {
                 msg.channel.send(`:shark: | You caught a shark?! You should get signed for Shark Week, ` + msg.author.username + `!`)
             }
         } else if (new Date() - new Date(fishing.lastFish) <= 5000) {
-            msg.reply("you can only fish every **seven** seconds!")
+            msg.reply("you can only fish every **five** seconds!")
         } else if (account.balance.toFixed(2) <= 5) {
             var balance = Number(account.balance);
             var absbalance = Math.abs(balance);
