@@ -16,6 +16,7 @@ Once both the bot and RethinkDB are running, verify that the bot has successfull
 - Rebalanced income portion of the economy
 - Touched up portions of the UI
 - Updated README
+- Fixed an issue where baiting during a blackjack game caused currency discrepancies
 
 ### Past Updates:
 **7.0.0**
