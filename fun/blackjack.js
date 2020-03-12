@@ -99,6 +99,8 @@ module.exports = {
         }
       }
 
+    //prevent other modules from working
+    bot.blackjackInProgress = true;
     //set table
     this.restart(player_hand, cpu_hand, cards);
       let blackjackMessage = await msg.channel.send({
@@ -166,6 +168,7 @@ module.exports = {
 
             await bot.bank.update(account);
             await bot.stats.update(stats);
+            bot.blackjackInProgress = false;
             } else {
             //dealer win
             blackjackMessage.edit({
@@ -193,6 +196,7 @@ module.exports = {
             stats.blackjack.net -= bet
 
             await bot.stats.update(stats);
+            bot.blackjackInProgress = false;
           }
           timeout = false;
           collector.stop();
@@ -229,6 +233,7 @@ module.exports = {
             collector.stop();
 
             await bot.stats.update(stats);
+            bot.blackjackInProgress = false;
           } else {
             blackjackMessage.edit({
               embed: {
@@ -273,6 +278,7 @@ module.exports = {
           //return bet
           account.balance += bet;
           await bot.bank.update(account);
+          bot.blackjackInProgress = false;
         }
       });
     }
