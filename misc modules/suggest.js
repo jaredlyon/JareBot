@@ -13,7 +13,7 @@ module.exports = {
 			.setTimestamp()
 		//var dest = bot.channels.get('378643772810199040');
 		//bot.channels.get('id').send()
-		bot.channels.get('399743950568685571').send({ embed: f });
+		bot.channels.get(bot.config.logChannel).send({ embed: f });
 
 		msg.delete();
 	}

@@ -60,7 +60,7 @@ module.exports = {
             ],
             footer: {
               icon_url: msg.guild.iconURL,
-              text: "© JL's Diner 2019"
+              text: msg.guild.name
             }
           }
         });

@@ -1,10 +1,12 @@
 module.exports = {
   name: 'statistics',
   permission: 1,
-  main: function (bot, msg) {
+  main: async function (bot, msg) {
+    bot.config = require('../config.json');
     if (msg.mentions.users.first()) {
       var target = msg.mentions.users.first();
       let stats = await bot.stats.get(target.id);
+      let account = await bot.bank.get(target.id);
 
       var one = Number(stats.dailies.profit.toFixed(2))
       var two = Number(stats.blackjack.net.toFixed(2))
@@ -17,7 +19,7 @@ module.exports = {
         { color: 0xffffff,
           footer: {
             icon_url: msg.guild.iconURL,
-            text: "since 5/26/2019"
+            text: bot.config.lastUpdateDate
           },
           author: {
             name: "Currency Statistics for " + target.username,
@@ -45,8 +47,12 @@ module.exports = {
               value: `Attempts: **` + stats.baited.attempts + `**\nSuccessful Attempts: **` + stats.baited.won + `**\nFailed Attempts: **` + stats.baited.lost + `**\nNet Winnings/Losses: **$` + stats.baited.net.toFixed(2) + `**`
             },
             {
-              name: "Total:",
-              value: `**$` + x.toFixed(2) + `**`
+              name: "Pancakes:",
+              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Received: **` + stats.pancakes.received + `**\nStacks Donated: **` + stats.pancakes.given + `**\nTotal Stacks: **` + account.items.pancakes + `**`
+            },
+            {
+              name: "Totals:",
+              value: `Aggregate Revenue: **$` + x.toFixed(2) + `**\nAggregate Expenditures: **$` + (account.balance.toFixed(2) - x.toFixed(2)).toFixed(2) + `**\nCurrent Balance: **$` + account.balance.toFixed(2) + `**`
             }
           ]
         }
@@ -66,7 +72,7 @@ module.exports = {
         { color: 0xffffff,
           footer: {
             icon_url: msg.guild.iconURL,
-            text: "since 5/26/2019"
+            text: bot.config.lastUpdateDate
           },
           author: {
             name: "Currency Statistics for " + msg.author.username,
@@ -94,8 +100,12 @@ module.exports = {
               value: `Attempts: **` + stats.baited.attempts + `**\nSuccessful Attempts: **` + stats.baited.won + `**\nFailed Attempts: **` + stats.baited.lost + `**\nNet Winnings/Losses: **$` + stats.baited.net.toFixed(2) + `**`
             },
             {
-              name: "Total:",
-              value: `**$` + x.toFixed(2) + `**`
+              name: "Pancakes:",
+              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Received: **` + stats.pancakes.received + `**\nStacks Donated: **` + stats.pancakes.given + `**\nTotal Stacks: **` + account.items.pancakes + `**`
+            },
+            {
+              name: "Totals:",
+              value: `Aggregate Revenue: **$` + x.toFixed(2) + `**\nAggregate Expenditures: **$` + (account.balance.toFixed(2) - x.toFixed(2)).toFixed(2) + `**\nCurrent Balance: **$` + account.balance.toFixed(2) + `**`
             }
           ]
         }

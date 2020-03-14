@@ -1,7 +1,8 @@
 module.exports = {
     name: 'inventory',
     permission: 1,
-    main: function (bot, msg) {
+    main: async function (bot, msg) {
+      bot.config = require('../config.json');
       if (msg.mentions.users.first()) {
         var target = msg.mentions.users.first();
 
@@ -17,13 +18,13 @@ module.exports = {
         var h = fishing.blowfish
         var i = fishing.squid
         var j = fishing.sharks
-        var total = a*3 + b*8 + c*15 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100
+        var total = a*3 + b*8 + c*12 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100
         msg.channel.send({
           embed: 
           { color: 0x4e86f7,
             footer: {
               icon_url: msg.guild.iconURL,
-              text: "since 5/26/2019" 
+              text: bot.config.lastUpdateDate
             },
             author: {
               name: "Fishing Inventory for " + target.username,
@@ -54,13 +55,13 @@ module.exports = {
         var h = fishing.blowfish
         var i = fishing.squid
         var j = fishing.sharks
-        var total = a*3 + b*8 + c*15 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100
+        var total = a*3 + b*8 + c*12 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100
         msg.channel.send({
           embed: 
           { color: 0x4e86f7,
             footer: {
               icon_url: msg.guild.iconURL,
-              text: "since 5/26/2019" 
+              text: bot.config.lastUpdateDate
             },
             author: {
               name: "Fishing Inventory for " + msg.author.username,
