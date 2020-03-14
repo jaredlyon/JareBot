@@ -84,7 +84,7 @@ module.exports = {
             },
             {
               name: "j!daily/j!dailies",
-              value: "Deposits your daily allowance into your account! Repeatedly collecting you daily every 24 hours will start a streak, but neglecting the streak for more than 48 hours resets it."
+              value: "Deposits your daily allowance into your account! Repeatedly collecting your daily every 24 hours will start a streak, but neglecting the streak for more than 48 hours resets it."
             },
             {
               name: "j!baited",
@@ -230,10 +230,6 @@ module.exports = {
           },
           description: "*I couldn't think of a better place to put these.*",
           fields: [
-            {
-              name: "j!afk [reason]",
-              value: "Set yourself as AFK and add a note for anyone who might mention you!"
-            },
             {
               name: "j!suggest [input]",
               value: "Send a suggestion/complaint into Jared's suggestion box!"

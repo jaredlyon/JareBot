@@ -52,7 +52,7 @@ module.exports = {
             },
             {
               name: "Totals:",
-              value: `Aggregate Revenue: **$` + x.toFixed(2) + `**\nAggregate Expenditures: **$` + (account.balance.toFixed(2) - x.toFixed(2)).toFixed(2) + `**\nCurrent Balance: **$` + account.balance.toFixed(2) + `**`
+              value: `Aggregate Revenue: **$` + x.toFixed(2) + `**\nAggregate Expenditures: **$` + Math.abs((account.balance.toFixed(2) - x.toFixed(2)).toFixed(2)) + `**\nCurrent Balance: **$` + account.balance.toFixed(2) + `**`
             }
           ]
         }
@@ -105,7 +105,7 @@ module.exports = {
             },
             {
               name: "Totals:",
-              value: `Aggregate Revenue: **$` + x.toFixed(2) + `**\nAggregate Expenditures: **$` + (account.balance.toFixed(2) - x.toFixed(2)).toFixed(2) + `**\nCurrent Balance: **$` + account.balance.toFixed(2) + `**`
+              value: `Aggregate Revenue: **$` + x.toFixed(2) + `**\nAggregate Expenditures: **$` + Math.abs((account.balance.toFixed(2) - x.toFixed(2)).toFixed(2)) + `**\nCurrent Balance: **$` + account.balance.toFixed(2) + `**`
             }
           ]
         }
