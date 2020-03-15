@@ -2,7 +2,7 @@ module.exports = {
     name: "hug",
     permission: 1,
     main: function (bot, msg) {
-        const cathug = bot.emojis.find(emoji => emoji.name == "cathug");
+        const cathug = bot.emojis.cache.find(emoji => emoji.name == "cathug").toString();
 
         var lovee = msg.mentions.users.array()[0];
         var arr1 = ["https://i.imgur.com/qmO66BW.gif",
