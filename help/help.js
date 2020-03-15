@@ -238,6 +238,10 @@ module.exports = {
           description: "*I couldn't think of a better place to put these.*",
           fields: [
             {
+              name: "j!votekick [@user]",
+              value: "Vote to kick a user from the voice channel temporarily."
+            },
+            {
               name: "j!suggest [input]",
               value: "Send a suggestion/complaint into Jared's suggestion box!"
             },
