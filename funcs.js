@@ -96,20 +96,20 @@ module.exports = (bot) => {
 				})
 			} else if (d.startsWith("bind") && channel) {
 				d = d.substring(d.indexOf(" ") + 1, d.length)
-				if (bot.channels.get(d)) {
+				if (bot.channels.fetch(d)) {
 					channel = d;
-					bot.log("Console rebound to channel " + bot.channels.get(d).name + " in " + bot.channels.get(d).guild.name + "!");
+					bot.log("Console rebound to channel " + bot.channels.fetch(d).name + " in " + bot.channels.fetch(d).guild.name + "!");
 				}
 			} else if (channel) {
 				try {
-					bot.channels.get(channel).send(d);
+					bot.channels.fetch(channel).send(d);
 				} catch (err) {
 					bot.log(err);
 				}
 			} else {
-				if (bot.channels.get(d)) {
+				if (bot.channels.fetch(d)) {
 					channel = d;
-					bot.log("Console bound to channel " + bot.channels.get(d).name + " in " + bot.channels.get(d).guild.name + "!");
+					bot.log("Console bound to channel " + bot.channels.fetch(d).name + " in " + bot.channels.fetch(d).guild.name + "!");
 				}
 			}
 		});

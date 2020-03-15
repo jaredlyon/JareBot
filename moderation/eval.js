@@ -6,7 +6,7 @@ module.exports = {
 		const util = require('util');
 
 		var code = msg.content;
-		var embed = new Discord.RichEmbed();
+		var embed = new Discord.MessageEmbed();
 		try {
 			let evaled = eval(code);
 			let type = typeof evaled;
@@ -18,7 +18,7 @@ module.exports = {
 
 			embed.setColor(0x00FF00)
 				.setTitle("Javascript Evaluation Complete")
-				.setFooter(`${msg.author.username}`, `${msg.author.avatarURL}`)
+				.setFooter(`${msg.author.username}`, `${msg.author.avatarURL()}`)
 				.setTimestamp()
 				.addField('Code', "```js\n" + clean(code) + "```")
 				.addField('Result', "```js\n" + clean(evaled.toString().replace(bot.token, 'REDACTED')) + "```");
@@ -33,7 +33,7 @@ module.exports = {
 		} catch (err) {
 			embed.setColor(0xFF0000)
 				.setTitle(":rotating_light: ERROR THROWN :rotating_light: in Javascript Evaluation")
-				.setFooter(`${msg.author.username}`, `${msg.author.avatarURL}`)
+				.setFooter(`${msg.author.username}`, `${msg.author.avatarURL()}`)
 				.setTimestamp()
 				.addField('Code', "```js\n" + clean(code) + "```")
 				.addField('Error', "```LDIF\n" + clean(err.message) + "```");

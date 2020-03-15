@@ -7,7 +7,7 @@ module.exports = {
         color: 3447003,
         author: {
           name: "The Diner Tribune",
-          icon_url: msg.guild.iconURL
+          icon_url: msg.guild.iconURL()
         },
         description: "*Something to read while you eat some waffles...*",
         fields: [

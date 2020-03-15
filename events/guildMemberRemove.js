@@ -1,9 +1,9 @@
 var Discord = require('discord.js');
 
 exports.run = (bot, member) => {
-    var channel = member.guild.channels.get(bot.config.logChannel);
-    var leave = new Discord.RichEmbed()
-        .setAuthor(member.user.username, member.user.avatarURL)
+    var channel = member.guild.channels.fetch(bot.config.logChannel);
+    var leave = new Discord.MessageEmbed()
+        .setAuthor(member.user.username, member.user.avatarURL())
         .setFooter(member.guild.name)
         .setTimestamp()
         .setTitle('Member left!')
