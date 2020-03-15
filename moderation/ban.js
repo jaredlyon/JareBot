@@ -4,26 +4,26 @@ module.exports = {
     name: 'ban',
     permission: 2,
     main: function (bot, msg) {
-        var channel = msg.guild.channels.fetch(bot.config.generalChannel);
-        var log = msg.guild.channels.fetch(bot.config.logChannel);
+        var channel = msg.guild.channels.cache.get(bot.config.generalChannel);
+        var log = msg.guild.channels.cache.get(bot.config.logChannel);
         var banee = msg.mentions.users.array()[0];
-        var user = bot.users.get(banee.id);
         var reason = msg.content.split(' ').splice(1).join(' ');
         if (reason === '') {
             reason = 'No reason was specified.'
         };
-        var ban = new Discord.MessageEmbed()
-            .setAuthor(user.username, user.avatarURL())
-            .addField('Member banned:', `**:hammer: ${user.username}#${user.discriminator} (${user.id}) was banned from the server.**`)
+
+        if (banee != null) {
+            var ban = new Discord.MessageEmbed()
+            .setAuthor(banee.username, banee.avatarURL())
+            .addField('Member banned:', `**:hammer: ${banee.username}#${banee.discriminator} (${banee.id}) was banned from the server.**`)
             .addField('Reason:', reason)
             .setFooter(bot.user.username, bot.user.avatarURL())
             .setTimestamp()
             .setColor(3447003);
 
-        if (msg.mentions.members) {
             msg.mentions.members.forEach(member => {
                 member.ban(0).then(member => {
-                    msg.reply(member + " has been banned!")
+                    msg.reply("user has been banned!")
 
                     channel.send({
                         embed: ban
