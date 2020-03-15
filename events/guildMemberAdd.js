@@ -1,7 +1,7 @@
 var Discord = require('discord.js');
 
 exports.run = async (bot, member) => {
-    var channel = member.guild.channels.fetch(bot.config.logChannel);
+    var channel = member.guild.channels.cache.get(bot.config.logChannel);
     var join = new Discord.MessageEmbed()
         .setAuthor(member.user.username, member.user.avatarURL())
         .setFooter(member.guild.name)
