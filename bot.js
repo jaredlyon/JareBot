@@ -5,6 +5,7 @@ const readdir = require("fs").readdir;
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
+bot.blackjackInProgress = new Set();
 
 readdir('./misc modules/', (err, files) => {
 	bot.log(`Loading ${files.length} miscellaneous modules!`);
@@ -122,7 +123,7 @@ readdir('./events/', (err, files) => {
 
 var restart;
 bot.on('ready', () => {
-	restart = bot.channels.get('399746390793650177'); // Channel to send notification
+	restart = bot.channels.fetch('399746390793650177'); // Channel to send notification
 });
 
 const TARGET_HOUR_R = 4;

@@ -1,10 +1,10 @@
 exports.run = async (bot, msg) => {
 	if (msg.channel.type === "dm" && msg.author.id == bot.user.id) {
 		console.log("[DM] " + bot.user.username + " -> " + msg.channel.recipient.username + " | " + msg.content)
-		bot.channels.get(bot.config.logChannel).send(`The message: "${msg.content || "(no content)"}" by **${msg.author.tag}** was sent to me by another bot (or myself)!`)
+		bot.channels.fetch(bot.config.logChannel).send(`The message: "${msg.content || "(no content)"}" by **${msg.author.tag}** was sent to me by another bot (or myself)!`)
 	} else if (msg.channel.type === "dm" && msg.author.id != bot.user.id) {
 		console.log("[DM] " + msg.channel.recipient.username + " -> " + bot.user.username + " | " + msg.content)
-		bot.channels.get(bot.config.logChannel).send(`The message: "${msg.content || "(no content)"}" by **${msg.author.tag}** was sent to me!`)
+		bot.channels.fetch(bot.config.logChannel).send(`The message: "${msg.content || "(no content)"}" by **${msg.author.tag}** was sent to me!`)
 	}
 
 	if (!msg.channel.type === "text" || !msg.guild || msg.author.bot) return;

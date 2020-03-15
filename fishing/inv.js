@@ -18,17 +18,18 @@ module.exports = {
       var h = fishing.blowfish
       var i = fishing.squid
       var j = fishing.sharks
-      var total = a*3 + b*8 + c*12 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100
+      var total = a * 3 + b * 8 + c * 12 + d * 50 + e * 50 + f * 75 + g * 75 + h * 50 + i * 100 + j * 100
       msg.channel.send({
-        embed: 
-        { color: 0x4e86f7,
+        embed:
+        {
+          color: 0x4e86f7,
           footer: {
-            icon_url: msg.guild.iconURL,
+            icon_url: msg.guild.iconURL(),
             text: bot.config.lastUpdateDate
           },
           author: {
             name: "Fishing Inventory for " + target.username,
-            icon_url: target.avatarURL
+            icon_url: target.avatarURL()
           },
           fields: [
             {
@@ -55,17 +56,18 @@ module.exports = {
       var h = fishing.blowfish
       var i = fishing.squid
       var j = fishing.sharks
-      var total = a*3 + b*8 + c*12 + d*50 + e*50 + f*75 + g*75 + h*50 + i*100 + j*100
+      var total = a * 3 + b * 8 + c * 12 + d * 50 + e * 50 + f * 75 + g * 75 + h * 50 + i * 100 + j * 100
       msg.channel.send({
-        embed: 
-        { color: 0x4e86f7,
+        embed:
+        {
+          color: 0x4e86f7,
           footer: {
-            icon_url: msg.guild.iconURL,
+            icon_url: msg.guild.iconURL(),
             text: bot.config.lastUpdateDate
           },
           author: {
             name: "Fishing Inventory for " + msg.author.username,
-            icon_url: msg.author.avatarURL
+            icon_url: msg.author.avatarURL()
           },
           fields: [
             {

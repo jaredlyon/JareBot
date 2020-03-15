@@ -15,15 +15,16 @@ module.exports = {
       var five = Number(stats.fishing.net.toFixed(2))
       var x = Number(one + two + three + four + five)
       msg.channel.send({
-        embed: 
-        { color: 0xffffff,
+        embed:
+        {
+          color: 0xffffff,
           footer: {
             icon_url: msg.guild.iconURL,
             text: bot.config.lastUpdateDate
           },
           author: {
             name: "Currency Statistics for " + target.username,
-            icon_url: target.avatarURL
+            icon_url: target.avatarURL()
           },
           fields: [
             {
@@ -68,15 +69,16 @@ module.exports = {
       var five = Number(stats.fishing.net.toFixed(2))
       var x = Number(one + two + three + four + five)
       msg.channel.send({
-        embed: 
-        { color: 0xffffff,
+        embed:
+        {
+          color: 0xffffff,
           footer: {
-            icon_url: msg.guild.iconURL,
+            icon_url: msg.guild.iconURL(),
             text: bot.config.lastUpdateDate
           },
           author: {
             name: "Currency Statistics for " + msg.author.username,
-            icon_url: msg.author.avatarURL
+            icon_url: msg.author.avatarURL()
           },
           fields: [
             {

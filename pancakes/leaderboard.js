@@ -10,10 +10,10 @@ module.exports = {
         .orderBy(bot.r.desc(bot.r.row('items')('pancakes')))
         .limit(18);
 
-      var lb = new Discord.RichEmbed()
+      var lb = new Discord.MessageEmbed()
         .setColor(msg.guild.me.displayHexColor)
         .setTitle('🥞 Pancakes Leaderboard 🥞')
-        .setFooter(msg.guild.name, msg.guild.iconURL);
+        .setFooter(msg.guild.name, msg.guild.iconURL());
 
       let i = 1;
       topEighteen.forEach(user => {
@@ -29,10 +29,10 @@ module.exports = {
         .orderBy(bot.r.desc(bot.r.row('balance')))
         .limit(18);
 
-      var lb = new Discord.RichEmbed()
+      var lb = new Discord.MessageEmbed()
         .setColor(msg.guild.me.displayHexColor)
         .setTitle('💰 Currency Leaderboard 💰')
-        .setFooter(msg.guild.name, msg.guild.iconURL);
+        .setFooter(msg.guild.name, msg.guild.iconURL());
 
       let i = 1;
       topEighteen.forEach(user => {
@@ -48,10 +48,10 @@ module.exports = {
         .orderBy(bot.r.desc(bot.r.row('items')('pancakes')))
         .limit(18);
 
-      var lb = new Discord.RichEmbed()
+      var lb = new Discord.MessageEmbed()
         .setColor(msg.guild.me.displayHexColor)
         .setTitle('🥞 Pancakes Leaderboard 🥞')
-        .setFooter(msg.guild.name, msg.guild.iconURL);
+        .setFooter(msg.guild.name, msg.guild.iconURL());
 
       let i = 1;
       topEighteen.forEach(user => {
