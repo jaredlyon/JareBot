@@ -17,8 +17,8 @@ module.exports = {
 
       let i = 1;
       topEighteen.forEach(user => {
-        lb.addField(`${i}: ${bot.users.get(user.id)
-          ? bot.users.get(user.id).username
+        lb.addField(`${i}: ${bot.users.cache.get(user.id)
+          ? bot.users.cache.get(user.id).username
           : "User Left Server"}`, user.items ? user.items.pancakes : 0, true);
         i++;
       });
@@ -36,8 +36,8 @@ module.exports = {
 
       let i = 1;
       topEighteen.forEach(user => {
-        lb.addField(`${i}: ${bot.users.get(user.id)
-          ? bot.users.get(user.id).username
+        lb.addField(`${i}: ${bot.users.cache.get(user.id)
+          ? bot.users.cache.get(user.id).username
           : "User Left Server"}`, user ? user.balance.toFixed(2) : 0, true);
         i++;
       });
@@ -55,8 +55,8 @@ module.exports = {
 
       let i = 1;
       topEighteen.forEach(user => {
-        lb.addField(`${i}: ${bot.users.get(user.id)
-          ? bot.users.get(user.id).username
+        lb.addField(`${i}: ${bot.users.cache.get(user.id)
+          ? bot.users.cache.get(user.id).username
           : "User Left Server"}`, user.items ? user.items.pancakes : 0, true);
         i++;
       });
