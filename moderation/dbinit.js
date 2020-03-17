@@ -15,11 +15,9 @@ module.exports = {
                     }
                 })
             })
-        }
-            
+        }        
         funcB()
         
-        /**
         //streaks
         let funcSt = async() => {
             bot.guilds.cache.get("399740385221672970").members.cache.forEach(async member => {
@@ -30,9 +28,7 @@ module.exports = {
                 })
             })
         }
-
         funcSt()
-        **/
 
         //stats
         let funcS = async() => {
@@ -79,8 +75,7 @@ module.exports = {
                     }
                 })
             })
-        }
-            
+        }     
         funcS()
 
         //fishing
@@ -101,8 +96,7 @@ module.exports = {
                         sharks: 0 //:shark:
                 })
             })
-        }
-            
+        }   
         funcF()
 
         console.log("Accounts generated for all users!");
