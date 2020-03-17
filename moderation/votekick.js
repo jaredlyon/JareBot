@@ -1,16 +1,10 @@
 module.exports = {
     name: 'votekick',
-    permission: 2,
+    permission: 1,
     main: async function (bot, msg) {
         if (msg.mentions.users.first()) {
             //grab target
             var target = msg.mentions.members.first();
-
-            //grab and insert reason
-            var reason = msg.content.split(' ').splice(1).join(' ');
-            if (reason === '') {
-                reason = '(no reason given)'
-            };
 
             //count votes
             var yes = 0;
@@ -32,7 +26,7 @@ module.exports = {
                             "\n" +
                             "React 👎 to vote NO",
                         footer: {
-                            text: "Vote count:",
+                            text: "Votes needed: " + (threshold + 1),
                         },
                         timestamp: new Date()
                     }
@@ -60,12 +54,13 @@ module.exports = {
                                         "?\n؜" +
                                         "**Vote passed!**",
                                     footer: {
-                                        text: "Vote count:",
+                                        text: "Votes needed: " + (threshold + 1),
                                     },
                                     timestamp: new Date()
                                 }
                             });
                             target.voice.setChannel(null)
+                            collector.stop();
                         }
                     } else if (messageReaction.emoji.name === "👎") {
                         no++;
@@ -80,7 +75,7 @@ module.exports = {
                                         "?\n؜" +
                                         "**Vote failed!**",
                                     footer: {
-                                        text: "Vote count:",
+                                        text: "Votes needed: " + (threshold + 1),
                                     },
                                     timestamp: new Date()
                                 }
@@ -102,12 +97,13 @@ module.exports = {
                                     "?\n؜" +
                                     "**Vote passed!**",
                                 footer: {
-                                    text: "Vote count:",
+                                    text: "Votes needed: " + (threshold + 1),
                                 },
                                 timestamp: new Date()
                             }
                         });
                         target.voice.setChannel(null)
+                        collector.stop();
                     } else {
                         vote.edit({
                             embed: {
@@ -119,7 +115,7 @@ module.exports = {
                                     "?\n؜" +
                                     "**Vote failed!**",
                                 footer: {
-                                    text: "Vote count:",
+                                    text: "Votes needed: " + (threshold + 1),
                                 },
                                 timestamp: new Date()
                             }
