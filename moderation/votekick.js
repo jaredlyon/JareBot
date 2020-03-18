@@ -10,6 +10,12 @@ module.exports = {
             var yes = 0;
             var no = 0;
 
+            //grab reason
+            var reason = msg.content.split(' ').splice(1).join(' ');
+            if (reason === '') {
+                reason = 'no reason given'
+            };
+
             if (target.voice.channel) {
                 let vcCount = target.voice.channel.members.size;
                 var threshold = Math.floor(vcCount / 2);
@@ -22,13 +28,13 @@ module.exports = {
                             "Kick player: " +
                             target.user.username +
                             "?\n؜" +
+                            "(" + reason + ")\n" +
                             "React 👍 to vote YES" +
                             "\n" +
                             "React 👎 to vote NO",
                         footer: {
-                            text: "Votes needed: " + (threshold + 1),
-                        },
-                        timestamp: new Date()
+                            text: "Vote count:",
+                        }
                     }
                 })
 
@@ -52,11 +58,11 @@ module.exports = {
                                         "Kick player: " +
                                         target.user.username +
                                         "?\n؜" +
+                                        "(" + reason + ")\n" +
                                         "**Vote passed!**",
                                     footer: {
-                                        text: "Votes needed: " + (threshold + 1),
-                                    },
-                                    timestamp: new Date()
+                                        text: "Vote count:",
+                                    }
                                 }
                             });
                             target.voice.setChannel(null)
@@ -73,11 +79,11 @@ module.exports = {
                                         "Kick player: " +
                                         target.user.username +
                                         "?\n؜" +
+                                        "(" + reason + ")\n" +
                                         "**Vote failed!**",
                                     footer: {
-                                        text: "Votes needed: " + (threshold + 1),
-                                    },
-                                    timestamp: new Date()
+                                        text: "Vote count:",
+                                    }
                                 }
                             });
                             collector.stop();
@@ -95,11 +101,11 @@ module.exports = {
                                     "Kick player: " +
                                     target.user.username +
                                     "?\n؜" +
+                                    "(" + reason + ")\n" +
                                     "**Vote passed!**",
                                 footer: {
-                                    text: "Votes needed: " + (threshold + 1),
-                                },
-                                timestamp: new Date()
+                                    text: "Vote count:",
+                                }
                             }
                         });
                         target.voice.setChannel(null)
@@ -113,11 +119,11 @@ module.exports = {
                                     "Kick player: " +
                                     target.user.username +
                                     "?\n؜" +
+                                    "(" + reason + ")\n" +
                                     "**Vote failed!**",
                                 footer: {
-                                    text: "Votes needed: " + (threshold + 1),
-                                },
-                                timestamp: new Date()
+                                    text: "Vote count:",
+                                }
                             }
                         });
                     }
