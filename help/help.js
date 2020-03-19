@@ -187,10 +187,6 @@ module.exports = {
               value: "Flips a coin!"
             },
             {
-              name: "j!fight [@user]",
-              value: "Hmph! I challenge thee to a contest of fisticuffs!"
-            },
-            {
               name: "j!bored",
               value: "Embeds some fun flash games to play in the chat."
             },
