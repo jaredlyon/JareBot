@@ -53,7 +53,7 @@ module.exports = {
             },
             {
               name: "Totals:",
-              value: `Aggregate Revenue: **$` + x.toFixed(2) + `**\nAggregate Expenditures: **$` + Math.abs((account.balance.toFixed(2) - x.toFixed(2)).toFixed(2)) + `**\nCurrent Balance: **$` + account.balance.toFixed(2) + `**`
+              value: `Aggregate Revenue: **$` + x.toFixed(2) + `**\nAggregate Expenditures: **$` + (stats.pancakes.bought * 17).toFixed(2) + `**\nCurrent Balance: **$` + account.balance.toFixed(2) + `**`
             }
           ]
         }
@@ -103,11 +103,11 @@ module.exports = {
             },
             {
               name: "Pancakes:",
-              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Received: **` + stats.pancakes.received + `**\nStacks Donated: **` + stats.pancakes.given + `**\nTotal Stacks: **` + account.items.pancakes + `**`
+              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Received: **` + stats.pancakes.received + `**\nStacks Donated: **` + stats.pancakes.given + `**\nTotal Stacks: **` + (stats.pancakes.bought + stats.pancakes.received - stats.pancakes.given) + `**`
             },
             {
               name: "Totals:",
-              value: `Aggregate Revenue: **$` + x.toFixed(2) + `**\nAggregate Expenditures: **$` + Math.abs((account.balance.toFixed(2) - x.toFixed(2)).toFixed(2)) + `**\nCurrent Balance: **$` + account.balance.toFixed(2) + `**`
+              value: `Aggregate Revenue: **$` + x.toFixed(2) + `**\nAggregate Expenditures: **$` + (stats.pancakes.bought * 17).toFixed(2) + `**\nCurrent Balance: **$` + account.balance.toFixed(2) + `**`
             }
           ]
         }

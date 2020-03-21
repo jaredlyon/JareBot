@@ -123,11 +123,11 @@ readdir('./events/', (err, files) => {
 
 var restart;
 bot.on('ready', () => {
-	restart = bot.channels.fetch('399746390793650177'); // Channel to send notification
+	restart = bot.channels.cache.get('399746390793650177'); // Channel to send notification
 });
 
 const TARGET_HOUR_R = 4;
-const TARGET_MINUTE_R = 21;
+const TARGET_MINUTE_R = 20;
 
 setInterval(function () {
 	var d2 = new Date();

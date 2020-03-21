@@ -2,8 +2,8 @@ module.exports = {
   name: 'dailies',
   permission: 1,
   main: async function (bot, msg) {
-    const yup = bot.emojis.cache.find(emoji => emoji.name == "yup");
-    const nope = bot.emojis.cache.find(emoji => emoji.name == "nope");
+    const yup = bot.emojis.cache.find(emoji => emoji.name == "yup").toString();
+    const nope = bot.emojis.cache.find(emoji => emoji.name == "nope").toString();
     let account = (await bot.bank.get(msg.author.id)) || {};
     let stats = (await bot.stats.get(msg.author.id)) || {};
     let streaks = (await bot.streaks.get(msg.author.id)) || {};

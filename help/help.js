@@ -187,10 +187,6 @@ module.exports = {
               value: "Flips a coin!"
             },
             {
-              name: "j!fight [@user]",
-              value: "Hmph! I challenge thee to a contest of fisticuffs!"
-            },
-            {
               name: "j!bored",
               value: "Embeds some fun flash games to play in the chat."
             },
@@ -237,6 +233,10 @@ module.exports = {
           },
           description: "*I couldn't think of a better place to put these.*",
           fields: [
+            {
+              name: "j!votekick [@user]",
+              value: "Vote to kick a user from the voice channel temporarily."
+            },
             {
               name: "j!suggest [input]",
               value: "Send a suggestion/complaint into Jared's suggestion box!"

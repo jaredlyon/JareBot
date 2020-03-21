@@ -1,20 +1,20 @@
 module.exports = {
     name: 'votekick',
-    permission: 2,
+    permission: 1,
     main: async function (bot, msg) {
         if (msg.mentions.users.first()) {
             //grab target
             var target = msg.mentions.members.first();
 
-            //grab and insert reason
-            var reason = msg.content.split(' ').splice(1).join(' ');
-            if (reason === '') {
-                reason = '(no reason given)'
-            };
-
             //count votes
             var yes = 0;
             var no = 0;
+
+            //grab reason
+            var reason = msg.content.split(' ').splice(1).join(' ');
+            if (reason === '') {
+                reason = 'no reason given'
+            };
 
             if (target.voice.channel) {
                 let vcCount = target.voice.channel.members.size;
@@ -28,13 +28,13 @@ module.exports = {
                             "Kick player: " +
                             target.user.username +
                             "?\n؜" +
+                            "(" + reason + ")\n" +
                             "React 👍 to vote YES" +
                             "\n" +
                             "React 👎 to vote NO",
                         footer: {
                             text: "Vote count:",
-                        },
-                        timestamp: new Date()
+                        }
                     }
                 })
 
@@ -58,14 +58,15 @@ module.exports = {
                                         "Kick player: " +
                                         target.user.username +
                                         "?\n؜" +
+                                        "(" + reason + ")\n" +
                                         "**Vote passed!**",
                                     footer: {
                                         text: "Vote count:",
-                                    },
-                                    timestamp: new Date()
+                                    }
                                 }
                             });
                             target.voice.setChannel(null)
+                            collector.stop();
                         }
                     } else if (messageReaction.emoji.name === "👎") {
                         no++;
@@ -78,11 +79,11 @@ module.exports = {
                                         "Kick player: " +
                                         target.user.username +
                                         "?\n؜" +
+                                        "(" + reason + ")\n" +
                                         "**Vote failed!**",
                                     footer: {
                                         text: "Vote count:",
-                                    },
-                                    timestamp: new Date()
+                                    }
                                 }
                             });
                             collector.stop();
@@ -100,14 +101,15 @@ module.exports = {
                                     "Kick player: " +
                                     target.user.username +
                                     "?\n؜" +
+                                    "(" + reason + ")\n" +
                                     "**Vote passed!**",
                                 footer: {
                                     text: "Vote count:",
-                                },
-                                timestamp: new Date()
+                                }
                             }
                         });
                         target.voice.setChannel(null)
+                        collector.stop();
                     } else {
                         vote.edit({
                             embed: {
@@ -117,11 +119,11 @@ module.exports = {
                                     "Kick player: " +
                                     target.user.username +
                                     "?\n؜" +
+                                    "(" + reason + ")\n" +
                                     "**Vote failed!**",
                                 footer: {
                                     text: "Vote count:",
-                                },
-                                timestamp: new Date()
+                                }
                             }
                         });
                     }

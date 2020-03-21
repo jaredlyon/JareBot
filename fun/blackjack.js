@@ -256,10 +256,7 @@ module.exports = {
           });
         }
       }
-      let me = messageReaction.users
-        .filter(user => user.username == msg.author.username)
-        .first();
-      messageReaction.remove(me);
+      messageReaction.users.remove(msg.author);
     });
     collector.on("end", async collected => {
       if (timeout) {
