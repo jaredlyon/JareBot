@@ -21,7 +21,12 @@ exports.run = async (bot, msg) => {
 
 	const msg1 = msg.content.toLowerCase();
 	if (msg1.includes("input")) {
-		msg.channel.send("output")
+		msg.channel.send("output");
+	}
+	//for banned words
+	if (msg1.includes("input")) {
+		msg.reply("your message included a banned word!");
+		msg.delete();
 	}
 
 	//bank writes
