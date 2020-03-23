@@ -34,28 +34,38 @@ module.exports = {
   },
 
   calculateWinner(player_hand, cpu_hand, cards) {
+    //dealer draw - attempt to beat player
     let player_total = this.calculateTotal(player_hand);
-    while (
-      this.calculateTotal(cpu_hand) <= player_total &&
-      this.calculateTotal(cpu_hand) < 21
-    ) {
+    while (this.calculateTotal(cpu_hand) < player_total && this.calculateTotal(cpu_hand) < 21) {
       cpu_hand.push(this.drawCard(cards));
     }
     let cpu_total = this.calculateTotal(cpu_hand);
-    if (cpu_total > 21 || cpu_total <= player_total) {
-      if (
-        cpu_total == player_total &&
-        player_hand.length > cpu_hand.length
-      ) {
-        return false;
-      }
-      return true;
+
+    /**
+     * note that some of the outcomes represented below are unused but kept in the code architecture
+     * for legibility and ease for any future edits
+     * 0 dealer bust
+     * 1 dealer win
+     * 2 player bust
+     * 3 player win
+     * 4 push
+     */
+    if (cpu_total > 21) {
+      return 0; //on dealer bust
+    } else if (player_total > 21) {
+      return 2; //unused; on player bust
     } else {
-      return false;
+      if (cpu_total > player_total) {
+        return 1; //on dealer win
+      } else if (cpu_total < player_total) {
+        return 3; //unused; on player win
+      } else if (cpu_total == player_total) {
+        return 4; //on push
+      }
     }
   },
 
-  //async loop (exit needed?)
+  //async loop
   main: async function (bot, msg) {
     let account = await bot.bank.get(msg.author.id);
     let stats = await bot.stats.get(msg.author.id);
@@ -140,7 +150,7 @@ module.exports = {
     //on stand & dealer bust
     collector.on("collect", async messageReaction => {
       if (messageReaction.emoji.name === "✋") {
-        if (this.calculateWinner(player_hand, cpu_hand, cards)) {
+        if (this.calculateWinner(player_hand, cpu_hand, cards) == 0) {
           blackjackMessage.edit({
             embed: {
               color: 0x33cc33,
@@ -169,7 +179,7 @@ module.exports = {
           await bot.bank.update(account);
           await bot.stats.update(stats);
           bot.blackjackInProgress.delete(msg.author.id);
-        } else {
+        } else if (this.calculateWinner(player_hand, cpu_hand, cards) == 1) {
           //dealer win
           blackjackMessage.edit({
             embed: {
@@ -195,6 +205,34 @@ module.exports = {
           stats.blackjack.lost += 1
           stats.blackjack.net -= bet
 
+          await bot.stats.update(stats);
+          bot.blackjackInProgress.delete(msg.author.id);
+        } else if (this.calculateWinner(player_hand, cpu_hand, cards) == 4) {
+          //push
+          blackjackMessage.edit({
+            embed: {
+              color: 0x33cc33,
+              title: "♠️♥️**Blackjack Bet: $" + bet.toFixed(2) + "**♦️♣️",
+              description:
+                "Dealer's hand: " +
+                cpu_hand +
+                "\n؜" +
+                "Player's hand: " +
+                player_hand +
+                "\n" + "\n" +
+                "Push, you regain your bet of $" + bet.toFixed(2) + "!",
+              footer: {
+                text: "Classic Blackjack",
+                icon_url: msg.author.avatarURL()
+              },
+              timestamp: new Date()
+            }
+          });
+          //stats update
+          stats.blackjack.games += 1;
+          account.balance += bet;
+
+          await bot.bank.update(account);
           await bot.stats.update(stats);
           bot.blackjackInProgress.delete(msg.author.id);
         }

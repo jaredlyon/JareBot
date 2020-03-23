@@ -41,7 +41,7 @@ module.exports = {
             },
             {
               name: "Blackjack:",
-              value: `Games Played: **` + stats.blackjack.games + `**\nGames Won: **` + stats.blackjack.won + `**\nGames Lost: **` + stats.blackjack.lost + `**\nNet Winnings/Losses: **$` + stats.blackjack.net.toFixed(2) + `**`
+              value: `Games Played: **` + stats.blackjack.games + `**\nGames Won: **` + stats.blackjack.won + `**\nGames Lost: **` + stats.blackjack.lost + `**\nGames Pushed: **` + (stats.blackjack.games - (stats.blackjack.won + stats.blackjack.lost)) + `**\nNet Winnings/Losses: **$` + stats.blackjack.net.toFixed(2) + `**`
             },
             {
               name: "Baits:",
@@ -95,7 +95,7 @@ module.exports = {
             },
             {
               name: "Blackjack:",
-              value: `Games Played: **` + stats.blackjack.games + `**\nGames Won: **` + stats.blackjack.won + `**\nGames Lost: **` + stats.blackjack.lost + `**\nNet Winnings/Losses: **$` + stats.blackjack.net.toFixed(2) + `**`
+              value: `Games Played: **` + stats.blackjack.games + `**\nGames Won: **` + stats.blackjack.won + `**\nGames Lost: **` + stats.blackjack.lost + `**\nGames Pushed: **` + (stats.blackjack.games - (stats.blackjack.won + stats.blackjack.lost)) + `**\nNet Winnings/Losses: **$` + stats.blackjack.net.toFixed(2) + `**`
             },
             {
               name: "Baits:",
