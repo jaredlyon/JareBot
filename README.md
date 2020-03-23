@@ -14,11 +14,12 @@ Once both the bot and RethinkDB are running, verify that the bot has successfull
 **8.0.0**
 - Migrated the bot to v12 of Discord.js
 - Added a votekick function
+- Added pushes to the blackjack module
+- Added text channel timeouts
 - Rebalanced income portion of the economy
 - Touched up portions of the UI
 - Updated README
 - Fixed an issue where baiting during a blackjack game caused currency discrepancies
-- Added pushes to the blackjack module
 
 ### Past Updates:
 **7.0.0**
