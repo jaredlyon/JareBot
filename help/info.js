@@ -21,7 +21,14 @@ module.exports = {
           },
           {
             name: "Last Update: v8.0.0",
-            value: "-Migrated the bot to v12 of Discord.js\n-Added a votekick function\n-Rebalanced income portion of the economy\n-Touched up portions of the UI\n-Updated README\n-Fixed an issue where baiting during a blackjack game caused currency discrepancies\n-Added pushes to the blackjack module"
+            value: `- Migrated the bot to v12 of Discord.js
+                    - Added a votekick function
+                    - Added pushes to the blackjack module
+                    - Added text channel timeouts
+                    - Rebalanced income portion of the economy
+                    - Touched up portions of the UI
+                    - Updated README
+                    - Fixed an issue where baiting during a blackjack game caused currency discrepancies`
           },
           /*CHECK GITHUB FOOTERS*/
           {
