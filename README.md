@@ -18,6 +18,7 @@ Once both the bot and RethinkDB are running, verify that the bot has successfull
 - Touched up portions of the UI
 - Updated README
 - Fixed an issue where baiting during a blackjack game caused currency discrepancies
+- Added pushes to the blackjack module
 
 ### Past Updates:
 **7.0.0**
