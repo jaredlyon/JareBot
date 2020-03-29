@@ -2,8 +2,8 @@ module.exports = {
   name: 'daily',
   permission: 1,
   main: async function (bot, msg) {
-    const yup = bot.emojis.find(emoji => emoji.name == "yup");
-    const nope = bot.emojis.find(emoji => emoji.name == "nope");
+    const yup = bot.emojis.cache.find(emoji => emoji.name == "yup").toString();
+    const nope = bot.emojis.cache.find(emoji => emoji.name == "nope").toString();
     let account = (await bot.bank.get(msg.author.id)) || {};
     let stats = (await bot.stats.get(msg.author.id)) || {};
     let streaks = (await bot.streaks.get(msg.author.id)) || {};
@@ -11,45 +11,45 @@ module.exports = {
 
     if (!streaks.lastDaily) {
       stats.dailies.collected += 1;
-      stats.dailies.profit += 25.4;
-      account.balance += 25.4;
+      stats.dailies.profit += 100.00;
+      account.balance += 100.00;
       streaks.lastDaily = new Date();
       await bot.bank.update(account);
       await bot.stats.update(stats);
       await bot.streaks.update(streaks);
-      msg.channel.send(yup + " | You have received your daily allowance of **$25.40**, " + msg.author.username + "!")
+      msg.channel.send(yup + " | You have received your daily allowance of **$100.00**, " + msg.author.username + "!")
     } else if (new Date() - new Date(streaks.lastDaily) >= 86400000 && new Date() - new Date(streaks.lastDaily) <= 172800000) {
       streaks.streak += 1;
-      account.balance += 25.4;
+      account.balance += 100.00;
       await bot.streaks.update(streaks);
-      account.balance += 2.54 * streaks.streak;
+      account.balance += 10.00 * streaks.streak;
       stats.dailies.collected += 1;
-      stats.dailies.profit += 25.4;
-      stats.dailies.profit += 2.54 * streaks.streak;
+      stats.dailies.profit += 100.00;
+      stats.dailies.profit += 10.00 * streaks.streak;
       streaks.lastDaily = new Date();
       await bot.bank.update(account);
       await bot.stats.update(stats);
       await bot.streaks.update(streaks);
-      msg.channel.send(yup + " | You have received your daily allowance of **$25.40**! You've also been given a bonus of **$" + (2.54 * streaks.streak).toFixed(2) + "** due to your **" + streaks.streak + "** day streak, " + msg.author.username + "!")
+      msg.channel.send(yup + " | You have received your daily allowance of **$100.00**! You've also been given a bonus of **$" + (10.00 * streaks.streak).toFixed(2) + "** due to your **" + streaks.streak + "** day streak, " + msg.author.username + "!")
     } else if (new Date() - new Date(streaks.lastDaily) >= 86400000 && new Date() - new Date(streaks.lastDaily) >= 172800000 && streaks.streak >= 0) {
       streaks.streak = 0;
-      account.balance += 25.4;
+      account.balance += 100.00;
       stats.dailies.collected += 1;
-      stats.dailies.profit += 25.4;
+      stats.dailies.profit += 100.00;
       streaks.lastDaily = new Date();
       await bot.bank.update(account);
       await bot.stats.update(stats);
       await bot.streaks.update(streaks);
-      msg.channel.send(yup + " | You have received your daily allowance of **$25.40**, but you unfortunately have lost your streak, " + msg.author.username + "!")
+      msg.channel.send(yup + " | You have received your daily allowance of **$100.00**, but you unfortunately have lost your streak, " + msg.author.username + "!")
     } else if (new Date() - new Date(streaks.lastDaily) >= 86400000 && new Date() - new Date(streaks.lastDaily) >= 172800000 && streaks.streak == 0) {
-      account.balance += 25.4;
+      account.balance += 100.00;
       stats.dailies.collected += 1;
-      stats.dailies.profit += 25.4;
+      stats.dailies.profit += 100.00;
       streaks.lastDaily = new Date();
       await bot.bank.update(account);
       await bot.stats.update(stats);
       await bot.streaks.update(streaks);
-      msg.channel.send(yup + " | You have received your daily allowance of **$25.40**, " + msg.author.username + "!")
+      msg.channel.send(yup + " | You have received your daily allowance of **$100.00**, " + msg.author.username + "!")
     } else {
       msg.channel.send(nope + ` | Not so fast! You still have to wait **${convert(new Date(), new Date(streaks.lastDaily))}** to claim your daily allowance, ` + msg.author.username + `!`)
     }

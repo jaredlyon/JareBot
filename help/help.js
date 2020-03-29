@@ -2,15 +2,16 @@ module.exports = {
   name: 'help',
   permission: 1,
   main: function (bot, msg) {
-      var x = msg.content.split(' ').splice(0)[0];
+    var x = msg.content.split(' ').splice(0)[0];
 
-      //info
-      if (x != null && x == "info") {
-        msg.channel.send({embed: {
+    //info
+    if (x != null && x == "info") {
+      msg.channel.send({
+        embed: {
           color: 3447003,
           author: {
             name: "Help & Info",
-            icon_url: bot.user.avatarURL
+            icon_url: bot.user.avatarURL()
           },
           description: "*General informational commands that combine to form a general overview of the bot and server:*",
           fields: [
@@ -24,19 +25,20 @@ module.exports = {
             }
           ],
           footer: {
-            icon_url: msg.guild.iconURL,
+            icon_url: msg.guild.iconURL(),
             text: msg.guild.name
           }
         }
       });
 
       //roles
-      } else if (x != null && x == "roles") {
-        msg.channel.send({embed: {
+    } else if (x != null && x == "roles") {
+      msg.channel.send({
+        embed: {
           color: 3447003,
           author: {
             name: "Self-Assignable Roles",
-            icon_url: bot.user.avatarURL
+            icon_url: bot.user.avatarURL()
           },
           description: "*A guide to the server's array of numerous self-assignable roles:*",
           fields: [
@@ -54,19 +56,20 @@ module.exports = {
             }
           ],
           footer: {
-            icon_url: msg.guild.iconURL,
+            icon_url: msg.guild.iconURL(),
             text: msg.guild.name
           }
         }
       });
 
       //currency
-      } else if (x != null && x == "currency") {
-        msg.channel.send({embed: {
+    } else if (x != null && x == "currency") {
+      msg.channel.send({
+        embed: {
           color: 3447003,
           author: {
             name: "Currency",
-            icon_url: bot.user.avatarURL
+            icon_url: bot.user.avatarURL()
           },
           description: "*Monkeys, Machinations, & Monies:*",
           fields: [
@@ -84,7 +87,7 @@ module.exports = {
             },
             {
               name: "j!daily/j!dailies",
-              value: "Deposits your daily allowance into your account! Repeatedly collecting you daily every 24 hours will start a streak, but neglecting the streak for more than 48 hours resets it."
+              value: "Deposits your daily allowance into your account! Repeatedly collecting your daily every 24 hours will start a streak, but neglecting the streak for more than 48 hours resets it."
             },
             {
               name: "j!baited",
@@ -92,19 +95,20 @@ module.exports = {
             }
           ],
           footer: {
-            icon_url: msg.guild.iconURL,
+            icon_url: msg.guild.iconURL(),
             text: msg.guild.name
           }
         }
       });
 
       //pancakes
-      } else if (x != null && x == "pancakes") {
-        msg.channel.send({embed: {
+    } else if (x != null && x == "pancakes") {
+      msg.channel.send({
+        embed: {
           color: 3447003,
           author: {
             name: "Giveaways & Pancakes",
-            icon_url: bot.user.avatarURL
+            icon_url: bot.user.avatarURL()
           },
           description: "*Yep, these arbitrary stacks of 'food' determine the outcome of some of the giveaways.*",
           fields: [
@@ -126,19 +130,20 @@ module.exports = {
             }
           ],
           footer: {
-            icon_url: msg.guild.iconURL,
+            icon_url: msg.guild.iconURL(),
             text: msg.guild.name
           }
         }
       });
 
       //fishing
-      } else if (x != null && x == "fishing") {
-        msg.channel.send({embed: {
+    } else if (x != null && x == "fishing") {
+      msg.channel.send({
+        embed: {
           color: 3447003,
           author: {
             name: "Fishing Commands",
-            icon_url: bot.user.avatarURL
+            icon_url: bot.user.avatarURL()
           },
           description: "*When gambling just doesn't cut it...*",
           fields: [
@@ -156,19 +161,20 @@ module.exports = {
             }
           ],
           footer: {
-            icon_url: msg.guild.iconURL,
+            icon_url: msg.guild.iconURL(),
             text: msg.guild.name
           }
         }
       });
 
       //fun
-      } else if (x != null && x == "fun") {
-        msg.channel.send({embed: {
+    } else if (x != null && x == "fun") {
+      msg.channel.send({
+        embed: {
           color: 3447003,
           author: {
             name: "Fun Commands",
-            icon_url: bot.user.avatarURL
+            icon_url: bot.user.avatarURL()
           },
           description: "*Because we all like to just screw around sometimes...*",
           fields: [
@@ -179,10 +185,6 @@ module.exports = {
             {
               name: "j!coinflip",
               value: "Flips a coin!"
-            },
-            {
-              name: "j!fight [@user]",
-              value: "Hmph! I challenge thee to a contest of fisticuffs!"
             },
             {
               name: "j!bored",
@@ -214,25 +216,26 @@ module.exports = {
             },
           ],
           footer: {
-            icon_url: msg.guild.iconURL,
+            icon_url: msg.guild.iconURL(),
             text: msg.guild.name
           }
         }
       });
 
       //other
-      } else if (x != null && x == "other") {
-        msg.channel.send({embed: {
+    } else if (x != null && x == "other") {
+      msg.channel.send({
+        embed: {
           color: 3447003,
           author: {
             name: "Miscellaneous Commands",
-            icon_url: bot.user.avatarURL
+            icon_url: bot.user.avatarURL()
           },
           description: "*I couldn't think of a better place to put these.*",
           fields: [
             {
-              name: "j!afk [reason]",
-              value: "Set yourself as AFK and add a note for anyone who might mention you!"
+              name: "j!votekick [@user]",
+              value: "Vote to kick a user from the voice channel temporarily."
             },
             {
               name: "j!suggest [input]",
@@ -252,58 +255,59 @@ module.exports = {
             }
           ],
           footer: {
-            icon_url: msg.guild.iconURL,
+            icon_url: msg.guild.iconURL(),
             text: msg.guild.name
           }
         }
       });
 
       //main menu
-      } else {
-        msg.channel.send({embed: {
-            color: 3447003,
-            author: {
-              name: "Here's some help with me, your friendly neighborhood JareBot!",
-              icon_url: bot.user.avatarURL
+    } else {
+      msg.channel.send({
+        embed: {
+          color: 3447003,
+          author: {
+            name: "Here's some help with me, your friendly neighborhood JareBot!",
+            icon_url: bot.user.avatarURL()
+          },
+          title: "*I got hella commands, hella functions, and not-so-hella friends...*",
+          description: "*Please love me.*",
+          fields: [
+            {
+              name: "Help & Info:",
+              value: "**j!help info**; General informational commands that combine to form a general overview of the server."
             },
-            title: "*I got hella commands, hella functions, and not-so-hella friends...*",
-            description: "*Please love me.*",
-            fields: [
-              {
-                name: "Help & Info:",
-                value: "**j!help info**; General informational commands that combine to form a general overview of the server."
-              },
-              {
-                name: "Self-Assignable Roles:",
-                value: "**j!help roles**; Help with the server's self-assignable roles."
-              },
-              {
-                name: "Currency:",
-                value: "**j!help currency**; A guide to server economics!"
-              },
-              {
-                name: "Pancakes:",
-                value: "**j!help pancakes**; And other useless foodstuffs for sale."
-              },
-              {
-                name: "Fishing:",
-                value: "**j!help fishing**; Yes, we have a lake."
-              },
-              {
-                name: "Fun:",
-                value: "**j!help fun**; Yes, we also like to have fun."
-              },
-              {
-                name: "Other Commands:",
-                value: "**j!help other**; Specially featuring commands that lack a category!"
-              }
-            ],
-            footer: {
-              icon_url: msg.guild.iconURL,
-              text: msg.guild.name
+            {
+              name: "Self-Assignable Roles:",
+              value: "**j!help roles**; Help with the server's self-assignable roles."
+            },
+            {
+              name: "Currency:",
+              value: "**j!help currency**; A guide to server economics!"
+            },
+            {
+              name: "Pancakes:",
+              value: "**j!help pancakes**; And other useless foodstuffs for sale."
+            },
+            {
+              name: "Fishing:",
+              value: "**j!help fishing**; Yes, we have a lake."
+            },
+            {
+              name: "Fun:",
+              value: "**j!help fun**; Yes, we also like to have fun."
+            },
+            {
+              name: "Other Commands:",
+              value: "**j!help other**; Specially featuring commands that lack a category!"
             }
+          ],
+          footer: {
+            icon_url: msg.guild.iconURL(),
+            text: msg.guild.name
           }
-        });
-      }
+        }
+      });
+    }
   }
 }

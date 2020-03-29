@@ -4,7 +4,7 @@ module.exports = {
     main: async function (bot, msg) {
         //bank
         let funcB = async() => {
-            bot.guilds.get("399740385221672970").members.forEach(async member => {
+            bot.guilds.cache.get("399740385221672970").members.cache.forEach(async member => {
                 await bot.bank.insert({
                     id: member.user.id,
                     balance: 0,
@@ -15,14 +15,12 @@ module.exports = {
                     }
                 })
             })
-        }
-            
+        }        
         funcB()
         
-        /**
         //streaks
         let funcSt = async() => {
-            bot.guilds.get("399740385221672970").members.forEach(async member => {
+            bot.guilds.cache.get("399740385221672970").members.cache.forEach(async member => {
                 await bot.streaks.insert({
                     id: member.user.id,
                     lastDaily: null,
@@ -30,13 +28,11 @@ module.exports = {
                 })
             })
         }
-
         funcSt()
-        **/
 
         //stats
         let funcS = async() => {
-            bot.guilds.get("399740385221672970").members.forEach(async member => {
+            bot.guilds.cache.get("399740385221672970").members.cache.forEach(async member => {
                 await bot.stats.insert({
                     id: member.user.id,
                     dailies: {
@@ -79,13 +75,12 @@ module.exports = {
                     }
                 })
             })
-        }
-            
+        }     
         funcS()
 
         //fishing
         let funcF = async() => {
-            bot.guilds.get("399740385221672970").members.forEach(async member => {
+            bot.guilds.cache.get("399740385221672970").members.cache.forEach(async member => {
                 await bot.fishing.insert({
                     id: member.user.id,
                     lastFish: null, //date
@@ -101,8 +96,7 @@ module.exports = {
                         sharks: 0 //:shark:
                 })
             })
-        }
-            
+        }   
         funcF()
 
         console.log("Accounts generated for all users!");

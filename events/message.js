@@ -1,10 +1,10 @@
 exports.run = async (bot, msg) => {
 	if (msg.channel.type === "dm" && msg.author.id == bot.user.id) {
 		console.log("[DM] " + bot.user.username + " -> " + msg.channel.recipient.username + " | " + msg.content)
-		bot.channels.get(bot.config.logChannel).send(`The message: "${msg.content || "(no content)"}" by **${msg.author.tag}** was sent to me by another bot (or myself)!`)
+		bot.channels.fetch(bot.config.logChannel).send(`The message: "${msg.content || "(no content)"}" by **${msg.author.tag}** was sent to me by another bot (or myself)!`)
 	} else if (msg.channel.type === "dm" && msg.author.id != bot.user.id) {
 		console.log("[DM] " + msg.channel.recipient.username + " -> " + bot.user.username + " | " + msg.content)
-		bot.channels.get(bot.config.logChannel).send(`The message: "${msg.content || "(no content)"}" by **${msg.author.tag}** was sent to me!`)
+		bot.channels.fetch(bot.config.logChannel).send(`The message: "${msg.content || "(no content)"}" by **${msg.author.tag}** was sent to me!`)
 	}
 
 	if (!msg.channel.type === "text" || !msg.guild || msg.author.bot) return;
@@ -21,7 +21,12 @@ exports.run = async (bot, msg) => {
 
 	const msg1 = msg.content.toLowerCase();
 	if (msg1.includes("input")) {
-		msg.channel.send("output")
+		msg.channel.send("output");
+	}
+	//for banned words
+	if (msg1.includes("input")) {
+		msg.reply("your message included a banned word!");
+		msg.delete();
 	}
 
 	//bank writes
@@ -29,15 +34,15 @@ exports.run = async (bot, msg) => {
 	let stats = (await bot.stats.get(msg.author.id)) || {};
 	if (!account) {
 		account.id = msg.author.id;
-		account.balance = 2.54;
-		stats.passive.total += 2.54;
+		account.balance = 5.00;
+		stats.passive.total += 5.00;
 		account.lastMessage = new Date();
 		await bot.bank.insert(account);
 		await bot.stats.insert(stats);
 	} else {
-		if (new Date() - new Date(account.lastMessage) >= 60000) {
-			account.balance += 2.54;
-			stats.passive.total += 2.54;
+		if (new Date() - new Date(account.lastMessage) >= 30000) {
+			account.balance += 5.00;
+			stats.passive.total += 5.00;
 			account.lastMessage = new Date();
 			await bot.bank.update(account);
 			await bot.stats.update(stats);

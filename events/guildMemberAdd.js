@@ -1,9 +1,9 @@
 var Discord = require('discord.js');
 
 exports.run = async (bot, member) => {
-    var channel = member.guild.channels.get(bot.config.logChannel);
-    var join = new Discord.RichEmbed()
-        .setAuthor(member.user.username, member.user.avatarURL)
+    var channel = member.guild.channels.cache.get(bot.config.logChannel);
+    var join = new Discord.MessageEmbed()
+        .setAuthor(member.user.username, member.user.avatarURL())
         .setFooter(member.guild.name)
         .setTimestamp()
         .setTitle('Member joined!')
@@ -13,7 +13,7 @@ exports.run = async (bot, member) => {
         embed: join
     })
 
-    
+
     await bot.bank.insert({
         id: member.user.id,
         balance: 0,
@@ -30,7 +30,7 @@ exports.run = async (bot, member) => {
         streak: 0,
     })
 
-    
+
     await bot.fishing.insert({
         id: member.user.id,
         lastFish: null, //date

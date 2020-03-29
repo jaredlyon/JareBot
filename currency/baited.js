@@ -7,15 +7,15 @@ module.exports = {
         let stats = await bot.stats.get(msg.author.id);
         var amt = account.balance;
 
-        if (bot.blackjackInProgress) {
+        if (bot.blackjackInProgress.has(msg.author.id)) {
             msg.channel.send("You cannot bait while in a game of blackjack!");
-        } else if (!bot.blackjackInProgress) {
+        } else {
             if (account.balance == 0) {
                 msg.channel.send('🎰 | ' + msg.author.username + `, you don't have any monies to gamble with...`);
             } else if (bait == 0) {
                 stats.baited.attempts += 1;
                 stats.baited.won += 1;
-                stats.baited.net += amt*2;
+                stats.baited.net += amt * 2;
                 account.balance *= 3;
                 await bot.bank.update(account);
                 await bot.stats.update(stats);

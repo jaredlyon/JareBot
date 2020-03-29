@@ -10,15 +10,15 @@ module.exports = {
         .orderBy(bot.r.desc(bot.r.row('items')('pancakes')))
         .limit(18);
 
-      var lb = new Discord.RichEmbed()
+      var lb = new Discord.MessageEmbed()
         .setColor(msg.guild.me.displayHexColor)
         .setTitle('🥞 Pancakes Leaderboard 🥞')
-        .setFooter(msg.guild.name, msg.guild.iconURL);
+        .setFooter(msg.guild.name, msg.guild.iconURL());
 
       let i = 1;
       topEighteen.forEach(user => {
-        lb.addField(`${i}: ${bot.users.get(user.id)
-          ? bot.users.get(user.id).username
+        lb.addField(`${i}: ${bot.users.cache.get(user.id)
+          ? bot.users.cache.get(user.id).username
           : "User Left Server"}`, user.items ? user.items.pancakes : 0, true);
         i++;
       });
@@ -29,15 +29,15 @@ module.exports = {
         .orderBy(bot.r.desc(bot.r.row('balance')))
         .limit(18);
 
-      var lb = new Discord.RichEmbed()
+      var lb = new Discord.MessageEmbed()
         .setColor(msg.guild.me.displayHexColor)
         .setTitle('💰 Currency Leaderboard 💰')
-        .setFooter(msg.guild.name, msg.guild.iconURL);
+        .setFooter(msg.guild.name, msg.guild.iconURL());
 
       let i = 1;
       topEighteen.forEach(user => {
-        lb.addField(`${i}: ${bot.users.get(user.id)
-          ? bot.users.get(user.id).username
+        lb.addField(`${i}: ${bot.users.cache.get(user.id)
+          ? bot.users.cache.get(user.id).username
           : "User Left Server"}`, user ? user.balance.toFixed(2) : 0, true);
         i++;
       });
@@ -48,15 +48,15 @@ module.exports = {
         .orderBy(bot.r.desc(bot.r.row('items')('pancakes')))
         .limit(18);
 
-      var lb = new Discord.RichEmbed()
+      var lb = new Discord.MessageEmbed()
         .setColor(msg.guild.me.displayHexColor)
         .setTitle('🥞 Pancakes Leaderboard 🥞')
-        .setFooter(msg.guild.name, msg.guild.iconURL);
+        .setFooter(msg.guild.name, msg.guild.iconURL());
 
       let i = 1;
       topEighteen.forEach(user => {
-        lb.addField(`${i}: ${bot.users.get(user.id)
-          ? bot.users.get(user.id).username
+        lb.addField(`${i}: ${bot.users.cache.get(user.id)
+          ? bot.users.cache.get(user.id).username
           : "User Left Server"}`, user.items ? user.items.pancakes : 0, true);
         i++;
       });

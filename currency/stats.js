@@ -15,15 +15,16 @@ module.exports = {
       var five = Number(stats.fishing.net.toFixed(2))
       var x = Number(one + two + three + four + five)
       msg.channel.send({
-        embed: 
-        { color: 0xffffff,
+        embed:
+        {
+          color: 0xffffff,
           footer: {
-            icon_url: msg.guild.iconURL,
+            icon_url: msg.guild.iconURL(),
             text: bot.config.lastUpdateDate
           },
           author: {
             name: "Currency Statistics for " + target.username,
-            icon_url: target.avatarURL
+            icon_url: target.avatarURL()
           },
           fields: [
             {
@@ -40,7 +41,7 @@ module.exports = {
             },
             {
               name: "Blackjack:",
-              value: `Games Played: **` + stats.blackjack.games + `**\nGames Won: **` + stats.blackjack.won + `**\nGames Lost: **` + stats.blackjack.lost + `**\nNet Winnings/Losses: **$` + stats.blackjack.net.toFixed(2) + `**`
+              value: `Games Played: **` + stats.blackjack.games + `**\nGames Won: **` + stats.blackjack.won + `**\nGames Lost: **` + stats.blackjack.lost + `**\nGames Pushed: **` + (stats.blackjack.games - (stats.blackjack.won + stats.blackjack.lost)) + `**\nNet Winnings/Losses: **$` + stats.blackjack.net.toFixed(2) + `**`
             },
             {
               name: "Baits:",
@@ -52,7 +53,7 @@ module.exports = {
             },
             {
               name: "Totals:",
-              value: `Aggregate Revenue: **$` + x.toFixed(2) + `**\nAggregate Expenditures: **$` + (account.balance.toFixed(2) - x.toFixed(2)).toFixed(2) + `**\nCurrent Balance: **$` + account.balance.toFixed(2) + `**`
+              value: `Aggregate Revenue: **$` + x.toFixed(2) + `**\nAggregate Expenditures: **$` + (stats.pancakes.bought * 17).toFixed(2) + `**\nCurrent Balance: **$` + account.balance.toFixed(2) + `**`
             }
           ]
         }
@@ -68,15 +69,16 @@ module.exports = {
       var five = Number(stats.fishing.net.toFixed(2))
       var x = Number(one + two + three + four + five)
       msg.channel.send({
-        embed: 
-        { color: 0xffffff,
+        embed:
+        {
+          color: 0xffffff,
           footer: {
             icon_url: msg.guild.iconURL,
             text: bot.config.lastUpdateDate
           },
           author: {
             name: "Currency Statistics for " + msg.author.username,
-            icon_url: msg.author.avatarURL
+            icon_url: msg.author.avatarURL()
           },
           fields: [
             {
@@ -93,7 +95,7 @@ module.exports = {
             },
             {
               name: "Blackjack:",
-              value: `Games Played: **` + stats.blackjack.games + `**\nGames Won: **` + stats.blackjack.won + `**\nGames Lost: **` + stats.blackjack.lost + `**\nNet Winnings/Losses: **$` + stats.blackjack.net.toFixed(2) + `**`
+              value: `Games Played: **` + stats.blackjack.games + `**\nGames Won: **` + stats.blackjack.won + `**\nGames Lost: **` + stats.blackjack.lost + `**\nGames Pushed: **` + (stats.blackjack.games - (stats.blackjack.won + stats.blackjack.lost)) + `**\nNet Winnings/Losses: **$` + stats.blackjack.net.toFixed(2) + `**`
             },
             {
               name: "Baits:",
@@ -101,11 +103,11 @@ module.exports = {
             },
             {
               name: "Pancakes:",
-              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Received: **` + stats.pancakes.received + `**\nStacks Donated: **` + stats.pancakes.given + `**\nTotal Stacks: **` + account.items.pancakes + `**`
+              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Received: **` + stats.pancakes.received + `**\nStacks Donated: **` + stats.pancakes.given + `**\nTotal Stacks: **` + (stats.pancakes.bought + stats.pancakes.received - stats.pancakes.given) + `**`
             },
             {
               name: "Totals:",
-              value: `Aggregate Revenue: **$` + x.toFixed(2) + `**\nAggregate Expenditures: **$` + (account.balance.toFixed(2) - x.toFixed(2)).toFixed(2) + `**\nCurrent Balance: **$` + account.balance.toFixed(2) + `**`
+              value: `Aggregate Revenue: **$` + x.toFixed(2) + `**\nAggregate Expenditures: **$` + (stats.pancakes.bought * 17).toFixed(2) + `**\nCurrent Balance: **$` + account.balance.toFixed(2) + `**`
             }
           ]
         }

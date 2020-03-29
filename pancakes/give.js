@@ -3,7 +3,7 @@ module.exports = {
     permission: 1,
     main: async function (bot, msg) {
         const Discord = require('discord.js');
-        const yup = bot.emojis.find(emoji => emoji.name == "yup");
+        const yup = bot.emojis.cache.find(emoji => emoji.name == "yup").toString();
         var recipient = msg.mentions.users.array()[0];
         var amt = Number(msg.content.split(' ').splice(1)[0]);
         let account = await bot.bank.get(msg.author.id);

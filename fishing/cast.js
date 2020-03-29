@@ -6,7 +6,7 @@ module.exports = {
         let stats = await bot.stats.get(msg.author.id);
         let fishing = await bot.fishing.get(msg.author.id);
 
-        if (new Date() - new Date(fishing.lastFish) >= 7000 && account.balance.toFixed(2) >= 5) {
+        if (new Date() - new Date(fishing.lastFish) >= 5000 && account.balance.toFixed(2) >= 5) {
             var roll = Math.floor(Math.random() * 1008); //rolls number 0-1007
 
             if (roll <= 500) {
@@ -131,8 +131,8 @@ module.exports = {
                 await bot.bank.update(account);
                 msg.channel.send(`:shark: | You caught a shark?! You should get signed for Shark Week, ` + msg.author.username + `!`)
             }
-        } else if (new Date() - new Date(fishing.lastFish) <= 7000) {
-            msg.reply("you can only fish every **seven** seconds!")
+        } else if (new Date() - new Date(fishing.lastFish) <= 5000) {
+            msg.reply("you can only fish every **five** seconds!")
         } else if (account.balance.toFixed(2) <= 5) {
             var balance = Number(account.balance);
             var absbalance = Math.abs(balance);
