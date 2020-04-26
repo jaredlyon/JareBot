@@ -111,6 +111,19 @@ readdir('./fun/', (err, files) => {
 	bot.log(`Fun modules loaded!`);
 });
 
+readdir('./shop/', (err, files) => {
+	bot.log(`Loading ${files.length} shop modules!`);
+	files.forEach(fshop => {
+		try {
+			var name = require(`./shop/${fshop}`).name
+			bot.commands.set(name, require(`./shop/${fshop}`));
+		} catch (eshop) {
+			bot.log(`Unable to load command ${fshop}: ${eshop}`);
+		}
+	});
+	bot.log(`Shop modules loaded!`);
+});
+
 readdir('./events/', (err, files) => {
 	bot.log(`Loading ${files.length} events!`);
 	files.forEach(file => {
