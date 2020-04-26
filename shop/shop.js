@@ -19,7 +19,7 @@ module.exports = {
                     await bot.bank.update(account);
                     await bot.stats.update(stats);
                     msg.reply("purchase successful!");
-                    channel.send(msg.author.id + " has purchased one month of nitro!");
+                    channel.send(msg.author.toString() + " has purchased one month of nitro!");
                 }
             } else if (userProduct == 2) {
                 msg.reply("this item is currently unavailable! Sorry...")
