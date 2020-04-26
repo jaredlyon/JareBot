@@ -22,6 +22,7 @@ module.exports = {
           {
             name: "Last Update: v8.1.0",
             value: `- Added shop
+                    - Added dbadd command
                     - Updated help
                     - Updated rules
                     - Updated the pancakes section in statistics`
