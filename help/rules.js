@@ -6,10 +6,6 @@ module.exports = {
       embed:
       {
         color: 3447003,
-        footer: {
-          icon_url: msg.guild.iconURL(),
-          text: "© JL's Diner 2019"
-        },
         author: {
           name: "Server Rules",
           url: "https://i.imgur.com/5HLaLyc.png",
