@@ -23,6 +23,7 @@ module.exports = {
             name: "Last Update: v8.1.0",
             value: `- Added shop
                     - Updated help
+                    - Updated rules
                     - Updated the pancakes section in statistics`
           },
           /*CHECK GITHUB FOOTERS*/
