@@ -25,6 +25,7 @@ module.exports = {
                     - Added dbadd command
                     - Updated help
                     - Updated rules
+                    - Updated blackjack dealer behavior
                     - Updated the pancakes section in statistics`
           },
           /*CHECK GITHUB FOOTERS*/
