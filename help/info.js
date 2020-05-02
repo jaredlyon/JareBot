@@ -26,7 +26,8 @@ module.exports = {
                     - Updated help
                     - Updated rules
                     - Updated blackjack dealer behavior
-                    - Updated the pancakes section in statistics`
+                    - Updated the pancakes section in statistics
+                    - Rebalanced fishing economy`
           },
           /*CHECK GITHUB FOOTERS*/
           {

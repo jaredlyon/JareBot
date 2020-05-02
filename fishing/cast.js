@@ -10,7 +10,7 @@ module.exports = {
             var roll = Math.floor(Math.random() * 1008); //rolls number 0-1007
 
             if (roll <= 500) {
-                var trashRoll = Math.floor(Math.random() * 4); //rolls number 0-3
+                var trashRoll = Math.floor(Math.random() * 8);
                 if (trashRoll == 0) {
                     var trashEmoji = ':volleyball:'
                 } else if (trashRoll == 1) {
@@ -19,6 +19,14 @@ module.exports = {
                     var trashEmoji = ':paperclip:'
                 } else if (trashRoll == 3) {
                     var trashEmoji = ':french_bread:'
+                } else if (trashRoll == 4) {
+                    var trashEmoji = ':bone:'
+                } else if (trashRoll == 5) {
+                    var trashEmoji = ':boot:'
+                } else if (trashRoll == 5) {
+                    var trashEmoji = ':boot:'
+                } else if (trashRoll == 6) {
+                    var trashEmoji = ':closed_umbrella:'
                 }
 
                 fishing.lastFish = new Date();
