@@ -23,9 +23,9 @@ module.exports = {
                     var trashEmoji = ':bone:'
                 } else if (trashRoll == 5) {
                     var trashEmoji = ':boot:'
-                } else if (trashRoll == 5) {
-                    var trashEmoji = ':boot:'
                 } else if (trashRoll == 6) {
+                    var trashEmoji = ':boot:'
+                } else if (trashRoll == 7) {
                     var trashEmoji = ':closed_umbrella:'
                 }
 
