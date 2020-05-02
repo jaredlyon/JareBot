@@ -11,12 +11,12 @@ module.exports = {
             var y = fishing.trash;
 
             fishing.trash = 0;
-            account.balance += 3*y;
-            stats.fishing.net += 3*y;
+            account.balance += 1*y;
+            stats.fishing.net += 1*y;
             await bot.fishing.update(fishing);
             await bot.stats.update(stats);
             await bot.bank.update(account);
-            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** trash for **$` + 3*y + `**, ` + msg.author.username + `!`)
+            msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** trash for **$` + 1*y + `**, ` + msg.author.username + `!`)
         } else if (x != null && x == 'common') {
             var y = fishing.fish1;
 
@@ -119,10 +119,10 @@ module.exports = {
             var i = fishing.squid
             var j = fishing.sharks
 
-            var z = a*3 + b*20 + c*30 + d*500 + e*500 + f*750 + g*750 + h*500 + i*1000 + j*1000;
+            var z = a*1 + b*20 + c*30 + d*500 + e*500 + f*750 + g*750 + h*500 + i*1000 + j*1000;
             account.balance += z;
 
-            var u = a*3 + b*20 + c*30 + d*500 + e*500 + f*750 + g*750 + h*500 + i*1000 + j*1000;
+            var u = a*1 + b*20 + c*30 + d*500 + e*500 + f*750 + g*750 + h*500 + i*1000 + j*1000;
             stats.fishing.net += u;
 
             fishing.trash = 0;
