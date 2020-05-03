@@ -49,7 +49,7 @@ module.exports = {
             },
             {
               name: "Pancakes:",
-              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Received: **` + stats.pancakes.received + `**\nStacks Donated: **` + stats.pancakes.given + `**\nTotal Stacks: **` + (stats.pancakes.bought + stats.pancakes.received - stats.pancakes.given) + `**`
+              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Received: **` + stats.pancakes.received + `**\nStacks Donated: **` + stats.pancakes.given + `**\nCurrent Stacks: **` + account.items.pancakes + `**`
             },
             {
               name: "Totals:",
@@ -103,7 +103,7 @@ module.exports = {
             },
             {
               name: "Pancakes:",
-              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Received: **` + stats.pancakes.received + `**\nStacks Donated: **` + stats.pancakes.given + `**\nTotal Stacks: **` + (stats.pancakes.bought + stats.pancakes.received - stats.pancakes.given) + `**`
+              value: `Stacks Purchased: **` + stats.pancakes.bought + `**\nStacks Received: **` + stats.pancakes.received + `**\nStacks Donated: **` + stats.pancakes.given + `**\nCurrent Stacks: **` + account.items.pancakes + `**`
             },
             {
               name: "Totals:",

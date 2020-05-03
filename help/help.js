@@ -222,7 +222,34 @@ module.exports = {
         }
       });
 
-      //other
+    //shop
+    } else if (x != null && x == "shop") {
+      msg.channel.send({
+        embed: {
+          color: 3447003,
+          author: {
+            name: "Shop Commands",
+            icon_url: bot.user.avatarURL()
+          },
+          description: "*Exchange pancakes for goods!*",
+          fields: [
+            {
+              name: "j!shop",
+              value: "View the shop inventory."
+            },
+            {
+              name: "j!shop buy [input]",
+              value: "Purchase an item from the shop; use numeric inputs to choose which item to buy!"
+            }
+          ],
+          footer: {
+            icon_url: msg.guild.iconURL(),
+            text: msg.guild.name
+          }
+        }
+      });
+
+    //other
     } else if (x != null && x == "other") {
       msg.channel.send({
         embed: {
@@ -261,7 +288,7 @@ module.exports = {
         }
       });
 
-      //main menu
+    //main menu
     } else {
       msg.channel.send({
         embed: {
@@ -296,6 +323,10 @@ module.exports = {
             {
               name: "Fun:",
               value: "**j!help fun**; Yes, we also like to have fun."
+            },
+            {
+              name: "Shop:",
+              value: "**j!help shop**; Assistance with your shopping addiction."
             },
             {
               name: "Other Commands:",

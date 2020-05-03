@@ -33,12 +33,23 @@ module.exports = {
     return total;
   },
 
+  hasAce(hand) {
+    var ace;
+    for (var i = 0; i < hand.length; i++) {
+      if (hand[i] == "A") {
+        ace = true;
+      } else {
+        ace = false;
+      }
+    }
+  },
+
   calculateWinner(player_hand, cpu_hand, cards) {
-    //dealer draw - attempt to beat player
-    let player_total = this.calculateTotal(player_hand);
-    while (this.calculateTotal(cpu_hand) < player_total && this.calculateTotal(cpu_hand) < 21) {
+    //dealer draw
+    while (this.calculateTotal(cpu_hand) < 17) {
       cpu_hand.push(this.drawCard(cards));
     }
+    let player_total = this.calculateTotal(player_hand);
     let cpu_total = this.calculateTotal(cpu_hand);
 
     /**
@@ -53,12 +64,13 @@ module.exports = {
     if (cpu_total > 21) {
       return 0; //on dealer bust
     } else if (player_total > 21) {
+      console.log("2");
       return 2; //unused; on player bust
     } else {
       if (cpu_total > player_total) {
         return 1; //on dealer win
       } else if (cpu_total < player_total) {
-        return 3; //unused; on player win
+        return 3; //on player win
       } else if (cpu_total == player_total) {
         return 4; //on push
       }
@@ -205,6 +217,36 @@ module.exports = {
           stats.blackjack.lost += 1
           stats.blackjack.net -= bet
 
+          await bot.stats.update(stats);
+          bot.blackjackInProgress.delete(msg.author.id);
+        } else if (this.calculateWinner(player_hand, cpu_hand, cards) == 3) {
+          //player win
+          blackjackMessage.edit({
+            embed: {
+              color: 0x33cc33,
+              title: "♠️♥️**Blackjack Bet: $" + bet.toFixed(2) + "**♦️♣️",
+              description:
+                "Dealer's hand: " +
+                cpu_hand +
+                "\n؜" +
+                "Player's hand: " +
+                player_hand +
+                "\n" + "\n" +
+                "Player wins, you have won $" + bet.toFixed(2) + "!",
+              footer: {
+                text: "Classic Blackjack",
+                icon_url: msg.author.avatarURL()
+              },
+              timestamp: new Date()
+            }
+          });
+          //give money
+          stats.blackjack.games += 1
+          stats.blackjack.won += 1
+          stats.blackjack.net += bet
+          account.balance += bet * 2;
+
+          await bot.bank.update(account);
           await bot.stats.update(stats);
           bot.blackjackInProgress.delete(msg.author.id);
         } else if (this.calculateWinner(player_hand, cpu_hand, cards) == 4) {

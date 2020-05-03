@@ -18,7 +18,7 @@ module.exports = {
       var h = fishing.blowfish
       var i = fishing.squid
       var j = fishing.sharks
-      var total = a * 3 + b * 8 + c * 12 + d * 50 + e * 50 + f * 75 + g * 75 + h * 50 + i * 100 + j * 100
+      var total = a*3 + b*20 + c*30 + d*500 + e*500 + f*750 + g*750 + h*500 + i*1000 + j*1000;
       msg.channel.send({
         embed:
         {
@@ -56,7 +56,7 @@ module.exports = {
       var h = fishing.blowfish
       var i = fishing.squid
       var j = fishing.sharks
-      var total = a * 3 + b * 8 + c * 12 + d * 50 + e * 50 + f * 75 + g * 75 + h * 50 + i * 100 + j * 100
+      var total = a*3 + b*20 + c*30 + d*500 + e*500 + f*750 + g*750 + h*500 + i*1000 + j*1000;
       msg.channel.send({
         embed:
         {

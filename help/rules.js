@@ -6,10 +6,6 @@ module.exports = {
       embed:
       {
         color: 3447003,
-        footer: {
-          icon_url: msg.guild.iconURL(),
-          text: "© JL's Diner 2019"
-        },
         author: {
           name: "Server Rules",
           url: "https://i.imgur.com/5HLaLyc.png",
@@ -23,6 +19,10 @@ module.exports = {
           {
             name: "2. Use the appropriate text channels.",
             value: "Since this server is primarily self-governed by those who are on it, I'm not going to always be around to enforce common sense. Don't post anything nsfw, stick the appropriate content in their respective channels, confine bot usage to #bot-console, and use the designated text channels when participating in voice calls."
+          },
+          {
+            name: "3. Do not spread disinformation.",
+            value: "The deliberate dissemination of disinformation can result in immediate removal from the community. Under this rule, dissemination of disinformation includes, but is not limited to, any conduct with intent to convey false or misleading information as fact under circumstances where such information may reasonably be believed."
           }
         ]
       }
