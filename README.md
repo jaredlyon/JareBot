@@ -16,7 +16,9 @@ Once both the bot and RethinkDB are running, verify that the bot has successfull
 - Added dbadd command
 - Updated help
 - Updated rules
+- Updated blackjack dealer behavior
 - Updated the pancakes section in statistics
+- Rebalanced fishing economy
 
 ### Past Updates:
 **8.0.0**

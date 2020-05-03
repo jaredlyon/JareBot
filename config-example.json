@@ -5,7 +5,7 @@
     "logChannel": "join-leave-channel-id",
     "messageDeleteLog": "message-delete-channel-id",
     "generalChannel": "general-channel-id",
-    "lastUpdateDate": "since 11/29/19",
+    "lastUpdateDate": "since 3/22/20",
     "opts": {
         "mentionEveryone": false,
         "fetchAllMembers": true,
