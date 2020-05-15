@@ -82,7 +82,7 @@ module.exports = {
         }
       });
     } else {
-      msg.reply("something went wrong!")
+      msg.reply("something went wrong!");
     }
   }
 }

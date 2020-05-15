@@ -38,7 +38,7 @@ module.exports = {
                 await bot.fishing.update(fishing);
                 await bot.stats.update(stats);
                 await bot.bank.update(account);
-                msg.channel.send(trashEmoji + ' | You only caught some trash, ' + msg.author.username + '...')
+                msg.channel.send(trashEmoji + ' | You only caught some trash, ' + msg.author.username + '...');
             } else if (roll > 500 && roll <= 900) {
                 fishing.lastFish = new Date();
                 account.balance -= 5;
@@ -49,7 +49,7 @@ module.exports = {
                 await bot.fishing.update(fishing);
                 await bot.stats.update(stats);
                 await bot.bank.update(account);
-                msg.channel.send(':fish: | You caught a common fish, ' + msg.author.username + '!')
+                msg.channel.send(':fish: | You caught a common fish, ' + msg.author.username + '!');
             } else if (roll > 900 && roll <= 1000) {
                 fishing.lastFish = new Date();
                 account.balance -= 5;
@@ -60,7 +60,7 @@ module.exports = {
                 await bot.fishing.update(fishing);
                 await bot.stats.update(stats);
                 await bot.bank.update(account);
-                msg.channel.send(':tropical_fish: | You caught a rare fish, ' + msg.author.username + '!')
+                msg.channel.send(':tropical_fish: | You caught a rare fish, ' + msg.author.username + '!');
             } else if (roll == 1001) {
                 fishing.lastFish = new Date();
                 account.balance -= 5;
@@ -71,7 +71,7 @@ module.exports = {
                 await bot.fishing.update(fishing);
                 await bot.stats.update(stats);
                 await bot.bank.update(account);
-                msg.channel.send(':crab: | You caught a crab, ' + msg.author.username + '!')
+                msg.channel.send(':crab: | You caught a crab, ' + msg.author.username + '!');
             } else if (roll == 1002) {
                 fishing.lastFish = new Date();
                 account.balance -= 5;
@@ -82,7 +82,7 @@ module.exports = {
                 await bot.fishing.update(fishing);
                 await bot.stats.update(stats);
                 await bot.bank.update(account);
-                msg.channel.send(':crocodile: | You caught a crocodile?! How did that even happen, ' + msg.author.username + '?')
+                msg.channel.send(':crocodile: | You caught a crocodile?! How did that even happen, ' + msg.author.username + '?');
             } else if (roll == 1003) {
                 fishing.lastFish = new Date();
                 account.balance -= 5;
@@ -93,7 +93,7 @@ module.exports = {
                 await bot.fishing.update(fishing);
                 await bot.stats.update(stats);
                 await bot.bank.update(account);
-                msg.channel.send(':whale2: | You caught a whale!! Is your line made of steel cable, ' + msg.author.username + '?')
+                msg.channel.send(':whale2: | You caught a whale!! Is your line made of steel cable, ' + msg.author.username + '?');
             } else if (roll == 1004) {
                 fishing.lastFish = new Date();
                 account.balance -= 5;
@@ -104,7 +104,7 @@ module.exports = {
                 await bot.fishing.update(fishing);
                 await bot.stats.update(stats);
                 await bot.bank.update(account);
-                msg.channel.send(`:dolphin: | You caught a dolphin, ` + msg.author.username + `!`)
+                msg.channel.send(`:dolphin: | You caught a dolphin, ` + msg.author.username + `!`);
             } else if (roll == 1005) {
                 fishing.lastFish = new Date();
                 account.balance -= 5;
@@ -115,7 +115,7 @@ module.exports = {
                 await bot.fishing.update(fishing);
                 await bot.stats.update(stats);
                 await bot.bank.update(account);
-                msg.channel.send(':blowfish: | You caught a blowfish, ' + msg.author.username + '!')
+                msg.channel.send(':blowfish: | You caught a blowfish, ' + msg.author.username + '!');
             } else if (roll == 1006) {
                 fishing.lastFish = new Date();
                 account.balance -= 5;
@@ -126,7 +126,7 @@ module.exports = {
                 await bot.fishing.update(fishing);
                 await bot.stats.update(stats);
                 await bot.bank.update(account);
-                msg.channel.send(`:squid: | You caught a squid, ` + msg.author.username + `!`)
+                msg.channel.send(`:squid: | You caught a squid, ` + msg.author.username + `!`);
             } else if (roll == 1007) {
                 fishing.lastFish = new Date();
                 account.balance -= 5;
@@ -137,16 +137,16 @@ module.exports = {
                 await bot.fishing.update(fishing);
                 await bot.stats.update(stats);
                 await bot.bank.update(account);
-                msg.channel.send(`:shark: | You caught a shark?! You should get signed for Shark Week, ` + msg.author.username + `!`)
+                msg.channel.send(`:shark: | You caught a shark?! You should get signed for Shark Week, ` + msg.author.username + `!`);
             }
         } else if (new Date() - new Date(fishing.lastFish) <= 5000) {
-            msg.reply("you can only fish every **five** seconds!")
+            msg.reply("you can only fish every **five** seconds!");
         } else if (account.balance.toFixed(2) <= 5) {
             var balance = Number(account.balance);
             var absbalance = Math.abs(balance);
-            msg.reply(`it costs **$5** to cast! Your current balance is **$${absbalance.toFixed(2)}**!`)
+            msg.reply(`it costs **$5** to cast! Your current balance is **$${absbalance.toFixed(2)}**!`);
         } else {
-            msg.reply("uh oh, something went wrong!")
+            msg.reply("uh oh, something went wrong!");
         }
     }
 }
