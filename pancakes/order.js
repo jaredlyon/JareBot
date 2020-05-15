@@ -16,7 +16,7 @@ module.exports = {
         msg.reply("you can't place an order for that amount!")
         return;
       } else {
-        msg.reply("something went wrong! Make sure you have the right usage: `j!buy [amount]` and that you have enough money!")
+        msg.reply("something went wrong! Make sure you have the right usage: `j!order [amount]` and that you have enough money!")
         return;
       }
     } else {
@@ -30,7 +30,7 @@ module.exports = {
         msg.reply("you can't place an order for that amount!")
         return;
       } else {
-        msg.reply("something went wrong! Make sure you have the right usage: `j!buy [amount]` and that you have enough money!")
+        msg.reply("something went wrong! Make sure you have the right usage: `j!order [amount]` and that you have enough money!")
         return;
       }
     }
