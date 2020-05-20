@@ -23,6 +23,14 @@ exports.run = async (bot, msg) => {
 	if (msg1.includes("input")) {
 		msg.channel.send("output");
 	}
+	//work
+	if (msg1.includes("is") && msg1.includes("jared") && msg1.includes("at") && msg1.includes("work")) {
+		if (bot.work) {
+			msg.channel.send("Yes.");
+		} else if (!bot.work) {
+			msg.channel.send("Nope.")
+		}
+	}
 	//for banned words
 	if (msg1.includes("input")) {
 		msg.reply("your message included a banned word!");

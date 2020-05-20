@@ -23,11 +23,12 @@ module.exports = {
             name: "Last Update: v8.1.1",
             value: `- Rebalanced fishing economy (again)
                     - Improved UI elements
-                    - Improved code legibility and stability`
+                    - Improved code legibility and stability
+                    - Added 'Is Jared at work?'`
           },
           /*CHECK GITHUB FOOTERS*/
           {
-            name: "GitHub: v8.0.0",
+            name: "GitHub: v8.1.0",
             value: "https://github.com/KingWaffleshnoz/JareBot\nNote that this page is still a WIP."
           }
         ]
