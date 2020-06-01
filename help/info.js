@@ -24,7 +24,8 @@ module.exports = {
             value: `- Rebalanced fishing economy (again)
                     - Improved UI elements
                     - Improved code legibility and stability
-                    - Added 'Is Jared at work?'`
+                    - Added 'Is Jared at work?'
+                    - Added movie role`
           },
           /*CHECK GITHUB FOOTERS*/
           {

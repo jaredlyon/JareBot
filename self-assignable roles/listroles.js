@@ -23,6 +23,10 @@ module.exports = {
               value: "Grants access to our #teens-that-care chat; this role is not mentionable."
             },
             {
+              name: "Movie-goers",
+              value: "Grants access to our Cinema 7 category; this role is not mentionable."
+            },
+            {
               name: "Aesthetic",
               value: "Grants access to our #aesthetic chat; this role is not mentionable."
             },
