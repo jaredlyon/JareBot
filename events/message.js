@@ -26,9 +26,9 @@ exports.run = async (bot, msg) => {
 	//work
 	if (msg1.includes("is") && msg1.includes("jared") && msg1.includes("at") && msg1.includes("work")) {
 		if (bot.work) {
-			msg.channel.send("Yes.");
+			msg.channel.send("Yes, Jared is at work at Teaspoon right now!");
 		} else if (!bot.work) {
-			msg.channel.send("Nope.")
+			msg.channel.send("Nope, Jared is sadly not at work currently.")
 		}
 	}
 	//for banned words
