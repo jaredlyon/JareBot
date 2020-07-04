@@ -14,17 +14,15 @@ module.exports = {
 
         if (banee != null) {
             var ban = new Discord.MessageEmbed()
-            .setAuthor(banee.username, banee.avatarURL())
-            .addField('Member banned:', `**:hammer: ${banee.username}#${banee.discriminator} (${banee.id}) was banned from the server.**`)
-            .addField('Reason:', reason)
-            .setFooter(bot.user.username, bot.user.avatarURL())
-            .setTimestamp()
-            .setColor(3447003);
+                .setAuthor(banee.username, banee.avatarURL())
+                .addField('Member banned:', `**:hammer: ${banee.username}#${banee.discriminator} (${banee.id}) was banned from the server.**`)
+                .addField('Reason:', reason)
+                .setFooter(bot.user.username, bot.user.avatarURL())
+                .setTimestamp()
+                .setColor(3447003);
 
             msg.mentions.members.forEach(member => {
                 member.ban(7).then(member => {
-                    msg.reply("user has been banned!")
-
                     channel.send({
                         embed: ban
                     })
