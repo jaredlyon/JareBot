@@ -40,6 +40,7 @@ module.exports = {
             }
         });
 
+        /**
         msg.channel.send({
             embed: {
                 color: 0x35BEAA,
@@ -77,6 +78,7 @@ module.exports = {
                 }
             }
         });
+        */
 
         msg.channel.send({
             embed: {
