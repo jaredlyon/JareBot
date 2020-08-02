@@ -26,7 +26,8 @@ module.exports = {
                     - Improved code legibility and stability
                     - Added 'Is Jared at work?'
                     - Added movie role
-                    - Added approval system`
+                    - Added approval system
+                    - Added command aliases`
           },
           /*CHECK GITHUB FOOTERS*/
           {
