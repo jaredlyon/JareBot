@@ -31,7 +31,11 @@ module.exports = {
           },
           /*CHECK GITHUB FOOTERS*/
           {
+<<<<<<< Updated upstream
             name: "GitHub: v8.0.0",
+=======
+            name: "GitHub",
+>>>>>>> Stashed changes
             value: "https://github.com/KingWaffleshnoz/JareBot\nNote that this page is still a WIP."
           }
         ]
