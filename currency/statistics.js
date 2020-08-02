@@ -1,5 +1,6 @@
 module.exports = {
   name: 'statistics',
+  aliases: ['stats'],
   permission: 1,
   main: async function (bot, msg) {
     bot.config = require('../config.json');

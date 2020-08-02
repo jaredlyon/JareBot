@@ -1,5 +1,6 @@
 module.exports = {
   name: 'balance',
+  aliases: ['bal'],
   permission: 1,
   main: async function (bot, msg) {
     if (msg.mentions.users.first()) {

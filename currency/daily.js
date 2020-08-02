@@ -1,5 +1,6 @@
 module.exports = {
   name: 'daily',
+  aliases: ['dailies'],
   permission: 1,
   main: async function (bot, msg) {
     const yup = bot.emojis.cache.find(emoji => emoji.name == "yup").toString();
