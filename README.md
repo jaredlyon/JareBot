@@ -11,6 +11,16 @@ Make a copy of `config-example.json` named `config.json` and fill in the needed 
 Once both the bot and RethinkDB are running, verify that the bot has successfully connected to the server pool and reported linkage to all the tables. Once complete, run the `dbinit` command to create the user accounts for the guild; however, this command will not function properly if any of the database tables have not been initialized or connected to properly.
 
 ### Last Update:
+**8.2.0**
+- Rebalanced fishing economy (again)
+- Improved UI elements
+- Improved code legibility and stability
+- Added 'Is Jared at work?'
+- Added movie role
+- Added approval system
+- Added command aliases
+
+### Past Updates:
 **8.1.0**
 - Added shop
 - Added dbadd command
@@ -20,7 +30,6 @@ Once both the bot and RethinkDB are running, verify that the bot has successfull
 - Updated the pancakes section in statistics
 - Rebalanced fishing economy
 
-### Past Updates:
 **8.0.0**
 - Migrated the bot to v12 of Discord.js
 - Added a votekick function

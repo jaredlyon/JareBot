@@ -1,5 +1,6 @@
 module.exports = {
   name: 'statistics',
+  aliases: ['stats'],
   permission: 1,
   main: async function (bot, msg) {
     bot.config = require('../config.json');
@@ -8,12 +9,13 @@ module.exports = {
       let stats = await bot.stats.get(target.id);
       let account = await bot.bank.get(target.id);
 
-      var one = Number(stats.dailies.profit.toFixed(2))
-      var two = Number(stats.blackjack.net.toFixed(2))
-      var three = Number(stats.baited.net.toFixed(2))
-      var four = Number(stats.passive.total.toFixed(2))
-      var five = Number(stats.fishing.net.toFixed(2))
-      var x = Number(one + two + three + four + five)
+      var one = Number(stats.dailies.profit.toFixed(2));
+      var two = Number(stats.blackjack.net.toFixed(2));
+      var three = Number(stats.baited.net.toFixed(2));
+      var four = Number(stats.passive.total.toFixed(2));
+      var five = Number(stats.fishing.net.toFixed(2));
+      var x = Number(one + two + three + four + five);
+
       msg.channel.send({
         embed:
         {
@@ -62,12 +64,13 @@ module.exports = {
       let account = await bot.bank.get(msg.author.id);
       let stats = await bot.stats.get(msg.author.id);
 
-      var one = Number(stats.dailies.profit.toFixed(2))
-      var two = Number(stats.blackjack.net.toFixed(2))
-      var three = Number(stats.baited.net.toFixed(2))
-      var four = Number(stats.passive.total.toFixed(2))
-      var five = Number(stats.fishing.net.toFixed(2))
-      var x = Number(one + two + three + four + five)
+      var one = Number(stats.dailies.profit.toFixed(2));
+      var two = Number(stats.blackjack.net.toFixed(2));
+      var three = Number(stats.baited.net.toFixed(2));
+      var four = Number(stats.passive.total.toFixed(2));
+      var five = Number(stats.fishing.net.toFixed(2));
+      var x = Number(one + two + three + four + five);
+
       msg.channel.send({
         embed:
         {
@@ -113,7 +116,7 @@ module.exports = {
         }
       });
     } else {
-      msg.reply("something went wrong!")
+      msg.reply("something went wrong!");
     }
   }
 }

@@ -1,5 +1,6 @@
 module.exports = {
   name: 'inventory',
+  aliases: ['inv'],
   permission: 1,
   main: async function (bot, msg) {
     bot.config = require('../config.json');
@@ -18,7 +19,7 @@ module.exports = {
       var h = fishing.blowfish
       var i = fishing.squid
       var j = fishing.sharks
-      var total = a*3 + b*20 + c*30 + d*500 + e*500 + f*750 + g*750 + h*500 + i*1000 + j*1000;
+      var total = a*1 + b*20 + c*30 + d*500 + e*500 + f*750 + g*750 + h*500 + i*1000 + j*1000;
       msg.channel.send({
         embed:
         {
@@ -56,7 +57,7 @@ module.exports = {
       var h = fishing.blowfish
       var i = fishing.squid
       var j = fishing.sharks
-      var total = a*3 + b*20 + c*30 + d*500 + e*500 + f*750 + g*750 + h*500 + i*1000 + j*1000;
+      var total = a*1 + b*20 + c*30 + d*500 + e*500 + f*750 + g*750 + h*500 + i*1000 + j*1000;
       msg.channel.send({
         embed:
         {
@@ -82,7 +83,7 @@ module.exports = {
         }
       });
     } else {
-      msg.reply("something went wrong!")
+      msg.reply("something went wrong!");
     }
   }
 }
