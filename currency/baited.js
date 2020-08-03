@@ -29,7 +29,7 @@ module.exports = {
                 await bot.stats.update(stats);
                 msg.channel.send('🎰 | ' + msg.author.username + `, you got jebaited and lost **$` + amt.toFixed(2) + `**! You don't have any monies anymore...`);
             } else {
-                msg.channel.send("Uh oh, something went wrong...")
+                msg.channel.send("Uh oh, something went wrong...");
             }
         }
     }

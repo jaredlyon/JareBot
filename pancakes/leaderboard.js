@@ -1,5 +1,6 @@
 module.exports = {
   name: 'leaderboard',
+  aliases: ['lb'],
   permission: 1,
   main: async function (bot, msg) {
     var x = msg.content.split(' ').splice(0)[0];

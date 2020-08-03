@@ -25,7 +25,7 @@ module.exports = (bot) => {
 				msg.args = msg.content.split(/\s+/g)
 				msg.content = msg.content.substring(msg.content.indexOf(" ") + 1, msg.content.length) || null
 				var command = msg.args.shift().slice(bot.config.prefix.length).toLowerCase()
-				var cmd = bot.commands.get(command)
+				var cmd = bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
 				var perms = bot.permLevel(msg)
 				if (!cmd) return;
 				else if (perms < cmd.permission) return msg.reply("you do not have permission to do this!")

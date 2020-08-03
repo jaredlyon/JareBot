@@ -4,8 +4,9 @@ require('./funcs.js')(bot);
 const readdir = require("fs").readdir;
 
 bot.commands = new Discord.Collection();
-bot.aliases = new Discord.Collection();
 bot.blackjackInProgress = new Set();
+bot.work = new Boolean;
+bot.work = false;
 
 readdir('./misc modules/', (err, files) => {
 	bot.log(`Loading ${files.length} miscellaneous modules!`);
