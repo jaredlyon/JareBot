@@ -8,18 +8,8 @@ module.exports = {
       var target = msg.mentions.users.first();
 
       let fishing = await bot.fishing.get(target.id);
-
-      var a = fishing.trash
-      var b = fishing.fish1
-      var c = fishing.fish2
-      var d = fishing.crabs
-      var e = fishing.crocodiles
-      var f = fishing.whales
-      var g = fishing.dolphins
-      var h = fishing.blowfish
-      var i = fishing.squid
-      var j = fishing.sharks
-      var total = a*1 + b*20 + c*30 + d*500 + e*500 + f*750 + g*750 + h*500 + i*1000 + j*1000;
+      
+      var total = fishing.trash + fishing.fish1 * 20 + fishing.fish2 * 30 + fishing.crabs * 500 + fishing.crocodiles * 500 + fishing.whales * 750 + fishing.dolphins * 750 + fishing.blowfish * 500 + fishing.squid * 1000 + fishing.sharks * 1000;
       msg.channel.send({
         embed:
         {
@@ -47,17 +37,8 @@ module.exports = {
     } else if (msg.mentions.users.first() == null) {
       let fishing = await bot.fishing.get(msg.author.id);
 
-      var a = fishing.trash
-      var b = fishing.fish1
-      var c = fishing.fish2
-      var d = fishing.crabs
-      var e = fishing.crocodiles
-      var f = fishing.whales
-      var g = fishing.dolphins
-      var h = fishing.blowfish
-      var i = fishing.squid
-      var j = fishing.sharks
-      var total = a*1 + b*20 + c*30 + d*500 + e*500 + f*750 + g*750 + h*500 + i*1000 + j*1000;
+			var total = fishing.trash + fishing.fish1 * 20 + fishing.fish2 * 30 + fishing.crabs * 500 + fishing.crocodiles * 500 + fishing.whales * 750 + fishing.dolphins * 750 + fishing.blowfish * 500 + fishing.squid * 1000 + fishing.sharks * 1000;
+
       msg.channel.send({
         embed:
         {
