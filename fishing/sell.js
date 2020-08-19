@@ -2,92 +2,82 @@ module.exports = {
 	name: 'sell',
 	permission: 1,
 	main: async function (bot, msg) {
-		var choose = msg.content.split(' ').splice(0)[0];
+		var userChoice = msg.content.split(' ').splice(0)[0];
 		let account = await bot.bank.get(msg.author.id);
 		let stats = await bot.stats.get(msg.author.id);
 		let fishing = await bot.fishing.get(msg.author.id);
 
-		if (choose != null && choose == 'trash') {
-			var y = fishing.trash;
+		if (userChoice != null && userChoice == 'trash') {
+			var x = fishing.trash;
 			
 			fishing.trash = 0;
-			account.balance += y;
-			stats.fishing.net += y;
-			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** trash for **$` + y + `**, ` + msg.author.username + `!`);
-		} 
-		else if (choose != null && choose == 'common') {
-			var y = fishing.fish1;
+			account.balance += x;
+			stats.fishing.net += x;
+			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + x + `** trash for **$` + x + `**, ` + msg.author.username + `!`);
+		} else if (userChoice != null && userChoice == 'common') {
+			var x = fishing.fish1;
 
 			fishing.fish1 = 0;
-			account.balance += 20 * y;
-			stats.fishing.net += 20 * y;
-			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** common fish for **$` + 20 * y + `**, ` + msg.author.username + `!`);
-		} 
-		else if (choose != null && choose == 'rare') {
-			var y = fishing.fish2;
+			account.balance += 20 * x;
+			stats.fishing.net += 20 * x;
+			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + x + `** common fish for **$` + 20 * x + `**, ` + msg.author.username + `!`);
+		} else if (userChoice != null && userChoice == 'rare') {
+			var x = fishing.fish2;
 
 			fishing.fish2 = 0;
-			account.balance += 30 * y;
-			stats.fishing.net += 30 * y;
-			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** rare fish for **$` + 30 * y + `**, ` + msg.author.username + `!`);
-		} 
-		else if (choose != null && choose == 'crabs') {
-			var y = fishing.crabs;
+			account.balance += 30 * x;
+			stats.fishing.net += 30 * x;
+			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + x + `** rare fish for **$` + 30 * x + `**, ` + msg.author.username + `!`);
+		} else if (userChoice != null && userChoice == 'crabs') {
+			var x = fishing.crabs;
 
 			fishing.crabs = 0;
-			account.balance += 500 * y;
-			stats.fishing.net += 500 * y;
-			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** crabs for **$` + 500 * y + `**, ` + msg.author.username + `!`);
-		} 
-		else if (choose != null && choose == 'crocodiles') {
-			var y = fishing.crocodiles;
+			account.balance += 500 * x;
+			stats.fishing.net += 500 * x;
+			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + x + `** crabs for **$` + 500 * x + `**, ` + msg.author.username + `!`);
+		} else if (userChoice != null && userChoice == 'crocodiles') {
+			var x = fishing.crocodiles;
 
 			fishing.crocodiles = 0;
-			account.balance += 500 * y;
-			stats.fishing.net += 500 * y;
-			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** crocodiles for **$` + 500 * y + `**, ` + msg.author.username + `!`);
-		} 
-		else if (choose != null && choose == 'whales') {
-			var y = fishing.whales;
+			account.balance += 500 * x;
+			stats.fishing.net += 500 * x;
+			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + x + `** crocodiles for **$` + 500 * x + `**, ` + msg.author.username + `!`);
+		} else if (userChoice != null && userChoice == 'whales') {
+			var x = fishing.whales;
 
 			fishing.whales = 0;
-			account.balance += 750 * y;
-			stats.fishing.net += 750 * y;
-			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** whales for **$` + 750 * y + `**, ` + msg.author.username + `!`);
-		} 
-		else if (choose != null && choose == 'dolphins') {
-			var y = fishing.dolphins;
+			account.balance += 750 * x;
+			stats.fishing.net += 750 * x;
+			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + x + `** whales for **$` + 750 * x + `**, ` + msg.author.username + `!`);
+		} else if (userChoice != null && userChoice == 'dolphins') {
+			var x = fishing.dolphins;
 
 			fishing.dolphins = 0;
-			account.balance += 750 * y;
-			stats.fishing.net += 750 * y;
-			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** dolphins for **$` + 750 * y + `**, ` + msg.author.username + `!`);
-		} 
-		else if (choose != null && choose == 'blowfish') {
-			var y = fishing.blowfish;
+			account.balance += 750 * x;
+			stats.fishing.net += 750 * x;
+			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + x + `** dolphins for **$` + 750 * x + `**, ` + msg.author.username + `!`);
+		} else if (userChoice != null && userChoice == 'blowfish') {
+			var x = fishing.blowfish;
 
 			fishing.blowfish = 0;
-			account.balance += 500 * y;
-			stats.fishing.net += 500 * y;
-			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** blowfish for **$` + 500 * y + `**, ` + msg.author.username + `!`);
-		} 
-		else if (choose != null && choose == 'squid') {
-			var y = fishing.squid;
+			account.balance += 500 * x;
+			stats.fishing.net += 500 * x;
+			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + x + `** blowfish for **$` + 500 * x + `**, ` + msg.author.username + `!`);
+		} else if (userChoice != null && userChoice == 'squid') {
+			var x = fishing.squid;
 
 			fishing.squid = 0;
-			account.balance += 1000 * y;
-			stats.fishing.net += 1000 * y;
-			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** squid for **$` + 1000 * y + `**, ` + msg.author.username + `!`);
-		} 
-		else if (choose != null && choose == 'sharks') {
-			var y = fishing.sharks;
+			account.balance += 1000 * x;
+			stats.fishing.net += 1000 * x;
+			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + x + `** squid for **$` + 1000 * x + `**, ` + msg.author.username + `!`);
+		} else if (userChoice != null && userChoice == 'sharks') {
+			var x = fishing.sharks;
 
 			fishing.sharks = 0;
-			account.balance += 1000 * y;
-			stats.fishing.net += 1000 * y;
-			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + y + `** sharks for **$` + 1000 * y + `**, ` + msg.author.username + `!`);
-		} 
-		else if (choose != null && choose == 'all') {
+			account.balance += 1000 * x;
+			stats.fishing.net += 1000 * x;
+			msg.channel.send(`:fishing_pole_and_fish: | You sold **` + x + `** sharks for **$` + 1000 * x + `**, ` + msg.author.username + `!`);
+		} else if (userChoice != null && userChoice == 'all') {
 			var total = fishing.trash + fishing.fish1 * 20 + fishing.fish2 * 30 + fishing.crabs * 500 + fishing.crocodiles * 500 + fishing.whales * 750 + fishing.dolphins * 750 + fishing.blowfish * 500 + fishing.squid * 1000 + fishing.sharks * 1000;
 			account.balance += total;
 			stats.fishing.net += total;
@@ -104,9 +94,10 @@ module.exports = {
 			fishing.sharks = 0;
             
 			msg.channel.send(`:moneybag: | You sold your entire inventory for **$` + total + `**, ` + msg.author.username + `!`);
-		} 
-		else msg.reply('something went wrong! Be sure to specify if which part of your inventory you intend to sell: **trash**, **common**, **rare**, **crabs**, **crocodiles**, **whales**, **dolphins**, **blowfish**, **squid**, **sharks**, **all**.');
-
+		} else {
+			msg.reply('something went wrong! Be sure to specify if which part of your inventory you intend to sell: **trash**, **common**, **rare**, **crabs**, **crocodiles**, **whales**, **dolphins**, **blowfish**, **squid**, **sharks**, **all**.');
+		}
+		
 		await bot.fishing.update(fishing);
 		await bot.stats.update(stats);
 		await bot.bank.update(account);
