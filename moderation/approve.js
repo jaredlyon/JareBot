@@ -11,29 +11,23 @@ module.exports = {
 
         if (msg.channel.id == bot.config.welcomeChannel) {
             if (target != null) {
-                if (!msg.target.roles.cache.find(role => role.name === "• Customers")) {
-                    var logEmbed = new Discord.MessageEmbed()
-                        .setAuthor(msg.author.username, msg.author.avatarURL())
-                        .addField('Member approved:', yup + ` **${target.username.toString()}#${target.discriminator} (${target.id}) was approved.**`)
-                        .setFooter(bot.user.username, bot.user.avatarURL())
-                        .setTimestamp()
-                        .setColor(3447003);
+                var logEmbed = new Discord.MessageEmbed()
+                    .setAuthor(msg.author.username, msg.author.avatarURL())
+                    .addField('Member approved:', yup + ` **${target.username.toString()}#${target.discriminator} (${target.id}) was approved.**`)
+                    .setFooter(bot.user.username, bot.user.avatarURL())
+                    .setTimestamp()
+                    .setColor(3447003);
 
-                    msg.mentions.members.forEach(member => {
-                        member.roles.add(msg.guild.roles.cache.find(role => role.name === "• Customers")).then(member => {
-                            channel.send({
-                                embed: logEmbed
-                            })
-                            log.send({
-                                embed: logEmbed
-                            })
-                        });
+                msg.mentions.members.forEach(member => {
+                    member.roles.add(msg.guild.roles.cache.find(role => role.name === "• Customers")).then(member => {
+                        channel.send({
+                            embed: logEmbed
+                        })
+                        log.send({
+                            embed: logEmbed
+                        })
                     });
-                } else if (msg.target.roles.cache.find(role => role.name === "• Customers")) {
-                    msg.reply("user has already been approved!");
-                } else {
-                    msg.reply("something went wrong!");
-                }
+                });
             } else {
                 msg.reply("mention the target! Usage: `j!approve [@user]`");
             }
