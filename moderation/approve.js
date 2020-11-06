@@ -11,7 +11,7 @@ module.exports = {
 
         if (msg.channel.id == bot.config.welcomeChannel) {
             if (target != null) {
-                if (!target.roles) {
+                if (!msg.target.roles.cache.find(role => role.name === "• Customers")) {
                     var logEmbed = new Discord.MessageEmbed()
                         .setAuthor(msg.author.username, msg.author.avatarURL())
                         .addField('Member approved:', yup + ` **${target.username.toString()}#${target.discriminator} (${target.id}) was approved.**`)
@@ -28,8 +28,8 @@ module.exports = {
                                 embed: logEmbed
                             })
                         });
-                    })
-                } else if (target.roles) {
+                    });
+                } else if (msg.target.roles.cache.find(role => role.name === "• Customers")) {
                     msg.reply("user has already been approved!");
                 } else {
                     msg.reply("something went wrong!");
