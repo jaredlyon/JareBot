@@ -20,13 +20,8 @@ module.exports = {
             value: "JareBot is a Discord chat bot that performs various chat functions as well as uses an array of RethinkDB tables to create an economy. This project was initially created in August of 2017 by Michael Cao in order to teach its current developer, Jared Lyon, how to code in Javascript."
           },
           {
-            name: "Last Update: v8.2.1",
-            value: `- Cleaned up and optimized the fishing modules`
-          },
-          /*CHECK GITHUB FOOTERS*/
-          {
             name: "GitHub",
-            value: "https://github.com/KingWaffleshnoz/JareBot\nNote that this page is still a WIP."
+            value: "https://github.com/KingWaffleshnoz/JareBot"
           }
         ]
       }
