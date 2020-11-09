@@ -7,7 +7,7 @@ module.exports = {
         const yup = bot.emojis.cache.find(emoji => emoji.name == "yup").toString();
         var channel = msg.guild.channels.cache.get(bot.config.welcomeChannel); //atrium for jarebot
         var log = msg.guild.channels.cache.get(bot.config.logChannel);  //logs the stuff
-        const target = msg.mentions.users.first();
+        const target = msg.mentions.members.first();
         
         //customer id: 399740949707882497
         //employee id: 691518209177944115
