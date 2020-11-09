@@ -19,6 +19,10 @@ module.exports = {
             lastDaily: null,
             streak: 0
         })
+
+        await bot.reminders.insert({
+            id: target.id,
+        })
         
         await bot.fishing.insert({
             id: target.id,
@@ -94,6 +98,10 @@ module.exports = {
             id: msg.author.id,
             lastDaily: null,
             streak: 0
+        })
+
+        await bot.reminders.insert({
+            id: msg.author.id
         })
         
         await bot.fishing.insert({

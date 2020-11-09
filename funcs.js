@@ -66,24 +66,19 @@ module.exports = (bot) => {
 		} catch (err) { }
 
 		bot.bank = bot.r.db("jarebot").table("bank");
-		bot.log("[BANK] Successfully connected to bank database!");
+		bot.log("[BANK] Successfully connected to bank table!");
 
 		bot.streaks = bot.r.db("jarebot").table("streaks");
-		bot.log("[STREAKS] Successfully connected to streak database!");
+		bot.log("[STREAKS] Successfully connected to streak table!");
 
 		bot.stats = bot.r.db("jarebot").table("stats");
-		bot.log("[STATISTICS] Successfully connected to statistics database!");
+		bot.log("[STATISTICS] Successfully connected to statistics table!");
 
 		bot.fishing = bot.r.db("jarebot").table("fishing");
-		bot.log("[FISHING] Successfully connected to fishing database!");
+		bot.log("[FISHING] Successfully connected to fishing table!");
 
-		bot.afk = bot.r.db("jarebot").table("afk");
-		if (!bot.afk) {
-			console.debug("Created AFK database.");
-			bot.afk = [];
-		} else {
-			console.debug("AFK Users Synchronized.");
-		}
+		bot.reminders = bot.r.db("jarebot").table("reminders");
+		bot.log("[REMINDERS] Successfully connected to reminders table!")
 	}
 
 	bot.awaitConsoleInput = function () {
