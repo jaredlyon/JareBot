@@ -17,7 +17,7 @@ module.exports = {
                 if (!target.roles.cache.some(role => role.id === '399740949707882497') && !target.roles.cache.some(role => role.id === '691518209177944115')) {
                     var logEmbed = new Discord.MessageEmbed()
                         .setAuthor(msg.author.username, msg.author.avatarURL())
-                        .addField('Member approved:', yup + ` **${target.username.toString()}#${target.discriminator} (${target.id}) was approved.**`)
+                        .addField('Member approved:', yup + ` **${target.username}#${target.discriminator} (${target.id}) was approved.**`)
                         .setFooter(bot.user.username, bot.user.avatarURL())
                         .setTimestamp()
                         .setColor(3447003);
