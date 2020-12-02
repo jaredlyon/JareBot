@@ -35,20 +35,12 @@ module.exports = {
               value: "Grants access to our #coding chat; this role is not mentionable."
             },
             {
-              name: "Softies",
-              value: "Grants access to our #soft-hours chat; this role is not mentionable."
-            },
-            {
               name: "Floofs",
               value: "Grants access to our #floofs chat; this role is not mentionable."
             },
             {
               name: "News",
               value: "Does not grant access to any new chats; this role will be mentioned when an update is pushed to #world-news."
-            },
-            {
-              name: "Deep",
-              value: "Grants access to #the-deep-end; this role is not mentionable."
             }
           ],
           footer: {
