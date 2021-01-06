@@ -43,8 +43,12 @@ module.exports = {
           description: "*A guide to the server's array of numerous self-assignable roles:*",
           fields: [
             {
+              name: "j!listroles",
+              value: "Lists all of the server's self-assignable roles as well as their descriptions."
+            },
+            {
               name: "j!addrole [role]",
-              value: "Adds the inputted role to you. Using `j!addrole list` lists all assignable roles."
+              value: "Adds the inputted role to you."
             },
             {
               name: "j!removerole [role]",
