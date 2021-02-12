@@ -15,7 +15,7 @@ module.exports = {
         if (banee != null) {
             var ban = new Discord.MessageEmbed()
                 .setAuthor(banee.username, banee.avatarURL())
-                .addField('Member banned:', `**:hammer: ${banee.username}#${banee.discriminator} (${banee.id}) was banned from the server.**`)
+                .addField('Member banned:', `**:hammer: ${banee} (${banee.id}) was banned from the server.**`)
                 .addField('Reason:', reason)
                 .setFooter(bot.user.username, bot.user.avatarURL())
                 .setTimestamp()

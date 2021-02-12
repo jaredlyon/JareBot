@@ -14,7 +14,7 @@ module.exports = {
                 if (!target.roles) {
                     var logEmbed = new Discord.MessageEmbed()
                         .setAuthor(msg.author.username, msg.author.avatarURL())
-                        .addField('Member approved:', yup + ` **${target.username.toString()}#${target.discriminator} (${target.id}) was approved.**`)
+                        .addField('Member approved:', yup + ` **${target.username}#${target.discriminator} (${target.id}) was approved.**`)
                         .setFooter(bot.user.username, bot.user.avatarURL())
                         .setTimestamp()
                         .setColor(3447003);

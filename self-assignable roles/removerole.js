@@ -1,9 +1,9 @@
 module.exports = {
     name: 'removerole',
     permission: 1,
-    main: function (bot, msg) {
+    main: function(bot, msg) {
         var numGiven = 0;
-        var allowedRoles = ['Light Blue', 'Dark Blue', 'Orange', 'Yellow', 'Blurple', 'Purple', 'Green', 'Peach', 'Pink', 'Red', 'VC', 'teen that cares™', 'Movie-goers', 'aesthetic', 'coders', 'softies', 'floofs', 'News', 'deep'];
+        var allowedRoles = ['Light Blue', 'Dark Blue', 'Orange', 'Yellow', 'Blurple', 'Purple', 'Green', 'Peach', 'Pink', 'Red', 'VC', 'teen that cares™', 'Movie-goers', 'acadeia', 'aesthetic', 'coders', 'floofs', 'News'];
         var cmd = msg.content.split(" ")[0];
 
         if (cmd == "list" | cmd == "-l") {
