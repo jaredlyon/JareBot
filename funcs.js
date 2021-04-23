@@ -50,7 +50,7 @@ module.exports = (bot) => {
 
 	bot.startDatabase = async function () {
 		bot.r = require("rethinkdbdash")({
-			port: 28015,
+			port: config.rethink.port,
 			host: config.rethink.ip,
 			user: config.rethink.username,
 			password: config.rethink.password,
@@ -66,19 +66,24 @@ module.exports = (bot) => {
 		} catch (err) { }
 
 		bot.bank = bot.r.db("jarebot").table("bank");
-		bot.log("[BANK] Successfully connected to bank table!");
+		bot.log("[BANK] Successfully connected to bank database!");
 
 		bot.streaks = bot.r.db("jarebot").table("streaks");
-		bot.log("[STREAKS] Successfully connected to streak table!");
+		bot.log("[STREAKS] Successfully connected to streak database!");
 
 		bot.stats = bot.r.db("jarebot").table("stats");
-		bot.log("[STATISTICS] Successfully connected to statistics table!");
+		bot.log("[STATISTICS] Successfully connected to statistics database!");
 
 		bot.fishing = bot.r.db("jarebot").table("fishing");
-		bot.log("[FISHING] Successfully connected to fishing table!");
+		bot.log("[FISHING] Successfully connected to fishing database!");
 
-		bot.reminders = bot.r.db("jarebot").table("reminders");
-		bot.log("[REMINDERS] Successfully connected to reminders table!")
+		bot.afk = bot.r.db("jarebot").table("afk");
+		if (!bot.afk) {
+			console.debug("Created AFK database.");
+			bot.afk = [];
+		} else {
+			console.debug("AFK Users Synchronized.");
+		}
 	}
 
 	bot.awaitConsoleInput = function () {
