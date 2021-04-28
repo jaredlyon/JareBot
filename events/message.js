@@ -45,6 +45,7 @@ exports.run = async (bot, msg) => {
 		account.balance = 5.00;
 		stats.passive.total += 5.00;
 		account.lastMessage = new Date();
+		console.log("Created new account for " + msg.author.username + "!");
 		await bot.bank.insert(account);
 		await bot.stats.insert(stats);
 	} else {
@@ -52,6 +53,7 @@ exports.run = async (bot, msg) => {
 			account.balance += 5.00;
 			stats.passive.total += 5.00;
 			account.lastMessage = new Date();
+			console.log("Logged passive income for " + msg.author.username + "!");
 			await bot.bank.update(account);
 			await bot.stats.update(stats);
 		}
