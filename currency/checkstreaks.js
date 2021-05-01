@@ -12,7 +12,6 @@ module.exports = {
                 let streaks = (await bot.streaks.get(member.id)) || {};
                 if (streaks.streak && streaks.streak >= 1 && (new Date() - new Date(streaks.lastDaily) <= 172800000)) {
                     message += member.displayName + "\n";
-                    msg.channel.send(member.displayName + " has an active streak!");
                     console.log("Added " + member.displayName + "'s streak to the array!");
                 }
             });
