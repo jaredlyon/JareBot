@@ -3,9 +3,7 @@ module.exports = {
     permission: 1,
     main: async function (bot, msg) {
         /*
-        console.log("Initializing check...");
         var message = "**__Active Daily Streaks:__**\n*Does not include streaks that have expired.*\n";
-        console.log(message);
  
         function checkStreaks() {
             bot.guilds.cache.get("399740385221672970").members.cache.forEach(async member => {
@@ -17,14 +15,9 @@ module.exports = {
             });
         }
 
-
-        console.log("Running check...");
         await checkStreaks();
-        console.log("Check complete!");
 
-        console.log("Sending message...");
-        msg.channel.send(message);
-        console.log("Message sent!");
+        await msg.channel.send(message);
         */
 
         bot.guilds.cache.get("399740385221672970").members.cache.forEach(async member => {
