@@ -80,7 +80,6 @@ module.exports = {
   //async loop
   main: async function (bot, msg) {
     let account = await bot.bank.get(msg.author.id);
-    let stats = await bot.stats.get(msg.author.id);
 
     //card variables
     var bet;
@@ -183,13 +182,9 @@ module.exports = {
             }
           });
           //give money
-          stats.blackjack.games += 1
-          stats.blackjack.won += 1
-          stats.blackjack.net += bet
           account.balance += bet * 2;
 
           await bot.bank.update(account);
-          await bot.stats.update(stats);
           bot.blackjackInProgress.delete(msg.author.id);
         } else if (this.calculateWinner(player_hand, cpu_hand, cards) == 1) {
           //dealer win
@@ -212,12 +207,7 @@ module.exports = {
               timestamp: new Date()
             }
           });
-          //stats update
-          stats.blackjack.games += 1
-          stats.blackjack.lost += 1
-          stats.blackjack.net -= bet
 
-          await bot.stats.update(stats);
           bot.blackjackInProgress.delete(msg.author.id);
         } else if (this.calculateWinner(player_hand, cpu_hand, cards) == 3) {
           //player win
@@ -241,9 +231,6 @@ module.exports = {
             }
           });
           //give money
-          stats.blackjack.games += 1
-          stats.blackjack.won += 1
-          stats.blackjack.net += bet
           account.balance += bet * 2;
 
           await bot.bank.update(account);
@@ -270,12 +257,8 @@ module.exports = {
               timestamp: new Date()
             }
           });
-          //stats update
-          stats.blackjack.games += 1;
-          account.balance += bet;
 
           await bot.bank.update(account);
-          await bot.stats.update(stats);
           bot.blackjackInProgress.delete(msg.author.id);
         }
         timeout = false;
@@ -304,15 +287,10 @@ module.exports = {
               timestamp: new Date()
             }
           });
-          //stats update
-          stats.blackjack.games += 1
-          stats.blackjack.lost += 1
-          stats.blackjack.net -= bet
 
           timeout = false;
           collector.stop();
-
-          await bot.stats.update(stats);
+          
           bot.blackjackInProgress.delete(msg.author.id);
         } else {
           blackjackMessage.edit({

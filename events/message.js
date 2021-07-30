@@ -39,23 +39,18 @@ exports.run = async (bot, msg) => {
 
 	//bank writes
 	let account = (await bot.bank.get(msg.author.id)) || {};
-	let stats = (await bot.stats.get(msg.author.id)) || {};
 	if (!account) {
 		account.id = msg.author.id;
 		account.balance = 5.00;
-		stats.passive.total += 5.00;
 		account.lastMessage = new Date();
 		console.log("Created new account for " + msg.author.username + "!");
 		await bot.bank.insert(account);
-		await bot.stats.insert(stats);
 	} else {
 		if (new Date() - new Date(account.lastMessage) >= 30000) {
 			account.balance += 5.00;
-			stats.passive.total += 5.00;
 			account.lastMessage = new Date();
 			console.log("Logged passive income for " + msg.author.username + "!");
 			await bot.bank.update(account);
-			await bot.stats.update(stats);
 		}
 	}
 }
