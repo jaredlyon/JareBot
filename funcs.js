@@ -71,19 +71,8 @@ module.exports = (bot) => {
 		bot.streaks = bot.r.db("jarebot").table("streaks");
 		bot.log("[STREAKS] Successfully connected to streak database!");
 
-		bot.stats = bot.r.db("jarebot").table("stats");
-		bot.log("[STATISTICS] Successfully connected to statistics database!");
-
 		bot.fishing = bot.r.db("jarebot").table("fishing");
 		bot.log("[FISHING] Successfully connected to fishing database!");
-
-		bot.afk = bot.r.db("jarebot").table("afk");
-		if (!bot.afk) {
-			console.debug("Created AFK database.");
-			bot.afk = [];
-		} else {
-			console.debug("AFK Users Synchronized.");
-		}
 	}
 
 	bot.awaitConsoleInput = function () {
