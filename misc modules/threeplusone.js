@@ -6,22 +6,26 @@ module.exports = {
         msg.channel.send("Enter a whole number that you would like tested:").then(() => {
             const filter = m => msg.author.id === m.author.id;
 
-            msg.channel.awaitMessages(filter, { time: 60000, max: 1, errors: ['time'] }).then(message => {
-                console.log(message);
-                var number = Number(message);
+            msg.channel.awaitMessages(filter, { time: 60000, max: 1, errors: ['time'] }).then(messages => {
+                console.log(messages);
+                var number = Number(messages.first().content);
+                const sequence = [];
                 console.log(number);
                 if (Number.isInteger(number)) {
-                    if (number == 1) {
-                        msg.reply("After " + iterations + ", your number was found not to be an exception.");
-                    } else if (number % 2 == 0) {
-                        number / 2;
-                        console.log(number);
-                        iterations++;
-                    } else {
-                        (number * 3) + 1;
-                        console.log(number);
-                        iterations++;
+                    while (number != 1) {
+                        if (number % 2 == 0) {
+                            number / 2;
+                            console.log(number);
+                            sequence.push(number);
+                            iterations++;
+                        } else {
+                            (number * 3) + 1;
+                            console.log(number);
+                            sequence.push(number);
+                            iterations++;
+                        }
                     }
+                    msg.reply("Your number went through " + iterations + " before being reduced to `1`.\n Final sequence: " + sequence);
                 } else {
                     msg.channel.send("Incorrect input! Exiting program...");
                 }
