@@ -86,6 +86,10 @@ module.exports = {
               value: "Deposits your daily allowance into your account! Repeatedly collecting your daily every 24 hours will start a streak, but neglecting the streak for more than 48 hours resets it."
             },
             {
+              name: "j!checkstreaks",
+              value: "Lists all active daily streaks."
+            },
+            {
               name: "j!baited",
               value: "Roll 1:3 odds to either triple your balance or set it back to zero...go on, do it, you won't."
             }
@@ -263,6 +267,10 @@ module.exports = {
             {
               name: "j!suggest [input]",
               value: "Send a suggestion/complaint into Jared's suggestion box!"
+            },
+            {
+              name: "j!collatz",
+              value: "Tests the Collatz conjecture."
             },
             {
               name: "j!link",
