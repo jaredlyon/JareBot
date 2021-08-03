@@ -30,7 +30,11 @@ module.exports = {
                             iterations++;
                         }
                     }
-                    msg.reply("your number went through `" + iterations + "` iterations before being reduced to `1`.\nFinal sequence: " + sequence);
+
+                    msg.reply("your number went through `" + iterations + "` iterations before being reduced to `1`.");
+                    msg.channel.send("Final sequence: [" + sequence + "].").catch(() => {
+                        msg.channel.send("*Final sequence could not be displayed due to its length.*");
+                    })
                 }
             })
             .catch(() => {
