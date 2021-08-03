@@ -14,6 +14,8 @@ module.exports = {
 
                 if (isNaN(number)) {
                     msg.reply("incorrect input (NaN).")
+                } else if (!Number.isInteger(number)) {
+                    msg.reply("number must be an integer!");
                 } else if (number < 1) {
                     msg.reply("negative numbers break this Collatz conjecture tester, since negative integers reveal three separate loops as opposed to the positiver integer set's 4-2-1 loop.");
                 } else {
