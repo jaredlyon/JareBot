@@ -21,7 +21,7 @@ module.exports = {
           },
           {
             name: "Last Update: v9.0.0",
-            value: `- Added streaks to dbadd.js\n- Updated rules\n- Improved database security\n- Added checkstreaks.js\n- Added channel names to the messageDelete event\n- Deprecated statistics module`
+            value: `- Updated rules\n- Improved database security\n- Added checkstreaks.js\n- Added collatz.js\n- Added channel names to the messageDelete event\n- Added streaks to dbadd.js\n- Deprecated statistics module`
           },
           /*CHECK GITHUB FOOTERS*/
           {
