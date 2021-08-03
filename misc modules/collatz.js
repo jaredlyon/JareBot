@@ -2,7 +2,7 @@ module.exports = {
     name: "collatz",
     permission: 1,
     main: function(bot, msg) {
-        msg.channel.send(`**"The Collatz conjecture is a conjecture in mathematics that concerns sequences defined as follows: start with any positive integer n. Then each term is obtained from the previous term as follows: if the previous term is even, the next term is one half of the previous term. If the previous term is odd, the next term is 3 times the previous term plus 1. The conjecture is that no matter what value of n, the sequence will always reach 1."**`);
+        msg.channel.send(`> **The Collatz conjecture is a conjecture in mathematics that concerns sequences defined as follows: start with any positive integer *n*. Then each term is obtained from the previous term as follows: if the previous term is even, the next term is one half of the previous term. If the previous term is odd, the next term is 3 times the previous term plus 1. The conjecture is that no matter what value of *n*, the sequence will always reach 1.**\n-<https://en.wikipedia.org/wiki/Collatz_conjecture>`);
         msg.channel.send("Enter a whole number that you would like tested:").then(() => {
             const filter = m => msg.author.id === m.author.id;
 
@@ -33,7 +33,7 @@ module.exports = {
                         }
                     }
 
-                    msg.reply("your number went through `" + iterations + "` iterations before being reduced to `1`.");
+                    msg.reply("your number went through `" + iterations + "` iteration(s) before being reduced to `1`.");
                     msg.channel.send("Final sequence: [" + sequence + "].").catch(() => {
                         msg.channel.send("*Final sequence could not be displayed due to its length.*");
                     })
