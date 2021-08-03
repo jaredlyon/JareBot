@@ -9,29 +9,30 @@ module.exports = {
             msg.channel.awaitMessages(filter, { time: 60000, max: 1, errors: ['time'] }).then(messages => {
                 console.log(messages);
                 var number = Number(messages.first().content);
-                const sequence = [];
+                var iterations = 0;
                 console.log(number);
-                if (Number.isInteger(number)) {
-                    while (number != 1) {
-                        if (number % 2 == 0) {
-                            number / 2;
-                            console.log(number);
-                            sequence.push(number);
-                            iterations++;
-                        } else {
-                            (number * 3) + 1;
-                            console.log(number);
-                            sequence.push(number);
-                            iterations++;
-                        }
+
+                const sequence = [];
+                while (number != 1) {
+                    if (number % 2 == 0) {
+                        number = number / 2;
+                        console.log(number);
+                        sequence.push(number);
+                        iterations++;
+                    } else {
+                        number = (number * 3) + 1;
+                        console.log(number);
+                        sequence.push(number);
+                        iterations++;
                     }
-                    msg.reply("Your number went through " + iterations + " before being reduced to `1`.\n Final sequence: " + sequence);
-                } else {
-                    msg.channel.send("Incorrect input! Exiting program...");
                 }
-            }).catch(() => {
+                msg.reply("Your number went through " + iterations + " iterations before being reduced to `1`.\n Final sequence: " + sequence);
+            })
+            /**
+            .catch(() => {
                 msg.reply('you did not enter any input! Exiting program...');
             });
+            */
         });
     }
 }
